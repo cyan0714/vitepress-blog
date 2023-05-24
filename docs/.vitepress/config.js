@@ -25,6 +25,12 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
     ],
 
+    editLink: {
+      pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path'
+    },
+
     lastUpdated: true,
-  }
+
+  },
+  lastUpdated: true,
 })
