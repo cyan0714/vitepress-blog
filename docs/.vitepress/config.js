@@ -29,8 +29,6 @@ export default defineConfig({
       pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path'
     },
 
-    lastUpdated: true,
-
   },
   lastUpdated: true,
 })
