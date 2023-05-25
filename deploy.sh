@@ -8,7 +8,7 @@ npm run docs:build
 git init
 git add -A
 git commit -m "自动部署"
-git push -f https://github.com/cyan0714/knowleage-lib.git master:gh-personal
+git push -f https://github.com/cyan0714/knowleage-lib.git master:gh-website
 
 cd -
 # rm -rf docs/.vitepress/dist
