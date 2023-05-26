@@ -3,10 +3,9 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   base: '/vitepress-blog/',
-  title: "My Awesome Project",
-  description: "A VitePress Site",
+  title: "Cyan's Blog",
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
+    logo: 'https://avatars.githubusercontent.com/u/79911206?s=40&v=4',
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Examples', link: '/markdown-examples' }
