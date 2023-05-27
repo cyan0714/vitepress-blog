@@ -1,0 +1,14 @@
+export const nav = [
+  {
+    text: '前端',
+    link: '/documents/frontend/html/html'
+  },
+  {
+    text: '后端',
+    link: '/documents/backend/nodejs/nodejs'
+  },
+  {
+    text: '数据库',
+    link: '/documents/database/mysql'
+  },
+]

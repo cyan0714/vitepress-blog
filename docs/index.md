@@ -8,7 +8,7 @@ hero:
   actions:
     - theme: brand
       text: 快速开始
-      link: /markdown-examples
+      link: /documents/frontend/html/html
     - theme: alt
       text: Github
       link: https://github.com/cyan0714

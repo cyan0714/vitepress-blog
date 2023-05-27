@@ -1,26 +1,16 @@
 import { defineConfig } from 'vitepress'
+import { nav } from './config/nav'
+import { sidebar } from './config/sidebar'
+console.log('sidebar: ', sidebar);
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   base: '/vitepress-blog/',
   title: "Cyan's Blog",
   themeConfig: {
+    nav,
+    sidebar,
     logo: 'https://avatars.githubusercontent.com/u/79911206?s=40&v=4',
-    nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
-    ],
-
-    sidebar: [
-      {
-        text: 'Examples',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
-      }
-    ],
-
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
     ],
