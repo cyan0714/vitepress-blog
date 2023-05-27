@@ -47,5 +47,17 @@ export const sidebar = {
         { text: '其它', link: '/documents/frontend/typescript/other' },
       ],
     },
+    {
+      text: 'Vite',
+      items: [
+        { text: '快速上手', link: '/documents/frontend/vite/vite' },
+      ],
+    },
+  ],
+  '/documents/accumulation': [
+    {
+      text: '我的积累',
+      items: [{ text: '我的积累', link: '/documents/frontend/accumulation/accumulation' }],
+    },
   ],
 }

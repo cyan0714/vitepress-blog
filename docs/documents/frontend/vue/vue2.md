@@ -173,3 +173,66 @@ bus.$on('自定义事件名称', (data) => {
   }
 </script>
 ```
+
+## vue 中动态绑定 class 和 style 的方法
+Class:
+1. object
+```vue
+<div
+	class="static"
+	:class="{ active: isActive, 'text-danger': hasError }"
+></div>
+```
+2. array
+```vue
+// method 1:
+<div :class="[isActive ? activeClass : '', errorClass]"></div>
+
+// method 2:
+<div :class="[{ active: isActive }, errorClass]"></div>
+```
+
+Style:
+1. object
+```js
+// html
+<div
+	style="text-align: center; margin-top: 20px; font-size: 30px"
+	:style="{ color: activeColor, fontSize: fontSize + 'px' }">
+</div>
+
+// js
+data: {
+  activeColor: 'red',
+  fontSize: 30
+}
+```
+2. array
+```js
+<div :style="[baseStyles, overridingStyles]"></div>
+```
+
+## 插槽
+
+### 默认插槽
+```html
+<slot></slot>
+```
+### 具名插槽
+```vue
+声明：<slot name='cyan'>这里的内容将被下方 template 中的内容替代</slot>
+
+使用：<template v-slot:cyan> 替代上面的slot标签中的内容 </template>
+```
+### 作用域插槽
+```vue
+声明：<slot :user="user"> {{ user.lastName }} </slot>
+
+使用：<template v-slot:default="slotProps"> {{ slotProps.user.firstName }} <template>
+```
+### 废弃的语法
+```vue
+<template slot="default" slot-scope="slotProps">
+   {{ slotProps.msg }}
+</template>
+```

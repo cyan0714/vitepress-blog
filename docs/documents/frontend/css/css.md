@@ -82,3 +82,127 @@ CSS的动画是一种通过CSS代码实现网页动态效果的技术，可以�
 常见的CSS动画技术有过渡、变换、关键帧动画等，它们可以实现元素的平滑过渡、旋转、缩放、移动等效果，从而增强网页的用户体验和吸引力。
 
 以上就是CSS的相关知识整理，希望对您有所帮助。
+
+## CSS 的细节
+
+### line-height
+1. 将 line-height 设置为盒子高度，则可以将文字垂直居中
+2. 如果盒子没给高度，那么 line-height 会自动撑开盒子的高度，盒子高度和 line-height 的值一样
+3. 如果盒子的高度 > 行高，则文字出现在盒子顶部
+4. 如果行高 >> 盒子的高度，则文字会溢出盒子的高度，且文字能看到，除非使用 overflow:hidden
+5. 给一个行内元素设置行高也生效，前提是行高要大于该元素的 font-size
+
+### 上下 margin 的传递
+1. margin-top 传递:  如果块级元素的顶部线和父元素的顶部线重叠, 那么这个块级元素的 margin-top 灰传递给父元素
+2. margin-bottom 传递:  如果块级元素的底部线和父元素的底线重叠, 并且父元素的高度是 auto, 那么这个块级元素的 margin-bottom 会传递给父元素
+3. 如何防止出现传递问题
+    1. 给父元素设置 padding-top/padding-bottom
+    2. 给父元素设置 border
+    3. 触发 BFC, 给父元素设置 overflow: auto
+
+### span
+行内元素设置宽高无效，上下 margin 和 padding 无效，左右才有效
+
+### background 细节
+1. background-image 可以设置多张图片，第一张加载失败就会加载第二张
+2. background-image 和 img 标签不一样，前者不能撑开盒子
+3. background-image 会盖在 background-color 上，**注意：不是覆盖**
+4. background-size 默认值为 auto，图片本身多大就显示多大
+5. background-size 设置一个值时为水平值，垂直方向自适应；如果第一个值为百分比，则参考的是父盒子的宽度；如果第二个值为百分比，则参考的是父盒子的高度；
+6. background-position 只设置一个值，则另一个为 center
+7. background-attachment 的值为 scroll(默认)、 local( 背景会随着 Box 内容滚动)、fix(不会滚动)
+8. background 缩写：顺序一般是任意的，除了一种情况：如果有 size ，要放在 position 后面
+
+## CSS 常用样式集合
+```css
+/**
+ * 文字超出 1 行省略号表示
+ */
+.single-row-ellip {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/**
+ * 文字超出 2 行省略号表示
+ */
+.double-row-ellip {
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/**
+ * 水平垂直居中
+ */
+.flex-xy-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/**
+ * 水平居中
+ */
+.flex-x-center {
+  display: flex;
+  justify-content: center;
+}
+
+/**
+ * 垂直居中
+ */
+.flex-y-center {
+  display: flex;
+  align-items: center;
+}
+
+/**
+ * 两端对齐且垂直居中
+ */
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/**
+ * 清除浮动
+ */
+.clearfix::after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: ' ';
+  clear: both;
+  height: 0;
+}
+
+/**
+ * 修改 input 的 placeholder 样式
+ */
+input::-webkit-input-placeholder{
+  color: #bfbfbf;
+}
+
+/**
+ * 隐藏滚动条
+ */
+::-webkit-scrollbar { // chrome
+  	display: none;
+}
+div {
+	-ms-overflow-style: none; // ie
+	scrollbar-color: transparent transparent; // firefox
+}
+.demo {
+  scrollbar-width: none; /* firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+```

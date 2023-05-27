@@ -11,4 +11,8 @@ export const nav = [
     text: '数据库',
     link: '/documents/database/mysql'
   },
+  {
+    text: '我的积累',
+    link: '/documents/accumulation/accumulation'
+  }
 ]
