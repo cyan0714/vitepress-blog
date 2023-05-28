@@ -236,3 +236,14 @@ data: {
    {{ slotProps.msg }}
 </template>
 ```
+
+## vue2中使用图片的方式
+
+### 在 style 标签中使用
+![bindImg](./imgs/1.png)
+
+### 在 template 中使用
+![bindImg](./imgs/2.png)
+
+### 在 echarts 地图中使用
+![bindImg](./imgs/3.png)
