@@ -49,9 +49,7 @@ export const sidebar = {
     },
     {
       text: 'Vite',
-      items: [
-        { text: '快速上手', link: '/documents/frontend/vite/vite' },
-      ],
+      items: [{ text: '快速上手', link: '/documents/frontend/vite/vite' }],
     },
   ],
   '/documents/accumulation': [
@@ -60,4 +58,10 @@ export const sidebar = {
       items: [{ text: '我的积累', link: '/documents/frontend/accumulation/accumulation' }],
     },
   ],
-}
+  '/documents/backend': [
+    {
+      text: '后端',
+      items: [{ text: 'nodejs', link: '/documents/backend/nodejs/nodejs' }],
+    },
+  ],
+};
