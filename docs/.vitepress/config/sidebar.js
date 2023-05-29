@@ -52,6 +52,12 @@ export const sidebar = {
       items: [{ text: '快速上手', link: '/documents/frontend/vite/vite' }],
     },
   ],
+  '/documents/philosophy': [
+    {
+      text: '人生哲理',
+      items: [{ text: '卡密尔', link: '/documents/philosophy/camille' }],
+    },
+  ],
   '/documents/accumulation': [
     {
       text: '我的积累',
