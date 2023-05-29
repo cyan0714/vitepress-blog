@@ -1,6 +1,6 @@
-import { defineConfig } from 'vitepress'
-import { nav } from './config/nav'
-import { sidebar } from './config/sidebar'
+import { defineConfig } from 'vitepress';
+import { nav } from './config/nav';
+import { sidebar } from './config/sidebar';
 console.log('sidebar: ', sidebar);
 
 // https://vitepress.dev/reference/site-config
@@ -10,15 +10,15 @@ export default defineConfig({
   themeConfig: {
     nav,
     sidebar,
-    logo: 'https://avatars.githubusercontent.com/u/79911206?s=40&v=4',
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+    head: [
+      ['link', { rel: 'icon', href: '/favicon.ico' }],
     ],
+    logo: 'https://avatars.githubusercontent.com/u/79911206?s=40&v=4',
+    socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }],
 
     editLink: {
-      pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path'
+      pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path',
     },
-
   },
   lastUpdated: true,
-})
+});
