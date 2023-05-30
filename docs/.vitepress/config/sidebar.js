@@ -57,7 +57,7 @@ export const sidebar = {
       text: '人生哲理',
       items: [
         { text: '卡密尔', link: '/documents/philosophy/camille' },
-        { text: '亚索', link: '/documents/philosophy/yasuo' }
+        { text: '亚索', link: '/documents/philosophy/yasuo' },
       ],
     },
   ],
@@ -77,6 +77,12 @@ export const sidebar = {
     {
       text: 'Git',
       items: [{ text: 'git', link: '/documents/git/git' }],
+    },
+  ],
+  '/documents/memoirs': [
+    {
+      text: '相册回忆录',
+      items: [{ text: '大学', link: '/documents/memoirs/colleage/colleage' }],
     },
   ],
 };

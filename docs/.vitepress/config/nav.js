@@ -23,4 +23,8 @@ export const nav = [
     text: '我的积累',
     link: '/documents/accumulation/accumulation',
   },
+  {
+    text: '回忆录',
+    link: '/documents/memoirs/colleage/colleage',
+  },
 ];
