@@ -55,7 +55,10 @@ export const sidebar = {
   '/documents/philosophy': [
     {
       text: '人生哲理',
-      items: [{ text: '卡密尔', link: '/documents/philosophy/camille' }],
+      items: [
+        { text: '卡密尔', link: '/documents/philosophy/camille' },
+        { text: '亚索', link: '/documents/philosophy/yasuo' }
+      ],
     },
   ],
   '/documents/accumulation': [
