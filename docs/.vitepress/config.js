@@ -1,7 +1,6 @@
 import { defineConfig } from 'vitepress';
 import { nav } from './config/nav';
 import { sidebar } from './config/sidebar';
-console.log('sidebar: ', sidebar);
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({

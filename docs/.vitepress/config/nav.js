@@ -8,6 +8,10 @@ export const nav = [
     link: '/documents/backend/nodejs/nodejs',
   },
   {
+    text: 'Git',
+    link: '/documents/git/git',
+  },
+  {
     text: '数据库',
     link: '/documents/database/mysql',
   },

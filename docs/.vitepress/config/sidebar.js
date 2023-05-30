@@ -70,4 +70,10 @@ export const sidebar = {
       items: [{ text: 'nodejs', link: '/documents/backend/nodejs/nodejs' }],
     },
   ],
+  '/documents/git': [
+    {
+      text: 'Git',
+      items: [{ text: 'git', link: '/documents/git/git' }],
+    },
+  ],
 };
