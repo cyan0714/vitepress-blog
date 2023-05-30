@@ -982,3 +982,198 @@ uni.getSystemInfo({ // 接口获取屏幕高度
 
     最后找 index.vue，存在。
 
+## 批量添加 iconfont 图标
+按下 f12，在控制台输入以下代码即可将所有图标添加到购物车
+```js
+const shopCar = document.getElementsByClassName('icon-gouwuche1');
+for (let i=0; i<shopCar.length;i++){shopCar[i].click();}
+```
+## 字体图标添加渐变色
+```js
+background: linear-gradient(180deg, #fabd3d 0%, #10ddcc 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+```
+## 基于 dayjs 和 element 实现的快速时段选择
+```js
+import dayjs from 'dayjs'
+
+// isCurrent 为 true 则为今天(day) | 本周(week) | 本月(month) | 本年(year)
+const getRangeTime = (timeRange, isCurrent=true) => {
+  return {
+    startTime: isCurrent ? dayjs().startOf(timeRange).format('YYYY-MM-DD HH:mm:ss') : dayjs().add(-1, timeRange).startOf(timeRange).format('YYYY-MM-DD HH:mm:ss'),
+    endTime: isCurrent ? dayjs().endOf(timeRange).format('YYYY-MM-DD HH:mm:ss') : dayjs().add(-1, timeRange).endOf(timeRange).format('YYYY-MM-DD HH:mm:ss')
+  }
+}
+
+export function quickSelectTimeRange() {
+  return [
+    {
+      text: '今天',
+      onClick(picker) {
+        const timeObj = getRangeTime('day')
+        picker.$emit('pick', [timeObj.startTime, timeObj.endTime])
+      }
+    },
+    {
+      text: '昨天',
+      onClick(picker) {
+        const timeObj = getRangeTime('day', false)
+        picker.$emit('pick', [timeObj.startTime, timeObj.endTime])
+      }
+    },
+    {
+      text: '本周',
+      onClick(picker) {
+        const timeObj = getRangeTime('week')
+        picker.$emit('pick', [timeObj.startTime, timeObj.endTime])
+      }
+    },
+    {
+      text: '上周',
+      onClick(picker) {
+        const timeObj = getRangeTime('week', false)
+        picker.$emit('pick', [timeObj.startTime, timeObj.endTime])
+      }
+    },
+    {
+      text: '本月',
+      onClick(picker) {
+        const timeObj = getRangeTime('month')
+        picker.$emit('pick', [timeObj.startTime, timeObj.endTime])
+      }
+    },
+    {
+      text: '上月',
+      onClick(picker) {
+        const timeObj = getRangeTime('month', false)
+        picker.$emit('pick', [timeObj.startTime, timeObj.endTime])
+      }
+    },
+    {
+      text: '本年',
+      onClick(picker) {
+        const timeObj = getRangeTime('year')
+        picker.$emit('pick', [timeObj.startTime, timeObj.endTime])
+      }
+    },
+    {
+      text: '上年',
+      onClick(picker) {
+        const timeObj = getRangeTime('year', false)
+        picker.$emit('pick', [timeObj.startTime, timeObj.endTime])
+      }
+    }
+  ]
+}
+```
+## 常见算法手写
+### 冒泡
+```js
+function bubbleSort(arr) {
+  const len = arr.length;
+  for (let i = 0; i < len - 1; i++) {
+    for (let j = 0; j < len - 1 - i ; j++) {
+      if (arr[j] > arr[j + 1]) {
+         [arr[j + 1],arr[j]] = [arr[j],arr[j + 1]]
+      }
+    }
+  }
+  return arr
+}
+```
+### 选择
+```js
+function selectSort(arr) {
+  const len = arr.length
+  for (let i = 0; i < len - 1; i++) {
+    let minIndex = i
+    for (let j = i + 1; j < len; j++) {
+      if (arr[j] < arr[minIndex]) {
+        minIndex = j
+      }
+    }
+    [arr[i], arr[minIndex]] = [arr[minIndex],arr[i]]
+  }
+  return arr
+}
+```
+### 插入
+```js
+function insertSort(arr) {
+  for (let i = 1; i < arr.length; i++) {
+    const temp = arr[i]
+    let j = i
+    while (j > 0) {
+      if (arr[j - 1] > temp) {
+        arr[j] = arr[j - 1]
+      } else {
+        break;
+      }
+      j -= 1
+    }
+    arr[j] = temp
+  }
+  return arr
+}
+```
+### 归并
+```js
+function mergeSort(arr) {
+  if (arr.length === 1) {return arr}
+  const mid = Math.floor(arr.length / 2);
+  const left = arr.slice(0, mid);
+  const right = arr.slice(mid, arr.length)
+  const orderLeft = mergeSort(left)
+  const orderRight = mergeSort(right)
+  const res = []
+  while (orderLeft.length || orderRight.length) {
+    if (orderLeft.length && orderRight.length) {
+      res.push(orderLeft[0] < orderRight[0] ? orderLeft.shift() : orderRight.shift())
+    } else if (orderLeft.length) {
+      res.push(orderLeft.shift())
+    } else if (orderRight.length) {
+      res.push(orderRight.shift())
+    }
+  }
+  return res
+}
+```
+### 快速
+```js
+function quickSort(arr) {
+  if (arr.length < 2) return arr
+  const left = []
+  const right = []
+  const mid = arr[0]
+  for (let i = 1; i < arr.length; i+=1) {
+    if (arr[i] < mid) {
+      left.push(arr[i])
+    } else {
+      right.push(arr[i])
+    }
+  }
+  return [...quickSort(left), mid, ...quickSort(right)]
+}
+```
+### 二分搜索
+```js
+function binarySearch(arr,item) {
+  let low = 0;
+  let high = arr.length - 1;
+  while (low <= high) {
+    const mid = Math.floor((low + high) / 2);
+    const midElement = arr[mid];
+    if (midElement > item) {
+      high = midElement - 1
+    } else if (midElement < item) {
+      low = midElement + 1;
+    } else {
+      return mid
+    }
+  }
+  return -1;
+}
+```
