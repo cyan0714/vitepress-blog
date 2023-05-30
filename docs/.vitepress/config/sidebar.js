@@ -64,7 +64,7 @@ export const sidebar = {
   '/documents/accumulation': [
     {
       text: '我的积累',
-      items: [{ text: '我的积累', link: '/documents/frontend/accumulation/accumulation' }],
+      items: [{ text: '我的积累', link: '/documents/accumulation/accumulation' }],
     },
   ],
   '/documents/backend': [
