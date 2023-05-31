@@ -1,5 +1,14 @@
-export const sidebar = {
-  '/documents/frontend': [
+export default {
+  '/documents/frontend': getFrontend(),
+  '/documents/backend': getBackend(),
+  '/documents/git': getGit(),
+  '/documents/philosophy': getPhilosophy(),
+  '/documents/accumulation': getAccumulation(),
+  '/documents/memoirs': getMemoirs(),
+}
+
+function getFrontend() {
+  return [
     {
       text: 'HTML',
       items: [{ text: '快速上手', link: '/documents/frontend/html/html' }],
@@ -51,8 +60,29 @@ export const sidebar = {
       text: 'Vite',
       items: [{ text: '快速上手', link: '/documents/frontend/vite/vite' }],
     },
-  ],
-  '/documents/philosophy': [
+  ];
+}
+
+function getBackend() {
+  return [
+    {
+      text: '后端',
+      items: [{ text: 'nodejs', link: '/documents/backend/nodejs/nodejs' }],
+    },
+  ]
+}
+
+function getGit() {
+  return [
+    {
+      text: 'Git',
+      items: [{ text: 'git', link: '/documents/git/git' }],
+    },
+  ]
+}
+
+function getPhilosophy() {
+  return [
     {
       text: '人生哲理',
       items: [
@@ -60,29 +90,23 @@ export const sidebar = {
         { text: '亚索', link: '/documents/philosophy/yasuo' },
       ],
     },
-  ],
-  '/documents/accumulation': [
+  ]
+}
+
+function getAccumulation() {
+  return [
     {
       text: '我的积累',
       items: [{ text: '我的积累', link: '/documents/accumulation/accumulation' }],
     },
-  ],
-  '/documents/backend': [
-    {
-      text: '后端',
-      items: [{ text: 'nodejs', link: '/documents/backend/nodejs/nodejs' }],
-    },
-  ],
-  '/documents/git': [
-    {
-      text: 'Git',
-      items: [{ text: 'git', link: '/documents/git/git' }],
-    },
-  ],
-  '/documents/memoirs': [
+  ]
+}
+
+function getMemoirs() {
+  return [
     {
       text: '相册回忆录',
       items: [{ text: '大学', link: '/documents/memoirs/colleage/colleage' }],
     },
-  ],
-};
+  ]
+}

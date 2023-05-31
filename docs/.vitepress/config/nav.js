@@ -12,10 +12,6 @@ export const nav = [
     link: '/documents/git/git',
   },
   {
-    text: '数据库',
-    link: '/documents/database/mysql',
-  },
-  {
     text: '哲理',
     link: '/documents/philosophy/camille',
   },
