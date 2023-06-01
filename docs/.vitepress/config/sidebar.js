@@ -89,6 +89,7 @@ function getPhilosophy() {
         { text: '卡密尔', link: '/documents/philosophy/camille' },
         { text: '亚索', link: '/documents/philosophy/yasuo' },
         { text: '劫', link: '/documents/philosophy/zed' },
+        { text: '烬', link: '/documents/philosophy/jhin' },
       ],
     },
   ];
