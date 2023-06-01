@@ -108,7 +108,10 @@ function getMemoirs() {
   return [
     {
       text: '相册回忆录',
-      items: [{ text: '大学', link: '/documents/memoirs/colleage/colleage' }],
+      items: [
+        { text: '大学', link: '/documents/memoirs/colleage/colleage' },
+        { text: '小学', link: '/documents/memoirs/primary/primary' },
+      ],
     },
   ]
 }
