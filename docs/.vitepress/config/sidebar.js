@@ -90,6 +90,7 @@ function getPhilosophy() {
         { text: '亚索', link: '/documents/philosophy/yasuo' },
         { text: '劫', link: '/documents/philosophy/zed' },
         { text: '烬', link: '/documents/philosophy/jhin' },
+        { text: '李青', link: '/documents/philosophy/leesin' },
       ],
     },
   ];
