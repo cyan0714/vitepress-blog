@@ -60,6 +60,10 @@ function getFrontend() {
       text: 'Vite',
       items: [{ text: '快速上手', link: '/documents/frontend/vite/vite' }],
     },
+    {
+      text: 'Pnpm',
+      items: [{ text: '快速上手', link: '/documents/frontend/pnpm/pnpm' }],
+    },
   ];
 }
 
