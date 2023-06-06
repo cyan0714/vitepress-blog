@@ -1,6 +1,5 @@
 # 疾风剑豪-亚索
 
-<!-- ![yasuo](./imgs/yasuo.png) -->
 <br/>
 <img src='./imgs/yasuo.png' width=600px>
 

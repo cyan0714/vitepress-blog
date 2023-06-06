@@ -1,6 +1,7 @@
 # 青钢影-卡密尔
 
-![camille](./imgs/camille.png)
+<br/>
+<img src='./imgs/camille.png' width=600px>
 
 1. 如果生活还没能改变你, 你就已经失败了。
 2. 不要有趣，要有用。

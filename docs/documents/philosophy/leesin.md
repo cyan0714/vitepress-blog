@@ -1,6 +1,7 @@
 # 盲僧-李青
 
-![leesin](./imgs/leesin.png)
+<br/>
+<img src='./imgs/leesin.png' width=600px>
 
 1. 我会识破这一切。
 2. 找到自己的战场。

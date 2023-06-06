@@ -1,6 +1,7 @@
 # 影流之主-劫
 
-![zed](./imgs/zed.png)
+<br/>
+<img src='./imgs/zed.png' width=600px>
 
 1. 保守秘密，就如同浪费武器。
 2. 不要否定我。
