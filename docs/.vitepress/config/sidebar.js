@@ -64,6 +64,10 @@ function getFrontend() {
       text: 'Pnpm',
       items: [{ text: '快速上手', link: '/documents/frontend/pnpm/pnpm' }],
     },
+    {
+      text: 'TailwindCSS',
+      items: [{ text: '快速上手', link: '/documents/frontend/tailwindcss/tailwindcss' }],
+    },
   ];
 }
 
