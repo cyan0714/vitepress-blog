@@ -100,6 +100,7 @@ function getPhilosophy() {
         { text: '烬', link: '/documents/philosophy/jhin' },
         { text: '李青', link: '/documents/philosophy/leesin' },
         { text: '卢锡安', link: '/documents/philosophy/lucian' },
+        { text: '易', link: '/documents/philosophy/yi' },
       ],
     },
   ];
