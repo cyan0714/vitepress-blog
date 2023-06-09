@@ -42,13 +42,13 @@ https://tailwindcss.com/docs/installation/using-postcss
 
 ## TailwindCSS 优点
 
-### 不需要再写 css。
+### 不需要再写 css
 使用 Tailwind CSS，基本可以不用再写 css。所有的效果都可以通过 class 名来完成。我用 Tailwind CSS 写了几个页面，到目前为止，还没有写过一行 css。
 
 ### 不需要在 html 结构和 css 样式之间来回切换
 平常我们开发项目时, 经常要在 html 和 css 之间来回切换, 特别麻烦, 使用 tailwind 后, 只需要把类名写到 html 里就行, 让你只专注于一个地方, 大大提高了开发效率。
 
-### 不需要为 class 取什么名字而烦恼。
+### 不需要为 class 取什么名字而烦恼
 写 css 的烦恼可能就是怎么给 class 取名了。尤其是在同一个区块里面，区块名称，子元素名称，等等，一个页面动辄几十个几百个类名。非常痛苦。而这其中，真正能复用的 class 可能就个别几个。
 
 使用 Tailwind CSS 完全不用为取名字烦恼，因为所有的 css 属性都被框架语义化封装好了。只需要在 class 里面引用就好。
@@ -89,7 +89,7 @@ Tailwind CSS 是把所有样式写在 class 里面。内联样式是把所有样
 
 其实是有很大的区别，Tailwind CSS 相比于内联样式，有以下几点特点：
 
-### 有约束的设计。
+### 有约束的设计
 使用内联样式，每个值都是一个随便填写的数字。使用 Tailwind CSS 类，你要从预先定义好的设计系统中选择样式，这样你开发出来的页面，视觉上会保持一致，不会乱七八糟。
 
 比如, 如果要加一个8px的圆角, 直接在 class 加一个 `rounded-lg` 就可以, 而不需要写 `border-radius: 8px`, 一来容易手误写错, 二来不好维护。
@@ -99,7 +99,7 @@ Tailwind CSS 是把所有样式写在 class 里面。内联样式是把所有样
 ### 响应式的设计
 您不能在内联样式中使用媒体查询，但您可以使用 Tailwind 的响应式类来轻松开发完全响应式界面。比如你可以在 class 里写一个 `sm:text-left`, 代表的是，在小屏幕上，文字居中的方式是居左显示。但是你在内联样式是不可能做到这些的。
 
-### Hover, focus, 以及其它状态。
+### Hover, focus, 以及其它状态
 你可以在 class 里面写一个 hover:text-white , 代表的是鼠标滑过的时候，文本是白色。
 
 ## TailwindCSS 缺点
