@@ -1177,3 +1177,23 @@ function binarySearch(arr,item) {
   return -1;
 }
 ```
+## 如何在mysql中上传图片
+To upload an image in MySQL, you can use the BLOB data type. Here are the steps to do it:
+
+1. Create a table with a BLOB column to store the image:
+```sql
+CREATE TABLE images (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(255),
+  image BLOB
+);
+```
+2. Insert the image into the table using the LOAD_FILE() function:
+```sql
+INSERT INTO images (name, image)
+VALUES ('image1.jpg', LOAD_FILE('/path/to/image1.jpg'));
+```
+Note: Make sure the MySQL server has the FILE privilege enabled.
+Alternatively, you can use a programming language like PHP or Python to upload the image to the database.
+
+LOAD_FILE()  函数中的地址是相对于 MySQL 服务器的文件系统路径。如果您在  LOAD_FILE()  函数中使用的是绝对路径，则会返回  NULL 。因此，建议您使用相对路径。如果您不确定 MySQL 服务器的文件系统路径，可以使用  `SELECT @@secure_file_priv;`  命令来查看。此命令将返回 MySQL 服务器的安全文件目录的路径。在安全文件目录中，您可以使用相对路径来引用文件。
