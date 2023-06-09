@@ -5,16 +5,11 @@
 2. 使用 `npm` 或 `yarn` 安装依赖项时，所有的包都在 `node_modules` 的根目录。 这样就导致了一个问题，源码可以直接访问项目中依赖的依赖, 这样是不太好的（比如 `element-ui` 本身依赖 a 包, 表面上我们没有安装 a 包, 但却可以使用, 如果有一天删了 `element-ui`, 意味着 a 包也会删掉, 如果此时项目恰好引用了 a 包而忘记删除, 项目就会报错了）
 <img src='./imgs/1.png' width=300px style="padding-top: 10px">
 
-## pnpm 解决了哪些问题
-1. 所有文件都会存储在硬盘上的某一位置。 当软件包被安装时，包里的文件会**硬链接**到这一位置，而不会占用额外的磁盘空间。 这允许你跨项目地共享同一版本的依赖。
-2. 如果你用到了某依赖项的不同版本，只会将不同版本间有差异的文件添加到仓库。 例如，如果某个包有100个文件，而它的新版本只改变了其中1个文件。那么 `pnpm update` 时只会向存储中心额外添加1个新文件，而不会因为仅仅一个文件的改变复制整新版本包的内容。
-3. 默认情况下，`pnpm` 使用**软链接**将项目的直接依赖项添加到 `node_modules` 的根目录中。
-<img src='./imgs/2.png' width=300px style="padding-top: 10px">
-<img src='./imgs/3.png' width=400px style="padding-top: 10px">
-综上所述，`pnpm` 会为你的磁盘节省大量空间，这与项目和依赖项的数量成正比，并且安装速度要快得多！
+## 什么是 pnpm
+`pnpm`是一种Node.js包管理器，它与`npm`类似，但具有更快的安装速度和更少的磁盘空间占用。与`npm`不同，`pnpm`使用**软链接**和**硬链接**来共享依赖项，这意味着每个依赖项只需要在磁盘上存储一次，而不是每个项目都存储一次。
+
 
 ## 软链接和硬链接
-
 ### 1. 文件的本质
 在操作系统中，文件实际上是一个指针，只不过它指向的不是内存地址，而是一个外部存储地址（这里的外部存储可以是硬盘、U盘、甚至是网络）
 <img src='./imgs/4.png' width=550px style="padding-top: 10px">
@@ -52,7 +47,13 @@ mklink 链接名称 目标文件
 1. 硬链接仅能链接文件，而符号链接可以链接目录
 2. 硬链接在链接完成后仅和文件内容关联，和之前链接的文件没有任何关系。而符号链接始终和之前链接的文件关联，和文件内容不直接相关。
 
+
+## pnpm 解决了哪些问题
+1. 使用`pnpm`安装的包都会存储在硬盘上的某一位置。 当第三方包被安装时，包里的文件会**硬链接**到这一位置，而不会占用额外的磁盘空间。 这允许你跨项目地共享同一版本的依赖。
+2. 如果你用到了某依赖项的不同版本，只会将不同版本间有差异的文件添加到仓库。 例如，如果某个包有100个文件，而它的新版本只改变了其中1个文件。那么 `pnpm update` 时只会向存储中心额外添加1个新文件，而不会因为仅仅一个文件的改变复制整新版本包的内容。
+
 ## pnpm 原理
+使用 pnpm 安装的包都存储到哪了呢?
 在 pnpm 中，会将依赖安装到当前分区的 `<home dir>/.pnpm-store` 位置中，可以通过以下命令获得当前的 store 位置：
 ```shell
 pnpm store path
@@ -60,7 +61,11 @@ pnpm store path
 <img src='./imgs/8.png' width=400px style="padding-top: 10px">
 <img src='./imgs/9.png' width=550px style="padding-top: 10px">
 
-然后利用`hard link`将所需的包从`node_modules/.pnpm`硬链接到`store`中，最后通过`symbolic link`将`node_modules`中的顶层依赖以及依赖的依赖符号链接到`node_modules/.pnpm`中，看如下例子:
+`pnpm`利用硬链接将所需的包从`node_modules/.pnpm`硬链接到`store`中
+
+通过软链接将`node_modules`中的顶层依赖以及依赖的依赖软链接到`node_modules/.pnpm`中
+
+看如下例子:
 ```txt
 node_modules
 └─ .pnpm
@@ -75,11 +80,17 @@ node_modules
       └─ node_modules
          ├─ demo-a -> ../../demo-a/node_modules/demo-a
          └─ demo-c -> <store>/demo-c
-└─ demo-b -> ./pnpm/demo-b@1.0.0/node_modules/demo-b
-└─ demo-c -> ./pnpm/demo-c@1.0.0/node_modules/demo-c
+└─ demo-b -> ./.pnpm/demo-b@1.0.0/node_modules/demo-b
+└─ demo-c -> ./.pnpm/demo-c@1.0.0/node_modules/demo-c
 ```
 <img src='./imgs/10.png' width=700px style="padding-top: 10px">
 
-`pnpm` 的局限性:
+看如下例子:
+<img src='./imgs/2.png' width=300px style="padding-top: 10px">
+<img src='./imgs/11.png' width=400px style="padding-top: 10px">
+
+上面例子只执行了 pnpm add element-ui, 但是因为 element-ui 也有其他依赖项, 所以会有除了 element-ui 以外的包, element-ui@2.15.13/node_modules 下的 element-ui 文件夹下的文件硬链接到存储仓库, 其他的文件夹通过软链接找到对应的包
+
+## pnpm 的局限性
 
 由于全局共用同一份 `store`，因此当需要修改 `node_modules` 内的内容时，会直接影响全局 `store` 中对应的内容，对其他项目也会造成影响
