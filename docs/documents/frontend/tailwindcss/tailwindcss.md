@@ -36,6 +36,7 @@
   </div>
 </template>
 ```
+平常我们写样式一般都是定义一个 class, 然后在这个 class 里写一些 css 属性, 而 tailwindcss 是直接把每个 css 属性设为单独的 class, 我们想要什么属性就写什么 class.
 ## 快速上手
 https://tailwindcss.com/docs/installation/using-postcss
 
@@ -114,7 +115,7 @@ role="button">Start Ticketing</a>
 ### 熟悉使用有成本
 这一点逃避不了，所有的新技术都有熟悉成本。Tailwind CSS 也一样。比如你想做一个圆角，那你得知道 Tailwind CSS 里面的圆角属性怎么写，边框怎么写，边框样式怎么写等等。你需要不断的去看文档。
 
-所以一开始使用 Tailwind CSS，特别是第一个项目，你会用起来比较痛苦。
+所以一开始使用 Tailwind CSS，特别是第一个项目，你用起来会比较痛苦。
 
 但是只要你用 Tailwind CSS 做一两个项目，你就会觉得 ”嗯, 真香”。
 
