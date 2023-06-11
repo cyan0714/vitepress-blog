@@ -4,10 +4,10 @@
   <br/>
   <img :src="`http://${item.path}`" style="width:600px" >
 </div>
-<img src="./imgs/1.png" style="width:600px" >
 
 <script>
-  import axios from 'axios';
+  import { getPicturesByType } from '../../../.vitepress/service/api.js'
+
   export default {
     data() {
       return {
@@ -15,12 +15,9 @@
       }
     },
     created() {
-      axios.get('http://localhost:8080/file/pictures')
-        .then(res => {
-          this.pictures = res.data
-        })
-        .catch(error => {
-        })
+      getPicturesByType('大学').then(res => {
+        this.pictures = res
+      })
     }
 }
 </script>

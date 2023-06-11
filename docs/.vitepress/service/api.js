@@ -9,3 +9,13 @@ export const getQuotesByName = hero => {
     },
   })
 }
+
+export const getPicturesByType = type => {
+  return request({
+    url: '/file/pictures',
+    method: 'get',
+    params: {
+      type,
+    },
+  })
+}
