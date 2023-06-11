@@ -2,7 +2,7 @@ import axios from 'axios'
 
 //默认超时时间
 axios.defaults.timeout = 120000
-axios.defaults.baseURL = process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : 'http://1.12.218.227:80'
+axios.defaults.baseURL = process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : 'http://1.12.218.227:8080'
 //http request拦截
 axios.interceptors.request.use(
   config => {
