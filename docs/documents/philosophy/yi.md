@@ -1,15 +1,24 @@
 # 无极剑圣-易
 
-<br/>
-<img src='./imgs/yi.png' width=600px>
+![yi](./imgs/yi.png)
 
-1. 我的剑就是你的剑!
-2. 绝对不要坐等胜利的到来。
-3. 愤怒，带来冲动。
-4. 无极之道，在我内心延续。
-5. 形势，先于蛮力。
-6. 集中起来的意志，可以击穿顽石。
-7. 不要被骄傲，遮蔽了双眼。
-8. 怀疑，是最强大的敌人。
-9. 真正的大师永远都怀着一颗学徒的心。
-10. 敌人虽众，一击皆斩!
+<div v-for="(item, index) in quotes">
+  <div style="line-height: 30px">{{index + 1}}. {{item.word}}</div>
+</div>
+
+<script>
+  import { getQuotesByName } from '../../.vitepress/service/api.js'
+
+  export default {
+    data() {
+      return {
+        quotes: [],
+      }
+    },
+    created() {
+      getQuotesByName('易').then(res => {
+        this.quotes = res
+      })
+    }
+  }
+</script>

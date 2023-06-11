@@ -1,16 +1,25 @@
 # 疾风剑豪-亚索
 
-<br/>
-<img src='./imgs/yasuo.png' width=600px>
+![yasuo](./imgs/yasuo.png)
 
-1. 回首往昔，更进一步。
-2. 吾虽浪迹天涯，却未迷失本心。
-3. 树叶的一生，只是为了归根吧?
-4. 仁义道德，也是一种奢侈。
-5. 有些失误无法犯两次。
-6. 荣耀存于心，而非流于形。
-7. 死亡而已!没什么大不了的。
-8. 有些事绝对不会无趣。
-9. 还是别出招了，反正是我赢。
-10. 我将遵循此道，直至终结。
+<div v-for="(item, index) in quotes">
+  <div style="line-height: 30px">{{index + 1}}. {{item.word}}</div>
+</div>
+
+<script>
+  import { getQuotesByName } from '../../.vitepress/service/api.js'
+
+  export default {
+    data() {
+      return {
+        quotes: [],
+      }
+    },
+    created() {
+      getQuotesByName('亚索').then(res => {
+        this.quotes = res
+      })
+    }
+  }
+</script>
 

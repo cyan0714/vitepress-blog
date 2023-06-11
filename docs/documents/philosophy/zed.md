@@ -1,17 +1,26 @@
 # 影流之主-劫
 
-<br/>
-<img src='./imgs/zed.png' width=600px>
+![zed](./imgs/zed.png)
 
-1. 保守秘密，就如同浪费武器。
-2. 不要否定我。
-3. 不要畏惧迷离之道。
-4. 没有人可以逃离他们的影子。
-5. 吾所成之事，不可逆也。
-6. 无知者在劫难逃。
-7. 要么拥抱暗影，要么死于黑暗。
-8. 真理，存乎暗影之中。
-9. 直面暗影，找寻真理。
-10. 只有高手才能活下来。
+<div v-for="(item, index) in quotes">
+  <div style="line-height: 30px">{{index + 1}}. {{item.word}}</div>
+</div>
+
+<script>
+  import { getQuotesByName } from '../../.vitepress/service/api.js'
+
+  export default {
+    data() {
+      return {
+        quotes: [],
+      }
+    },
+    created() {
+      getQuotesByName('劫').then(res => {
+        this.quotes = res
+      })
+    }
+  }
+</script>
 
 

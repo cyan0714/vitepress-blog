@@ -1,17 +1,26 @@
 # 盲僧-李青
 
-<br/>
-<img src='./imgs/leesin.png' width=600px>
+![leesin](./imgs/leesin.png)
 
-1. 我会识破这一切。
-2. 找到自己的战场。
-3. 控制自己，掌控敌人。
-4. 我用双手成就你的梦想。
-5. 一人之行可灭世，众人之勤可救世。
-6. 如果暴力不是为了杀戮，那将毫无意义。
-7. 我刺瞎自己的双眼，只为记住那最后的红颜。
-8. 我蒙上自己的双眼，只想记住最后看你的那一眼。
-9. 如果暴力不是为了杀戮，那将毫无意义。
-10. 双眼失明丝毫不影响我追捕敌人，因为我能闻到他们身上的臭味。
+<div v-for="(item, index) in quotes">
+  <div style="line-height: 30px">{{index + 1}}. {{item.word}}</div>
+</div>
+
+<script>
+  import { getQuotesByName } from '../../.vitepress/service/api.js'
+
+  export default {
+    data() {
+      return {
+        quotes: [],
+      }
+    },
+    created() {
+      getQuotesByName('李青').then(res => {
+        this.quotes = res
+      })
+    }
+  }
+</script>
 
 

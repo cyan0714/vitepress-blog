@@ -1,16 +1,25 @@
 # 圣枪游侠-卢锡安
 
-<br/>
-<img src='./imgs/lucian.png' width=600px>
+![lucian](./imgs/lucian.png)
 
-1. 人终有一死，而有些人则需要一点小小的帮助。
-2. 他们永远不会对死亡感到厌倦。
-3. 想尽办法，勇敢战斗。
-4. 我们需要更多棺材。
-5. 激烈的言辞只是蛆虫的粮食。
-6. 来啊，来试试?
-7. 死亡是一种仁慈，而我有足够的仁慈可以赐给你们。
-8. 杀你毫不费劲儿，再杀你一次更不费劲儿。
-9. 死亡在敲门?不，敲门的人是我。
-10. 有些人把它叫做魔法，而我把它叫做好靶子。
+<div v-for="(item, index) in quotes">
+  <div style="line-height: 30px">{{index + 1}}. {{item.word}}</div>
+</div>
+
+<script>
+  import { getQuotesByName } from '../../.vitepress/service/api.js'
+
+  export default {
+    data() {
+      return {
+        quotes: [],
+      }
+    },
+    created() {
+      getQuotesByName('卢锡安').then(res => {
+        this.quotes = res
+      })
+    }
+  }
+</script>
 

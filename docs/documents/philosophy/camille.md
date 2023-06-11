@@ -1,16 +1,26 @@
 # 青钢影-卡密尔
 
-<br/>
-<img src='./imgs/camille.png' width=600px>
+![camille](./imgs/camille.png)
 
-1. 如果生活还没能改变你, 你就已经失败了。
-2. 不要有趣，要有用。
-3. 自立自主，总胜过俯首为奴。
-4. 谎言不会伤人，真相才是快刀。
-5. 自满，会孕育死亡。
-6. 效率，是成功的核心关键。
-7. 等待，会带来丰厚的奖赏。
-8. 野心，需要事实的约束。
-9. 自负，会让每个人都屈膝下跪。
-10. 成功与失败的分别在于适应能力的高低。
+<div v-for="(item, index) in quotes">
+  <div style="line-height: 30px">{{index + 1}}. {{item.word}}</div>
+</div>
+
+<script>
+  import { getQuotesByName } from '../../.vitepress/service/api.js'
+
+  export default {
+    data() {
+      return {
+        quotes: [],
+      }
+    },
+    created() {
+      getQuotesByName('卡密尔').then(res => {
+        this.quotes = res
+      })
+    }
+  }
+</script>
+
 
