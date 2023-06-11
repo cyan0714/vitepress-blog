@@ -94,14 +94,14 @@ systemctl enable mysqld
 
 查看MySQL服务：active (running)表示启动成功(以下二者选一个):
 ```shell
-systemctl status mysql
+systemctl status mysqld
 
 ps -ef | grep mysql
 ```
 
 mysql8 初次安装后，需要先通过以下命令查看密码:
 ```shell
-`cat /var/log/mysqld.log | grep password`
+cat /var/log/mysqld.log | grep password
 ```
 
 mysql8 修改密码方式:
@@ -109,7 +109,7 @@ mysql8 修改密码方式:
 alter user 'root'@'localhost' identified by '这里填你要的密码';
 ```
 
-在⾃⼰的电脑上连接 MySQL(也就是和 MySQL 建⽴远程连接, ⽐如直接使用 Navicat ⼯具连接 MySQL):
+在⾃⼰的电脑上连接 MySQL(也就是和 MySQL 建⽴远程连接, ⽐如直接使用 Navicat ⼯具连接 MySQL, 下方代码在远程服务器上执行):
 ```shell
 use mysql;
 select host, user from user; // 查看user表中，连接权限，默认看到root是localhost
