@@ -110,7 +110,22 @@ function getAccumulation() {
   return [
     {
       text: '我的积累',
-      items: [{ text: '我的积累', link: '/documents/accumulation/accumulation' }],
+      items: [
+        { text: '手写算法', link: '/documents/accumulation/algorithm' },
+        { text: '代码风格', link: '/documents/accumulation/code-style' },
+        { text: '服务器部署', link: '/documents/accumulation/deploy' },
+        { text: '开发技巧', link: '/documents/accumulation/development-skills' },
+        { text: '自定义 elementui 样式', link: '/documents/accumulation/diy-elementui-style' },
+        { text: 'echarts 地图', link: '/documents/accumulation/echarts-map' },
+        { text: 'import from 加载规则', link: '/documents/accumulation/import-from-rules' },
+        { text: '查看 npm 源', link: '/documents/accumulation/npm-source' },
+        { text: '对象转原始值', link: '/documents/accumulation/object-to-primitive' },
+        { text: '预编译', link: '/documents/accumulation/pre-compile' },
+        { text: 'private 和 public key', link: '/documents/accumulation/private-public-key' },
+        { text: 'ssh 连接报错', link: '/documents/accumulation/ssh-link-error' },
+        { text: '文本对齐', link: '/documents/accumulation/text-alignment' },
+        { text: 'uniapp 开发技巧', link: '/documents/accumulation/uniapp-skills' },
+      ],
     },
   ]
 }

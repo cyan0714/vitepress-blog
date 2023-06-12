@@ -17,7 +17,7 @@ export const nav = [
   },
   {
     text: '我的积累',
-    link: '/documents/accumulation/accumulation',
+    link: '/documents/accumulation/algorithm',
   },
   {
     text: '回忆录',
