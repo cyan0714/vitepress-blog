@@ -5,6 +5,7 @@ export default {
   '/documents/philosophy': getPhilosophy(),
   '/documents/accumulation': getAccumulation(),
   '/documents/memoirs': getMemoirs(),
+  '/documents/database': getDatabase(),
 }
 
 function getFrontend() {
@@ -78,6 +79,19 @@ function getBackend() {
       items: [{ text: 'nodejs', link: '/documents/backend/nodejs/nodejs' }],
     },
   ]
+}
+
+function getDatabase() {
+  return [
+    {
+      text: '数据库',
+      items: [
+        { text: '数据库的操作', link: '/documents/database/database-operation' },
+        { text: '表的操作', link: '/documents/database/table-operation' },
+        { text: 'MySQL 数据类型', link: '/documents/database/data-type' },
+      ],
+    },
+  ];
 }
 
 function getGit() {
