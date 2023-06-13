@@ -17,7 +17,7 @@ export const nav = [
   },
   {
     text: '我的积累',
-    link: '/documents/accumulation/algorithm',
+    link: '/documents/accumulation/build-own-chatgpt',
   },
   {
     text: '回忆录',

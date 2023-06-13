@@ -111,6 +111,7 @@ function getAccumulation() {
     {
       text: '我的积累',
       items: [
+        { text: '搭建自己的 ChatGPT', link: '/documents/accumulation/build-own-chatgpt' },
         { text: '手写算法', link: '/documents/accumulation/algorithm' },
         { text: '代码风格', link: '/documents/accumulation/code-style' },
         { text: '服务器部署', link: '/documents/accumulation/deploy' },
@@ -127,7 +128,7 @@ function getAccumulation() {
         { text: 'uniapp 开发技巧', link: '/documents/accumulation/uniapp-skills' },
       ],
     },
-  ]
+  ];
 }
 
 function getMemoirs() {
