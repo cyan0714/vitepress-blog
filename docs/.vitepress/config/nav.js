@@ -31,8 +31,12 @@ export const nav = [
         link: '/documents/memoirs/colleage/colleage',
       },
       {
+        text: '代码片段',
+        link: '/documents/snippets/js',
+      },
+      {
         text: 'VSCode配置及插件',
-        link: '/documents/vscode-settings-plugins/settings'
+        link: '/documents/vscode-settings-plugins/settings',
       },
       // { text: '代码片段', link: '/item-3' },
     ],

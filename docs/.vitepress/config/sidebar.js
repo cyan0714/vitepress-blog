@@ -7,6 +7,7 @@ export default {
   '/documents/memoirs': getMemoirs(),
   '/documents/database': getDatabase(),
   '/documents/vscode-settings-plugins': getVSCodeSettingsPlugins(),
+  '/documents/snippets': getSnippets(),
 }
 
 function getFrontend() {
@@ -165,6 +166,21 @@ function getVSCodeSettingsPlugins() {
       items: [
         { text: '配置', link: '/documents/vscode-settings-plugins/settings' },
         { text: '插件', link: '/documents/vscode-settings-plugins/plugins' },
+      ],
+    },
+  ];
+}
+
+function getSnippets() {
+  return [
+    {
+      text: '代码片段',
+      items: [
+        { text: 'js', link: '/documents/snippets/js' },
+        { text: 'css', link: '/documents/snippets/css' },
+        { text: 'vue', link: '/documents/snippets/vue' },
+        { text: 'element-ui', link: '/documents/snippets/element-ui' },
+        { text: 'avue', link: '/documents/snippets/avue' },
       ],
     },
   ];
