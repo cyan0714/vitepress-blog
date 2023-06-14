@@ -6,6 +6,7 @@ export default {
   '/documents/accumulation': getAccumulation(),
   '/documents/memoirs': getMemoirs(),
   '/documents/database': getDatabase(),
+  '/documents/vscode-settings-plugins': getVSCodeSettingsPlugins(),
 }
 
 function getFrontend() {
@@ -155,4 +156,16 @@ function getMemoirs() {
       ],
     },
   ]
+}
+
+function getVSCodeSettingsPlugins() {
+  return [
+    {
+      text: 'VSCode 配置及插件',
+      items: [
+        { text: '配置', link: '/documents/vscode-settings-plugins/settings' },
+        { text: '插件', link: '/documents/vscode-settings-plugins/plugins' },
+      ],
+    },
+  ];
 }

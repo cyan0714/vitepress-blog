@@ -12,19 +12,29 @@ export const nav = [
     link: '/documents/database/database-operation',
   },
   {
-    text: 'Git',
-    link: '/documents/git/git',
-  },
-  {
-    text: '哲理',
-    link: '/documents/philosophy/camille',
-  },
-  {
     text: '我的积累',
     link: '/documents/accumulation/build-own-chatgpt',
   },
   {
-    text: '回忆录',
-    link: '/documents/memoirs/colleage/colleage',
+    text: '更多',
+    items: [
+      {
+        text: 'Git',
+        link: '/documents/git/git',
+      },
+      {
+        text: '哲理',
+        link: '/documents/philosophy/camille',
+      },
+      {
+        text: '回忆录',
+        link: '/documents/memoirs/colleage/colleage',
+      },
+      {
+        text: 'VSCode配置及插件',
+        link: '/documents/vscode-settings-plugins/settings'
+      },
+      // { text: '代码片段', link: '/item-3' },
+    ],
   },
 ];
