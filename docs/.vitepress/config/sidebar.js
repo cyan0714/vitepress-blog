@@ -91,6 +91,9 @@ function getDatabase() {
         { text: '数据库的操作', link: '/documents/database/database-operation' },
         { text: '表的操作', link: '/documents/database/table-operation' },
         { text: 'MySQL 数据类型', link: '/documents/database/data-type' },
+        { text: '表约束', link: '/documents/database/constraint' },
+        { text: 'DDL', link: '/documents/database/ddl' },
+        { text: 'DML', link: '/documents/database/dml' },
       ],
     },
   ];
