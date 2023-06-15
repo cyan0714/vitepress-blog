@@ -15,7 +15,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "fighting-design": "^0.41.0",
     "vitepress": "^1.0.0-beta.1"
   },
   "dependencies": {
