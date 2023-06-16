@@ -1,49 +1,51 @@
 <template>
   <div class="home-container">
     <header class="header">
-      <img
-        src="http://1.12.218.227:8080/file/picture/e903b6f23adb1a813d44ac46e2795d99"
-        alt="" />
+      <img src="http://1.12.218.227:8080/file/picture/e903b6f23adb1a813d44ac46e2795d99" alt="" />
       <div class="btns-area">
         <a class="started" href="/documents/frontend/html/html">😊 快速开始</a>
         <a class="github" href="https://github.com/cyan0714">Github</a>
       </div>
     </header>
-    <section
-      class="section"
-      v-for="(item, index) in quotes"
-      :key="index">
-      <p>{{ item['hero'] }}</p>
-      <p>{{ item['word'] }}</p>
+    <section class="section" v-for="(item, index) in quotes" :key="index">
+      <img src="./camille-square.png" width="60px" alt="" />
+      <div class="text-area">
+        <p>{{ item['hero'] }}</p>
+        <p>{{ item['word'] }}</p>
+      </div>
     </section>
   </div>
 </template>
 
 <script lang="ts">
-import { getRandomQuote } from '../service/api.js'
+import { getRandomQuote } from '../service/api.js';
 
 export default {
   data() {
     return {
       quotes: [],
-    }
+    };
   },
   created() {
     getRandomQuote().then(res => {
-      this.quotes = res
-    })
+      this.quotes = res;
+    });
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
+@keyframes rotate {
+  100% {
+    transform: rotate(1turn);
+  }
+}
 .home-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 1100px;
   margin: 0 auto;
-  margin-top: 80px;
+  margin-top: 5vh;
   .header {
     display: flex;
     flex-direction: column;
@@ -73,13 +75,45 @@ export default {
     }
   }
   .section {
+    display: flex;
     width: 500px;
-    padding: 40px;
     border-radius: 10px;
-    text-align: center;
+    padding: 6px;
     margin: 30px 0;
-    box-shadow: 0 3px 6px rgba(140,149,159,0.15);
-    border: 1px solid #d0d7de;
+    box-shadow: 0 3px 6px rgba(140, 149, 159, 0.15);
+    border: 1px solid #2688a3;
+
+    .text-area {
+      width: calc(100% - 90px);
+      margin-left: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      p:nth-child(1) {
+        font-weight: bold;
+        color: #6296a4;
+      }
+      p:nth-child(2) {
+        margin-top: 8px;
+        display: -webkit-box;
+        word-break: break-all;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+    img {
+      height: 80px;
+      width: auto;
+      border-radius: 10px;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    .section {
+      width: 90%;
+    }
   }
 }
 </style>
