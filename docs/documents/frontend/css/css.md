@@ -204,3 +204,19 @@ div {
   overflow-y: auto;
 }
 ```
+
+## 好看的滚动条样式
+```css
+&::-webkit-scrollbar {
+  width: 6px;
+}
+/* 滚动槽 */
+&::-webkit-scrollbar-track {
+  border-radius: 3px;
+}
+/* 滚动条滑块 */
+&::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background: #d9e3fb;
+}
+```
