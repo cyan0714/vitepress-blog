@@ -40,6 +40,7 @@ function getFrontend() {
         { text: '生成器', link: '/documents/frontend/javascript/generator' },
         { text: 'proxy 代理', link: '/documents/frontend/javascript/proxy' },
         { text: '事件循环', link: '/documents/frontend/javascript/event-loop' },
+        { text: '防抖', link: '/documents/frontend/javascript/debounce' },
       ],
     },
     {
