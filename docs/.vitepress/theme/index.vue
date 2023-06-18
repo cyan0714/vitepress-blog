@@ -83,8 +83,7 @@ export default {
     border-radius: 10px;
     padding: 6px;
     margin: 30px 0;
-    box-shadow: 0 3px 6px rgba(140, 149, 159, 0.15);
-    border: 1px solid #2688a3;
+    background-color: #fff;
 
     .text-area {
       width: calc(100% - 90px);
