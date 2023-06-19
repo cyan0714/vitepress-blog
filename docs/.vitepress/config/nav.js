@@ -38,6 +38,10 @@ export const nav = [
         text: 'VSCode配置及插件',
         link: '/documents/vscode-settings-plugins/settings',
       },
+      {
+        text: 'Shell脚本',
+        link: '/documents/shell/shell',
+      }
       // { text: '代码片段', link: '/item-3' },
     ],
   },
