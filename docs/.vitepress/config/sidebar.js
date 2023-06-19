@@ -132,6 +132,8 @@ function getAccumulation() {
     {
       text: '我的积累',
       items: [
+        { text: '手写懒加载', link: '/documents/accumulation/lazy-load' },
+        { text: '前后端实现文件上传和下载', link: '/documents/accumulation/download-file' },
         { text: '搭建自己的 ChatGPT', link: '/documents/accumulation/build-own-chatgpt' },
         { text: '手写算法', link: '/documents/accumulation/algorithm' },
         { text: '代码风格', link: '/documents/accumulation/code-style' },
