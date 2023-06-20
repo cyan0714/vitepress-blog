@@ -5,6 +5,11 @@
 rm *.png
 ```
 
+## 给某个文件的每一行的开头添加"hello"
+```bash
+sed -i 's/^/hello/' 文件名
+```
+
 ## 批量下载图片
 ```bash
 # url.json 文件内容为:
