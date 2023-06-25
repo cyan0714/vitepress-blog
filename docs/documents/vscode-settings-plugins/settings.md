@@ -270,11 +270,13 @@
     },
     {
       "before": [","],
-      "after": ["}", "z", "z"]
+      // "after": ["}", "z", "z"]
+      "after": ["<C-d>", "z", "z"]
     },
     {
       "before": ["'"],
-      "after": ["{", "z", "z"]
+      // "after": ["{", "z", "z"]
+      "after": ["<C-u>", "z", "z"]
     },
     {
       "before": ["<leader>", "f"],
@@ -372,11 +374,11 @@
       "after": ["<Esc>", "o"]
     },
     {
-      "before": ["j", "o"],
+      "before": ["j", ";"],
       "after": ["<Esc>", "A", ";", "<Esc>", "o"]
     },
     {
-      "before": ["j", "r"],
+      "before": ["j", ","],
       "after": ["<Esc>", "A", ",", "<Esc>", "o"]
     },
     {
@@ -417,10 +419,11 @@
       "before": ["p"],
       "after": ["\"", "0", "p"]
     },
+    // 复制后将光标定位到最后一个字符
     {
-      "before": ["z"],
-      "after": ["y", "/", "<C-r>", "\"", "<Enter>"]
-    },
+      "before": ["y"],
+      "after": ["y", "g", "_", "%"]
+    }
   ],
   "vim.operatorPendingModeKeyBindings": [
     {
