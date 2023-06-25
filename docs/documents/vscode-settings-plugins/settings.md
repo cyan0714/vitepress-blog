@@ -165,7 +165,7 @@
     },
     {
       "before": ["<leader>", "l"],
-      "after": ["/", "s", "c", "s", "s", "<Enter>", "z", "z"]
+      "after": ["/", "l", "a", "n", "g", "<Enter>", "z", "z"]
     }
   ],
 
@@ -233,15 +233,20 @@
         "<Enter>"
       ]
     },
-    // 从 style 标签里的 class 跳到 template 里的 class
+    // 从 template 里的 class 跳到 style 标签里的 class(右边是双引号时)
     {
       "before": ["<leader>", "j"],
-      "after": ["v", "t", "<leader>", "y", "/", "<C-r>", "\"", "<Enter>"]
+      "after": ["F", "\"", "l", "v", "t", "\"", "y", "/", "<C-r>", "\"", "<leader>", "<Enter>"]
     },
-    // 从 template 里的 class 跳到 style 标签里的 class
+    // 从 template 里的 class 跳到 style 标签里的 class(右边是空格时)
+    {
+      "before": ["<leader>", "n"],
+      "after": [ "F", "\"", "l", "v", "t", "<leader>", "y", "/", "<C-r>", "\"", "<leader>", "<Enter>" ]
+    },
+    // 从 style 标签里的 class 跳到 template 里的 class
     {
       "before": ["<leader>", "k"],
-      "after": ["v", "t", "\"", "y", "/", "<C-r>", "\"", "<Enter>"]
+      "after": [ "F", ".", "l", "v", "t", "<leader>", "y", "/", "class=\"(.*", "<C-r>", "\"", ".*)", "<Enter>" ]
     },
     {
       "before": ["w"],
