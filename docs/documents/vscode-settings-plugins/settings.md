@@ -106,6 +106,10 @@
   // normal mode
   "vim.normalModeKeyBindings": [
     {
+      "before": ["<C-n>"],
+      "commands": [":nohl"]
+    },
+    {
       "before": ["H"],
       "after": ["^"]
     },
@@ -113,11 +117,16 @@
       "before": ["L"],
       "after": ["g", "_"]
     },
+    {
+      "before": ["K"],
+      "after": ["h", "$", "V", "%"]
+    },
     // 从当前字符删除到最左边字符
     {
       "before": ["S"],
       "after": ["v", "^", "d"]
     },
+
     // 删除两个空格之间的字符串
     {
       "before": ["<leader>", "s"],
@@ -241,12 +250,39 @@
     // 从 template 里的 class 跳到 style 标签里的 class(右边是空格时)
     {
       "before": ["<leader>", "n"],
-      "after": [ "F", "\"", "l", "v", "t", "<leader>", "y", "/", "<C-r>", "\"", "<leader>", "<Enter>" ]
+      "after": [
+        "F",
+        "\"",
+        "l",
+        "v",
+        "t",
+        "<leader>",
+        "y",
+        "/",
+        "<C-r>",
+        "\"",
+        "<leader>",
+        "<Enter>"
+      ]
     },
     // 从 style 标签里的 class 跳到 template 里的 class
     {
       "before": ["<leader>", "k"],
-      "after": [ "F", ".", "l", "v", "t", "<leader>", "y", "/", "class=\"(.*", "<C-r>", "\"", ".*)", "<Enter>" ]
+      "after": [
+        "F",
+        ".",
+        "l",
+        "v",
+        "t",
+        "<leader>",
+        "y",
+        "/",
+        "class=\"(.*",
+        "<C-r>",
+        "\"",
+        ".*)",
+        "<Enter>"
+      ]
     },
     {
       "before": ["w"],
@@ -260,10 +296,10 @@
       "before": ["u"],
       "after": ["<C-u>", "z", "z"]
     },
-    {
-      "before": ["m"],
-      "after": ["h", "$", "V", "%"]
-    },
+    // {
+    //   "before": ["m"],
+    //   "after": ["h", "$", "V", "%"]
+    // },
     {
       "before": ["n"],
       "after": ["*"]
@@ -388,6 +424,11 @@
     {
       "before": ["<C-j>"],
       "after": ["<Esc>", "d", "d"]
+    },
+    {
+      // 从当前字符删除到最左边字符
+      "before": ["K"],
+      "after": ["<Esc>", "v", "^", "d"]
     },
     {
       "before": ["<C-l>"],
