@@ -132,6 +132,7 @@ function getAccumulation() {
     {
       text: '我的积累',
       items: [
+        { text: 'ESModule', link: '/documents/accumulation/es-module' },
         { text: 'vscode+vim 使用心得', link: '/documents/accumulation/vscode-vim' },
         { text: '手写懒加载', link: '/documents/accumulation/lazy-load' },
         { text: '前后端实现文件上传和下载', link: '/documents/accumulation/download-file' },
