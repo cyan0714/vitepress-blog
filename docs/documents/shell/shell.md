@@ -23,3 +23,24 @@ for name in $(echo "${array[@]}"); do
   curl -o "$name.png" http://1.12.218.227:8080/file/picture/$name
 done
 ```
+
+## 将某个文件夹下所有文件重命名为以"icon_"开头, 后面跟着数字, 并且数字递增的文件名
+```bash
+#!/bin/bash
+
+count=1
+directory="F:\companyProj\inside-led-window-app\src\modules\supervise-unite\images"  # 将这里的路径替换为目标文件夹的路径
+
+cd "$directory"  # 进入目标文件夹
+
+for file in *; do
+  if [ -f "$file" ]; then  # 只处理文件，排除文件夹
+    extension="${file##*.}"  # 获取文件扩展名
+    new_filename="icon_$count.$extension"  # 构建新的文件名
+
+    mv "$file" "$new_filename"  # 重命名文件
+
+    count=$((count+1))  # 数字递增
+  fi
+done
+```
