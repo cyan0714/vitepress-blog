@@ -1,6 +1,7 @@
 # CSS
 
 ## single-row-ellipsis(sre)
+
 ```json
 "single-row-ellipsis": {
   "prefix": "sre",
@@ -14,6 +15,7 @@
 ```
 
 ## double-row-ellipsis(dre)
+
 ```json
 "double-row-ellipsis": {
   "prefix": "dre",
@@ -30,6 +32,7 @@
 ```
 
 ## flex(fl)
+
 ```json
 "flex": {
   "prefix": "fl",
@@ -41,6 +44,7 @@
 ```
 
 ## flex-xy-center(fcc)
+
 ```json
 "flex-xy-center": {
   "prefix": "fcc",
@@ -54,6 +58,7 @@
 ```
 
 ## flex-x-center(fx)
+
 ```json
 "flex-x-center": {
   "prefix": "fx",
@@ -66,6 +71,7 @@
 ```
 
 ## flex-y-center(fy)
+
 ```json
 "flex-y-center": {
   "prefix": "fy",
@@ -78,6 +84,7 @@
 ```
 
 ## flex-between(fb)
+
 ```json
 "flex-between": {
   "prefix": "fb",
@@ -91,6 +98,7 @@
 ```
 
 ## absolute-center-center(acc)
+
 ```json
 "absolute-center-center": {
   "prefix": "acc",
@@ -104,6 +112,7 @@
 ```
 
 ## hide-scrollbar(hs)
+
 ```json
 "hide-scrollbar": {
   "prefix": "hs",
@@ -116,6 +125,7 @@
 ```
 
 ## shadow(shadow)
+
 ```json
 "shadow": {
   "prefix": "shadow",
@@ -127,6 +137,7 @@
 ```
 
 ## border(border)
+
 ```json
 "border": {
   "prefix": "border",
@@ -134,5 +145,80 @@
     "border: 1px solid #d0d7de;"
   ],
   "description": "default border"
+}
+```
+
+## scss variable
+
+```json
+"$mainBg": {
+  "prefix": "main",
+  "body": [
+    "\\$mainBg",
+  ],
+  "description": "scss variable"
+},
+"$mainColor": {
+  "prefix": "main",
+  "body": [
+    "\\$mainColor",
+  ],
+  "description": "scss variable"
+},
+"$mainBorder": {
+  "prefix": "main",
+  "body": [
+    "\\$mainBorder",
+  ],
+  "description": "scss variable"
+},
+"$mainShadow": {
+  "prefix": "main",
+  "body": [
+    "\\$mainShadow",
+  ],
+  "description": "scss variable"
+},
+"$mainMarginX": {
+  "prefix": "main",
+  "body": [
+    "\\$mainMarginX",
+  ],
+  "description": "scss variable"
+},
+"$mainMarginY": {
+  "prefix": "main",
+  "body": [
+    "\\$mainMarginY",
+  ],
+  "description": "scss variable"
+},
+"$mainMargin": {
+  "prefix": "main",
+  "body": [
+    "\\$mainMargin",
+  ],
+  "description": "scss variable"
+},
+"$mainPaddingX": {
+  "prefix": "main",
+  "body": [
+    "\\$mainPaddingX",
+  ],
+  "description": "scss variable"
+},
+"$mainPaddingY": {
+  "prefix": "main",
+  "body": [
+    "\\$mainPaddingY",
+  ],
+  "description": "scss variable"
+},
+"$mainPadding": {
+  "prefix": "main",
+  "body": [
+    "\\$mainPadding",
+  ],
+  "description": "scss variable"
 }
 ```
