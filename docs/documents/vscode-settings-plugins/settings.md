@@ -58,13 +58,13 @@
   "editor.tabSize": 2,
   "editor.detectIndentation": false,
   "editor.lineNumbers": "relative",
-  "editor.lineHeight": 22,
+  "editor.lineHeight": 28,
   "editor.fontFamily": "Fira Code, monospace",
   "editor.suggestSelection": "first",
   "editor.hover.delay": 1000,
   "editor.unicodeHighlight.ambiguousCharacters": false,
   "editor.inlineSuggest.enabled": true,
-  "editor.fontSize": 13,
+  "editor.fontSize": 16,
 
   "eslint.codeAction.showDocumentation": {
     "enable": true
@@ -296,18 +296,17 @@
       "before": ["u"],
       "after": ["<C-u>", "z", "z"]
     },
-    // {
-    //   "before": ["m"],
-    //   "after": ["h", "$", "V", "%"]
-    // },
     {
-      "before": ["n"],
-      "after": ["*"]
+      "before": ["m"],
+      "after": ["m", ","]
     },
     {
       "before": [","],
-      // "after": ["}", "z", "z"]
-      "after": ["<C-d>", "z", "z"]
+      "after": ["`", ","]
+    },
+    {
+      "before": ["n"],
+      "after": ["*"]
     },
     {
       "before": ["'"],
@@ -429,6 +428,10 @@
       // 从当前字符删除到最左边字符
       "before": ["K"],
       "after": ["<Esc>", "v", "^", "d"]
+    },
+    {
+      "before": ["<C-d>"],
+      "after": ["<Esc>", "d", "d"]
     },
     {
       "before": ["<C-l>"],
