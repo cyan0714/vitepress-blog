@@ -179,6 +179,11 @@
   ],
 
   "vim.normalModeKeyBindingsNonRecursive": [
+    // 快速复制颜色值
+    {
+      "before": ["y", "c"],
+      "after": ["F", "#", "v", "l", "l", "l", "l", "l", "l", "y"]
+    },
     // 跳到 data 位置并自动补上复制的值（快速生成对应的 data)
     {
       "before": ["q"],
