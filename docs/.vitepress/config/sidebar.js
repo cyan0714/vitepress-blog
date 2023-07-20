@@ -152,6 +152,7 @@ function getAccumulation() {
         { text: 'ssh 连接报错', link: '/documents/accumulation/ssh-link-error' },
         { text: '文本对齐', link: '/documents/accumulation/text-alignment' },
         { text: 'uniapp 开发技巧', link: '/documents/accumulation/uniapp-skills' },
+        { text: '其他', link: '/documents/accumulation/others' },
       ],
     },
   ];
