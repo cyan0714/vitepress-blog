@@ -112,3 +112,48 @@ Note: Make sure the MySQL server has the FILE privilege enabled.
 Alternatively, you can use a programming language like PHP or Python to upload the image to the database.
 
 LOAD_FILE()  函数中的地址是相对于 MySQL 服务器的文件系统路径。如果您在  LOAD_FILE()  函数中使用的是绝对路径，则会返回  NULL 。因此，建议您使用相对路径。如果您不确定 MySQL 服务器的文件系统路径，可以使用  `SELECT @@secure_file_priv;`  命令来查看。此命令将返回 MySQL 服务器的安全文件目录的路径。在安全文件目录中，您可以使用相对路径来引用文件。
+
+## 使用策略模式验证必填项
+
+bad
+```js
+if(!values.username){
+    this.$message.error("用户名不能为空")
+} else if(!values.password){
+    this.$message.error("密码不能为空")
+} else if(!values.phoneNumber){
+    this.$message.error("手机号不能为空")
+} else {
+    this.submit();
+}
+```
+
+good
+```js
+const validators = [
+  { message: "用户名不能为空", required: true, key: "username" },
+  { message: "密码不能为空", required: true, key: "password" },
+  { message: "手机号不能为空", required: true, key: "phoneNumber" }
+];
+
+export default {
+  methods: {
+    validator(values) {
+      const result = validators.some(el => {
+        if (el.required && !values[el.key]) {
+          this.$message.error(el.message);
+          return true;
+        }
+      });
+      return result;
+    },
+    submit(values) {
+      if (this.validator(values)) {
+        return;
+      }
+
+      // ... 调用接口
+    }
+  }
+};
+```
