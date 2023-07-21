@@ -157,3 +157,31 @@ export default {
   }
 };
 ```
+
+## 巧用解构
+bad
+```js
+handleParams() {
+  const params = {};
+  params.id = this.formItem.id;
+  params.startDate = this.formItem.startDate.format("YYYY-MM-DD");
+  params.endDate = this.formItem.endDate.format("YYYY-MM-DD");
+  params.price = this.formItem.price.toString();
+  params.type = this.formItem.type;
+  params.total = this.formItem.total;
+  params.name = this.formItem.name;
+  params.comment = this.formItem.comment;
+  // ... 此处省略一万行代码
+}
+```
+
+good
+```js
+handleParams() {
+  const { startDate, endDate, price, ...params } = this.formItem;
+  params.startDate = startDate.format("YYYY-MM-DD");
+  params.endDate = endDate.format("YYYY-MM-DD");
+  params.price = price.toString();
+  // ... 此处省掉一万行代码
+}
+```
