@@ -26,3 +26,11 @@ export const getPicturesByType = type => {
     },
   })
 }
+
+export const download = (filename) => {
+  return request({
+    url: `/file/download/${filename}`,
+    method: 'get',
+    responseType: 'blob',
+  })
+}
