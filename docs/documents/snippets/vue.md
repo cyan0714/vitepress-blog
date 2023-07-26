@@ -48,3 +48,20 @@
   }
 }
 ```
+
+## v-for in list
+```json
+{
+  "v-for in list": {
+    "prefix": "vfor",
+    "body": [
+      "<div v-for=\"(item, index) in list\"",
+      "   :class=\"['list-item', currentIndex === index ? 'list-item-actived' : '']\"",
+      "   :key=\"index\"",
+      "   @click=\"handleClick(index)\">",
+      "</div>"
+    ],
+    "description": "v-for in list"
+  }
+}
+```

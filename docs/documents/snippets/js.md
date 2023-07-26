@@ -1,14 +1,14 @@
 # JS
 
-## console2json(cls)
+## console2json(json)
 ```json
 {
   "Print to console": {
-    "prefix": "cls",
+    "prefix": "json",
     "body": [
       "console.log(JSON.parse(JSON.stringify($1)))"
     ],
-    "description": "Log output to JSON console"
+    "description": "log output to JSON console"
   }
 }
 ```
