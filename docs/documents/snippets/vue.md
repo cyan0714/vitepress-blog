@@ -13,6 +13,25 @@
 }
 ```
 
+## bind-background-style-dynamic(bgs)
+```json
+{
+  "backgroundStyle": {
+    "prefix": "bgs",
+    "body": [
+      "backgroundStyle(imgUrl) {",
+      "  return {",
+      "    backgroundImage: `url(\\${imgUrl})`,",
+      "    backgroundRepeat: 'no-repeat',",
+      "    backgroundSize: '100% 100%',",
+      "  };",
+      "},"
+    ],
+    "description": "bind background style dynamically"
+  }
+}
+```
+
 ## vue-template(vue)
 ```json
 {
