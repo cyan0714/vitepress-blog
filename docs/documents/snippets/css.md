@@ -148,6 +148,18 @@
 }
 ```
 
+## border-radius(rad)
+
+```json
+"radius": {
+  "prefix": "rad",
+  "body": [
+    "border-radius: 8px;"
+  ],
+  "description": "default border-radius"
+},
+```
+
 ## scss variable
 
 ```json
