@@ -67,6 +67,7 @@ methods: {
   };
 }
 ```
+
 ```css
 .popup-container {
   margin-bottom: 40vh;
@@ -125,21 +126,18 @@ methods: {
               },
             },
             markLine: {
-              symbol: 'none', //去掉警戒线最后面的箭头
-              label: {
-                position: 'end', //将警示值放在哪个位置，三个值“start”,"middle","end"  开始  中点 结束
+              lineStyle: {
+                type: 'solid',
+                color: '#000',
               },
-              data: [
-                {
-                  silent: false, //鼠标悬停事件  true没有，false有
-                  lineStyle: {
-                    //警戒线的样式  ，虚实  颜色
-                    type: 'solid',
-                    color: '#FA3934',
-                  },
-                  xAxis: average, // 警戒线的标注值，可以有多个xAxis,多条警示线   或者采用   {type : 'average', name: '平均值'}，type值有  max  min  average，分为最大，最小，平均值
-                },
-              ],
+              label: {
+                fontSize: 16,
+                color: this.mainColor,
+              },
+              symbol: 'circle',
+              symbolSize: 5,
+              symbolOffset: [-1, 0.5, 0, 0],
+              data: [{ type: 'average', name: 'Avg' }],
             },
           },
         ],
@@ -151,4 +149,30 @@ methods: {
     </script>
   </body>
 </html>
+```
+
+## echarts 条形图如何隐藏 y 轴方向上的 0 刻度线
+
+如何将下图圈起来的线隐藏起来?
+![8](./imgs/8.png)
+
+设置 y 轴的 axisLine
+![9](./imgs/9.png)
+
+最终代码:
+
+```js
+yAxis: {
+  type: "category",
+  axisLine: {
+    show: true,
+    lineStyle: {
+      color: '#fff',
+    }
+  },
+  // 重新定义类目轴上文字颜色
+  axisLabel: {
+    color: '#000'
+  },
+}
 ```
