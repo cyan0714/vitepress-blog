@@ -38,7 +38,7 @@ getTaskReport(formData).then(res => {
 })
 ```
 
-### 方式 3
+### 方式 3 (推荐)
 
 ```js
 import qs from 'qs'
