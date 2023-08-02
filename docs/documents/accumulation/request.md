@@ -54,4 +54,6 @@ const params = {}
 getTaskReport(params).then(res => {
   this.matterList = res.resultData
 })
+
+特别地, 如果 params 中的属性仍然是一个对象, 则需要先用 JSON.stringify 进行转换
 ```
