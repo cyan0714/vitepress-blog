@@ -4,7 +4,7 @@ import sidebar from './config/sidebar';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: '/vitepress-blog/',
+  // base: '/vitepress-blog/',
   title: "Cyan's Blog",
   themeConfig: {
     nav,

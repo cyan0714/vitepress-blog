@@ -8,6 +8,7 @@ export default {
   '/documents/database': getDatabase(),
   '/documents/vscode-settings-plugins': getVSCodeSettingsPlugins(),
   '/documents/snippets': getSnippets(),
+  '/documents/handwritten': getHandWritten(),
 }
 
 function getFrontend() {
@@ -136,10 +137,9 @@ function getAccumulation() {
         { text: '前端如何导入导出文件', link: '/documents/accumulation/import-export-file' },
         { text: 'ESModule', link: '/documents/accumulation/es-module' },
         { text: 'vscode+vim 使用心得', link: '/documents/accumulation/vscode-vim' },
-        { text: '手写懒加载', link: '/documents/accumulation/lazy-load' },
         { text: '前后端实现文件上传和下载', link: '/documents/accumulation/download-file' },
         { text: '搭建自己的 ChatGPT', link: '/documents/accumulation/build-own-chatgpt' },
-        { text: '手写算法', link: '/documents/accumulation/algorithm' },
+        { text: '手写算法', link: '' },
         { text: '代码风格', link: '/documents/accumulation/code-style' },
         { text: '服务器部署', link: '/documents/accumulation/deploy' },
         { text: '开发技巧', link: '/documents/accumulation/development-skills' },
@@ -193,6 +193,18 @@ function getSnippets() {
         { text: 'vue', link: '/documents/snippets/vue' },
         { text: 'element-ui', link: '/documents/snippets/element-ui' },
         { text: 'avue', link: '/documents/snippets/avue' },
+      ],
+    },
+  ];
+}
+
+function getHandWritten() {
+  return [
+    {
+      text: '代码片段',
+      items: [
+        { text: '手写懒加载', link: '/documents/handwritten/lazy-load' },
+        { text: '手写算法', link: '/documents/handwritten/algorithm' },
       ],
     },
   ];

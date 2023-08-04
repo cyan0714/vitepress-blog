@@ -41,7 +41,11 @@ export const nav = [
       {
         text: 'Shell脚本',
         link: '/documents/shell/shell',
-      }
+      },
+      {
+        text: '手写',
+        link: '/documents/handwritten/lazy-load',
+      },
       // { text: '代码片段', link: '/item-3' },
     ],
   },
