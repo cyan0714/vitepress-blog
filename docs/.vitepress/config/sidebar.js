@@ -205,6 +205,7 @@ function getHandWritten() {
       items: [
         { text: '手写懒加载', link: '/documents/handwritten/lazy-load' },
         { text: '手写算法', link: '/documents/handwritten/algorithm' },
+        { text: '手写Vue响应式原理', link: '/documents/handwritten/vue-reactive' },
       ],
     },
   ];
