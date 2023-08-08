@@ -43,7 +43,8 @@ function getFrontend() {
         { text: '事件循环', link: '/documents/frontend/javascript/event-loop' },
         { text: '防抖', link: '/documents/frontend/javascript/debounce' },
         { text: '节流', link: '/documents/frontend/javascript/throttle' },
-        { text: '预编译', link: '/documents/accumulation/pre-compile' },
+        { text: '预编译', link: '/documents/frontend/javascript/pre-compile' },
+        { text: 'ESModule', link: '/documents/frontend/javascript/es-module' },
       ],
     },
     {
@@ -136,7 +137,6 @@ function getAccumulation() {
       items: [
         { text: 'application/x-www-form-urlencoded', link: '/documents/accumulation/request' },
         { text: '前端如何导入导出文件', link: '/documents/accumulation/import-export-file' },
-        { text: 'ESModule', link: '/documents/accumulation/es-module' },
         { text: 'vscode+vim 使用心得', link: '/documents/accumulation/vscode-vim' },
         { text: '前后端实现文件上传和下载', link: '/documents/accumulation/download-file' },
         { text: '搭建自己的 ChatGPT', link: '/documents/accumulation/build-own-chatgpt' },
