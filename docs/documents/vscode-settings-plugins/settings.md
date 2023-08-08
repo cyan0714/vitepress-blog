@@ -41,7 +41,14 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    // 使在 md 文件中可以使用 snippets
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": true,
+        "strings": true
+    },
+    "editor.acceptSuggestionOnEnter": "on"
   },
 
   // 在键入 JavaScript 代码时，如果 editor.formatOnType 设置为 true，
@@ -315,12 +322,7 @@
     },
     {
       "before": ["'"],
-      // "after": ["{", "z", "z"]
       "after": ["<C-u>", "z", "z"]
-    },
-    {
-      "before": ["<leader>", "f"],
-      "after": ["=", "="]
     },
     {
       "before": ["s"],
