@@ -483,4 +483,13 @@ fd.append('name', 'data')
 
 `append` 方法接收两个参数 键和值
 
-使用 FormDate 就不需要给 xhr 对象设置响应头了，因为 xhr 对象可以识别作为 FormDate 实例传入的数据类型并自动配置响应头
+使用 FormData 就不需要给 xhr 对象设置响应头了，因为 xhr 对象可以识别作为 FormDate 实例传入的数据类型并自动配置响应头
+
+## URLSearchParams
+
+URLSearchParams 是用于处理 URL 查询参数的对象。它提供了一组方法来解析、操作和构建 URL 查询参数。你可以使用它来获取、设置、添加或删除 URL 的查询参数。
+
+```js
+const urlParams = new URLSearchParams(window.location.search);
+const paramValue = urlParams.get('paramName');
+```

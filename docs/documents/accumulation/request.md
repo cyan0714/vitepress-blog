@@ -13,24 +13,6 @@ export const getTaskReport = data => {
     data,
   })
 }
-const params = {}
-const formData = new URLSearchParams(params)
-getTaskReport(formData).then(res => {
-  this.matterList = res.resultData
-})
-```
-
-### 方式 2
-
-```js
-export const getTaskReport = data => {
-  return request({
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    url: `/app/business/dcs/taskReport`,
-    method: 'POST',
-    data,
-  })
-}
 const formData = new FormData()
 formData.append('key', 'value')
 getTaskReport(formData).then(res => {
@@ -38,7 +20,7 @@ getTaskReport(formData).then(res => {
 })
 ```
 
-### 方式 3 (推荐)
+### 方式 2 (推荐)
 
 ```js
 import qs from 'qs'
