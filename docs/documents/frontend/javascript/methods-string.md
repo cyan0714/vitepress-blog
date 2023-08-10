@@ -73,7 +73,7 @@ console.log(a.startsWith('hel')) // true
 console.log(a.startsWith('llo')) // false
 ```
 
-## startsWith()
+## endsWith()
 
 检测一个字符串是否包含某个参数，它检查的是开始于索引末尾的匹配项，返回布尔值，可接收两个参数
 
@@ -129,7 +129,7 @@ console.log(a.padStart(10)) //      hello
 console.log(a.padStart(10, '-')) // -----hello
 ```
 
-## padStart()
+## padEnd()
 
 可以复制字符串，给出指定的长度进行填充，默认在字符串`后面`填充空格，接收两个参数
 

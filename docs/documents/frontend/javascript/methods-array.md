@@ -626,18 +626,3 @@ console.log(arr.indexOf(7)) // -1
 const arr = [1, 3, 7, 5, 6, 7, 9]
 console.log(arr.lastIndexOf(7)) // 5
 ```
-
-## includes()
-
-`includes()` 方法和 `indexOf()` 类似，都是从左往右查找，但是 `includes()` 返回的是一个布尔类型来表示是否查到
-
-它接收两个参数：
-
-- 要查找的元素
-- 开始索引的位置（可选）
-
-```js
-const arr = [1, 3, 7, 5, 6, 7, 9]
-console.log(arr.includes(3)) // true
-console.log(arr.includes(0)) // false
-```
