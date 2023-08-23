@@ -8,7 +8,7 @@
       </div>
     </header>
     <section class="section" v-for="(item, index) in quotes" :key="index">
-      <img :src="`http://${item['picture']}`" alt="">
+      <img :src="`http://${item['picture']}`" alt="" />
       <div class="text-area">
         <p>{{ item['hero'] }}</p>
         <p>{{ item['word'] }}</p>
@@ -19,7 +19,7 @@
 
 <script lang="ts">
 import { getRandomQuote } from '../service/api.js';
-import { getPicturesByType } from '../service/api.js'
+import { getPicturesByType } from '../service/api.js';
 
 export default {
   data() {
@@ -74,6 +74,13 @@ export default {
         border-radius: 30px;
         border: 1px solid #d0d7de;
         margin-left: 20px;
+        transition: 0.3s all;
+        box-shadow: 7px 7px 12px rgba(0, 0, 0, 0.4), -7px -7px 12px rgba(255, 255, 255, 0.9),
+          inset 0 0 0x rgba(255, 255, 255, 0.9), inset 0 0 0 rgba(0, 0, 0, 0.4);
+        &:active {
+          box-shadow: 0 0 0 rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.9),
+            inset -7px -7px 12px rgba(255, 255, 255, 0.9), inset 7px 7px 12px rgba(0, 0, 0, 0.4);
+        }
       }
     }
   }
