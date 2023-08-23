@@ -1,7 +1,7 @@
 # 文件上传和下载
 
-## 文件上传(以 koa 为例)
-后端代码:
+## 文件上传
+后端代码(以 koa 为例):
 ```js
 async saveFile(ctx, next) {
   // 1.获取文件信息
@@ -26,8 +26,8 @@ async createFile(filename, mimetype, size) {
 
 ![upload](./imgs/7.png)
 
-## 文件下载(以 koa 为例)
-后端代码:
+## 文件下载
+后端代码(以 koa 为例):
 ```js
 async download(ctx, next) {
   const { filename } = ctx.params

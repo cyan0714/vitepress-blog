@@ -1,10 +1,10 @@
 # Vue
 
-## bind-img-dynamic(img)
+## bind-img-dynamic(dimg)
 ```json
 {
   "bind img dynamic": {
-    "prefix": "img",
+    "prefix": "dimg",
     "body": [
       "<img :src=\"require(`@/imgs/${$1}`)\" alt=\"\">"
     ],
@@ -13,11 +13,11 @@
 }
 ```
 
-## bind-background-style-dynamic(bgs)
+## bind-background-style-dynamic(dbgs)
 ```json
 {
   "backgroundStyle": {
-    "prefix": "bgs",
+    "prefix": "dbgs",
     "body": [
       "backgroundStyle(imgUrl) {",
       "  return {",
@@ -68,7 +68,7 @@
 }
 ```
 
-## v-for in list
+## v-for in list(vfor)
 ```json
 {
   "v-for in list": {
