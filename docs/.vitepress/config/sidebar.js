@@ -9,6 +9,7 @@ export default {
   '/documents/vscode-settings-plugins': getVSCodeSettingsPlugins(),
   '/documents/snippets': getSnippets(),
   '/documents/handwritten': getHandWritten(),
+  '/documents/scripts': getScripts(),
 }
 
 function getFrontend() {
@@ -205,6 +206,18 @@ function getHandWritten() {
         { text: '手写懒加载', link: '/documents/handwritten/lazy-load' },
         { text: '手写算法', link: '/documents/handwritten/algorithm' },
         { text: '手写Vue响应式原理', link: '/documents/handwritten/vue-reactive' },
+      ],
+    },
+  ];
+}
+
+function getScripts() {
+  return [
+    {
+      text: '脚本',
+      items: [
+        { text: 'shell', link: '/documents/scripts/shell' },
+        { text: 'nodejs', link: '/documents/scripts/nodejs' },
       ],
     },
   ];

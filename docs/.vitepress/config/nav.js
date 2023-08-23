@@ -39,8 +39,8 @@ export const nav = [
         link: '/documents/vscode-settings-plugins/settings',
       },
       {
-        text: 'Shell脚本',
-        link: '/documents/shell/shell',
+        text: '脚本',
+        link: '/documents/scripts/shell',
       },
       {
         text: '手写',
