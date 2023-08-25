@@ -1,23 +1,32 @@
 ## 小学
 
-<div v-for="(item, index) in pictures">
-  <br/>
-  <img :src="`http://${item.path}`" style="width:600px" >
+<div class="container">
+  <div v-for="(item, index) in pictures" :key="index">
+    <img class='primary-img' v-lazy="`http://${item.path}`">
+  </div>
 </div>
 
-<script>
-  import { getPicturesByType } from '../../../.vitepress/service/api.js'
+<script setup>
+import { getPicturesByType } from '../../../.vitepress/service/api.js'
+import { ref, onMounted } from 'vue'
 
-  export default {
-    data() {
-      return {
-        pictures: [],
-      }
-    },
-    created() {
-      getPicturesByType('小学').then(res => {
-        this.pictures = res
-      })
-    }
-}
+const pictures = ref([])
+
+onMounted(() => {
+  getPicturesByType('小学').then(res => {
+    pictures.value = res
+  })
+})
 </script>
+
+<style scoped>
+  .container {
+    column-count: 2;
+    column-gap: 10px;
+  }
+  .primary-img {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+  }
+</style>
