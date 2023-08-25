@@ -28,4 +28,10 @@ npm config set registry https://registry.npm.taobao.org/
 
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
+## npm install 后报错 Node Sass does not yet support your current environment 的解决办法
+
+直接把 node-sass 升级到最新版本
+
+执行 npm install node-sass --save-dev
+
 
