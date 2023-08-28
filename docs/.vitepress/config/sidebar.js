@@ -148,7 +148,7 @@ function getAccumulation() {
         { text: 'echarts 地图', link: '/documents/accumulation/echarts-map' },
         { text: 'import from 加载规则', link: '/documents/accumulation/import-from-rules' },
         { text: 'npm 相关', link: '/documents/accumulation/about-npm' },
-        { text: '对象转原始值', link: '/documents/accumulation/object-to-primitive' },
+        { text: '类型转换', link: '/documents/accumulation/type-conversion' },
         { text: 'private 和 public key', link: '/documents/accumulation/private-public-key' },
         { text: 'ssh 连接报错', link: '/documents/accumulation/ssh-link-error' },
         { text: '文本对齐', link: '/documents/accumulation/text-alignment' },
