@@ -145,7 +145,7 @@ function getAccumulation() {
         { text: '服务器部署', link: '/documents/accumulation/deploy' },
         { text: '开发技巧', link: '/documents/accumulation/development-skills' },
         { text: '自定义 elementui 样式', link: '/documents/accumulation/diy-elementui-style' },
-        { text: 'echarts 地图', link: '/documents/accumulation/echarts-map' },
+        { text: 'echarts 相关', link: '/documents/accumulation/echarts' },
         { text: 'import from 加载规则', link: '/documents/accumulation/import-from-rules' },
         { text: 'npm 相关', link: '/documents/accumulation/about-npm' },
         { text: '类型转换', link: '/documents/accumulation/type-conversion' },
