@@ -28,6 +28,14 @@ export default {
     loadMap() {
       const chart = echarts.init(this.$refs.echartRef);
       echarts.registerMap(this.defaultCode.name, this.defaultCode.mapCode);
+
+      const convertFeatures = haiNanMap.features.map((item, index) => {
+        return {
+          name: item.properties.name,
+          value: item.properties.cp,
+        };
+      });
+
       this.option = {
         title: {
           text: "HN",
@@ -35,37 +43,17 @@ export default {
           left: "right",
           show: false
         },
-        visualMap: {
-          left: "right",
-          realtime: false,
-          min: 500000,
-          max: 38000000,
-          inRange: {
-            color: [
-              "#0e56c2",
-              "#0e56c2",
-              "#0a3c7b",
-              "#0c4281",
-              "#0d4799",
-              "#114892",
-              "#133361",
-              "#105cc5",
-              "#154185",
-              "#06234b",
-              "#1566c4",
-              "#0f428c",
-              "#06234b",
-              "#062b58",
-              "#105bc5",
-              "#062b58",
-              "#032d5d",
-              "#062b58",
-              "#0e56c2",
-            ],
-          },
-          text: ["High", "Low"],
-          // calculable: true,
-        },
+        // visualMap: {
+        //   left: "right",
+        //   realtime: false,
+        //   min: 500000,
+        //   max: 38000000,
+        //   inRange: {
+        //     color: ["#1e5a9a", "#4395e1"],
+        //   },
+        //   text: ["High", "Low"],
+        //   // calculable: true,
+        // },
         // toolbox: {
         //   show: false,
         //   orient: "vertical",
@@ -77,6 +65,31 @@ export default {
         //     saveAsImage: {},
         //   },
         // },
+
+        // 地理坐标系组件用于地图的绘制，支持在地理坐标系上绘制散点图，线集。
+        geo: {
+          show: true,
+          map: this.defaultCode.name,
+          label: {
+            normal: {
+              show: false,
+            },
+            emphasis: {
+              show: false,
+            },
+          },
+          roam: true,
+          aspectScale: 1,
+          itemStyle: {
+            areaColor: "#01215c",
+            borderWidth: 1, // 外层边框宽度
+            borderColor: "#fff",
+            shadowColor: "#021838",
+            shadowOffsetX: 0,
+            shadowOffsetY: 0,
+          },
+        },
+
         series: [
           {
             name: "Map",
@@ -101,6 +114,7 @@ export default {
             },
             itemStyle: {
               borderColor: "#2a7fa3",
+              areaColor: "#01215c",
               borderWidth: 1.2,
               shadowColor: "rgba(100, 100, 100, 0.6)",
               shadowBlur: 100,
@@ -140,6 +154,46 @@ export default {
               { name: "海棠区", value: 632323 },
             ],
           },
+          {
+            name: "pic",
+            type: "scatter",
+            coordinateSystem: "geo",
+            //自定义图片的 位置（lng, lat）
+            data: convertFeatures,
+            //自定义图片的 大小
+            symbolSize: [40, 40],
+            //自定义图片的 路径(注：必须以image://开头)
+            symbol: `image://https://images.wanjunshijie.com/2021/08/20210828120639693.png?imageView2/0/format/webp/q/75`,
+          },
+
+          {
+            name: '引导线',
+            type: 'lines',
+            symbol: 'circle',
+            symbolSize: 1,
+            opacity: 1,
+            data: [
+              {
+                name: '海口市',
+                coords: [[110.42, 19.8651], [110.63119, 20.201971]]
+              }
+            ],
+            label: {
+              show: true,
+              padding: [10, 20],
+              color: '#fff',
+              backgroundColor: '#af6062',
+              borderRadius: 6,
+              formatter: () => {
+                return 'label';
+              },
+            },
+            lineStyle: {
+              type: 'solid',
+              opacity: 1,
+              color: '#725846',
+            },
+          }
         ],
       };
       chart.setOption(this.option);
