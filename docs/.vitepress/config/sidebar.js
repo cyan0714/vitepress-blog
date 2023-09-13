@@ -155,6 +155,7 @@ function getAccumulation() {
         { text: 'uniapp 开发技巧', link: '/documents/accumulation/uniapp-skills' },
         { text: '海南省地图', link: '/documents/accumulation/hainan-map' },
         { text: '中国地图', link: '/documents/accumulation/china-map' },
+        { text: '新境界ui', link: '/documents/accumulation/xjj-ui' },
         { text: '其他', link: '/documents/accumulation/others' },
       ],
     },
