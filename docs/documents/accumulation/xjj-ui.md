@@ -3,7 +3,7 @@
 <script setup>
   import DescTable from '/.vitepress/components/xjjui/DescTable.vue';
   import FormTablePagination from '/.vitepress/components/xjjui/FormTablePagination.vue';
-  import Switch from '/.vitepress/components/xjjui/Switch.vue';
+  import ToggleSwitch from '/.vitepress/components/xjjui/ToggleSwitch.vue';
 </script>
 
 ## desc-table
@@ -25,8 +25,8 @@
 
 ## 开关
 
-<switch />
+<toggle-switch />
 
 ::: details
-  <<< @/.vitepress/components/xjjui/Switch.vue
+  <<< @/.vitepress/components/xjjui/ToggleSwitch.vue
 :::
