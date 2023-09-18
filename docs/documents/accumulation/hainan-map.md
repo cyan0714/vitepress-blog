@@ -78,7 +78,7 @@ export default {
               show: false,
             },
           },
-          roam: true,
+          roam: false, // 是否可拖拽
           aspectScale: 1,
           itemStyle: {
             areaColor: "#01215c",
