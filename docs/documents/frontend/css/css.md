@@ -93,7 +93,7 @@ CSS 的动画是一种通过 CSS 代码实现网页动态效果的技术，可�
 
 ### 上下 margin 的传递
 
-1. margin-top 传递: 如果块级元素的顶部线和父元素的顶部线重叠, 那么这个块级元素的 margin-top 灰传递给父元素
+1. margin-top 传递: 如果块级元素的顶部线和父元素的顶部线重叠, 那么这个块级元素的 margin-top 会传递给父元素
 2. margin-bottom 传递: 如果块级元素的底部线和父元素的底线重叠, 并且父元素的高度是 auto, 那么这个块级元素的 margin-bottom 会传递给父元素
 3. 如何防止出现传递问题
    1. 给父元素设置 padding-top/padding-bottom
