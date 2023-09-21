@@ -74,106 +74,75 @@ methods: {
 }
 ```
 
-## echarts 的 markline
+## 单行文本对齐
+使用 html + css 实现以下效果:
+
+![card](./imgs/2.png)
 
 ```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
-  </head>
-
-  <body>
-    <div id="chartContainer" style="width: 600px; height: 400px;"></div>
-
-    <script>
-      var data = [
-        { name: 'Category 1', value: -10 },
-        { name: 'Category 2', value: 20 },
-        { name: 'Category 3', value: -5 },
-        { name: 'Category 4', value: 15 },
-      ];
-
-      var sum = 0;
-      for (var i = 0; i < data.length; i++) {
-        sum += data[i].value;
-      }
-      var average = sum / data.length;
-
-      var chartOptions = {
-        xAxis: {
-          type: 'value',
-          axisLine: { show: false },
-          splitLine: { show: false },
-        },
-        yAxis: {
-          type: 'category',
-          data: data.map(item => item.name),
-          axisLine: { show: false },
-          axisTick: { show: false },
-        },
-        series: [
-          {
-            type: 'bar',
-            data: data.map(item => item.value),
-            itemStyle: {
-              color: function (params) {
-                return params.value >= 0 ? 'green' : 'red';
-              },
-            },
-            markLine: {
-              lineStyle: {
-                type: 'solid',
-                color: '#000',
-              },
-              label: {
-                fontSize: 16,
-                color: this.mainColor,
-              },
-              symbol: 'circle',
-              symbolSize: 5,
-              symbolOffset: [-1, 0.5, 0, 0],
-              data: [{ type: 'average', name: 'Avg' }],
-            },
-          },
-        ],
-      };
-
-      var chartContainer = document.getElementById('chartContainer');
-      var chart = echarts.init(chartContainer);
-      chart.setOption(chartOptions);
-    </script>
-  </body>
-</html>
+<div class="card">
+  <div class="person">
+    <span class="key">处理人员</span>:
+    <span class="value">张三</span>
+  </div>
+  <div class="dept">
+    <span class="key">部门</span>:
+    <span class="value">省政府督查室</span>
+  </div>
+</div>
 ```
-
-## echarts 条形图如何隐藏 y 轴方向上的 0 刻度线
-
-如何将下图圈起来的线隐藏起来?
-![8](./imgs/8.png)
-
-设置 y 轴的 axisLine
-![9](./imgs/9.png)
-
-最终代码:
-
-```js
-yAxis: {
-  type: "category",
-  axisLine: {
-    show: true,
-    lineStyle: {
-      color: '#fff',
-    }
-  },
-  // 重新定义类目轴上文字颜色
-  axisLabel: {
-    color: '#000'
-  },
+```css
+.card {
+  width: 240px;
+  padding: 14px;
+  background:#ffffff;
+  box-shadow:0px 1px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  > div {
+    display: flex;
+  }
+  .person {
+    margin-bottom: 12px;
+  }
+  /* 重要 */
+  .key {
+    color: #666;
+    width: 4em;
+    text-align: justify;
+    text-align-last: justify;
+  }
+  .value {
+    color: #000;
+    margin-left: 10px;
+  }
 }
 ```
 
+## 生成 private.key 和 public.key
+
+![key](./imgs/1.png)
+
+## ssh 连接报错
+
+### ssh远程连接主机报错:Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+
+解决: 重新生成远程主机信息，命令如下:
+
+```shell
+ssh-keygen -R [远程主机IP]
+```
+
+### Permission denied (publickey,gssapi-keyex,gssapi-with-mic) 解决方法
+
+```shell
+1. sudo vim /etc/ssh/sshd_config
+
+2. 增加如下修改
+PasswordAuthentication yes
+PermitRootLogin yes
+
+3. 重启sshd
+sudo systemctl restart sshd 或 service sshd restart
+
+4. 去对应的云服务器平台重置密码
+```
