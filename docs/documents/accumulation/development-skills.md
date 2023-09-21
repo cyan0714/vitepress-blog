@@ -1,5 +1,6 @@
 # 开发技巧
 
+## 小技巧
 1. 在移动端上，使用`overflow-y:scorll`属性时，你会发现滚动的效果很木，很慢，这时候可以使用`-webkit-overflow-scrolling: touch`这个属性，让滚动条产生滚动回弹的效果，就像 ios 原生的滚动条一样流畅。
 2. 如果 api 名和 method 名相同, 可以在 method 前加 \_ 来区分(Vue)
 3. audio 标签不加任何属性, 在页面就不会显示该元素
