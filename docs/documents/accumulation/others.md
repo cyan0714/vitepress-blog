@@ -146,3 +146,57 @@ sudo systemctl restart sshd 或 service sshd restart
 
 4. 去对应的云服务器平台重置密码
 ```
+
+## vscode+vim 使用心得
+
+### 标注位置
+#### 标注m
+m字母，记录当前光标的位置。例如：
+
+现在光标在第10行，按mc，记录下当前位置。
+
+#### 标注
+标注位置后，进行翻页、跳转、移动光标，再按`字母，光标会迅速跳回到之前记录的位置。例如：
+
+输入gg，光标回到第1行，再按`c，光标会回到第10行。
+
+
+## 如何发送 content-type 为 application/x-www-form-urlencoded 的网络请求
+
+### 方式 1
+
+```js
+export const getTaskReport = data => {
+  return request({
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    url: `/app/business/dcs/taskReport`,
+    method: 'POST',
+    data,
+  })
+}
+const formData = new FormData()
+formData.append('key', 'value')
+getTaskReport(formData).then(res => {
+  this.matterList = res.resultData
+})
+```
+
+### 方式 2 (推荐)
+
+```js
+import qs from 'qs'
+export const getTaskReport = data => {
+  return request({
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    url: `/app/business/dcs/taskReport`,
+    method: 'POST',
+    data: qs.stringify(data),
+  })
+}
+const params = {}
+getTaskReport(params).then(res => {
+  this.matterList = res.resultData
+})
+
+特别地, 如果 params 中的属性仍然是一个对象, 则需要先用 JSON.stringify 进行转换
+```

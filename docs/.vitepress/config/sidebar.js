@@ -136,9 +136,7 @@ function getAccumulation() {
     {
       text: '我的积累',
       items: [
-        { text: 'application/x-www-form-urlencoded', link: '/documents/accumulation/request' },
         { text: '前端如何导入导出文件', link: '/documents/accumulation/import-export-file' },
-        { text: 'vscode+vim 使用心得', link: '/documents/accumulation/vscode-vim' },
         { text: '前后端实现文件上传和下载', link: '/documents/accumulation/download-file' },
         { text: '搭建自己的 ChatGPT', link: '/documents/accumulation/build-own-chatgpt' },
         { text: '代码风格', link: '/documents/accumulation/code-style' },
