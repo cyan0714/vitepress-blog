@@ -145,3 +145,114 @@ yAxis: {
 }
 ```
 
+## 基于 vue2 封装 echarts 常用组件
+
+1. 封装 Chart 组件
+
+```vue
+<template>
+  <div id="chart">
+    <div ref="echartRef" :style="chartStyle"></div>
+  </div>
+</template>
+
+<script>
+import * as echarts from 'echarts';
+export default {
+  components: {},
+  data() {
+    return {
+      chart: null
+    }
+  },
+  props: {
+    option: {
+      type: Object,
+      default: () => {},
+    },
+    chartStyle: {
+      type: Object,
+      default: () => {
+        return {
+          width: '600px',
+          height: '300px'
+        }
+      },
+    }
+  },
+  computed: {},
+  created() {},
+  mounted() {
+    this.chart = echarts.init(this.$refs.echartRef)
+    this.chart.setOption(this.option)
+  },
+  watch: {
+    option: {
+      handler: function (newOption, oldVal) {
+        this.chart.setOption(newOption)
+      },
+      deep: true
+    }
+  },
+  methods: {
+
+  }
+}
+</script>
+
+<style scoped lang="scss">
+</style>
+```
+
+2. 新建配置文件 option.js
+
+```js
+export default {
+  tooltip: {
+    trigger: 'axis',
+  },
+  legend: {
+    data: ['园区累计企业数', '园区累计新增注册企业', '园区新增企业'],
+  },
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true,
+  },
+  xAxis: {
+    type: 'category',
+    boundaryGap: false,
+    data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+  },
+  yAxis: {
+    type: 'value',
+  },
+  series: [
+    {
+      name: '园区累计企业数',
+      type: 'line',
+      stack: 'Total',
+      data: [120, 132, 101, 134, 90, 230, 210, 101, 134, 90, 230, 210],
+    },
+    {
+      name: '园区累计新增注册企业',
+      type: 'line',
+      stack: 'Total',
+      data: [220, 182, 191, 234, 290, 330, 310, 191, 234, 290, 330, 310],
+    },
+    {
+      name: '园区新增企业',
+      type: 'line',
+      stack: 'Total',
+      data: [150, 232, 201, 154, 190, 330, 410, 150, 232, 201, 154, 190],
+    },
+  ],
+};
+```
+
+3. 使用
+
+```vue
+<Chart :option="option" :chartStyle="{ height: '300px', width: '1200px' }"></Chart>
+```
