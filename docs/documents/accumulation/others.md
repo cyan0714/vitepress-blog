@@ -200,3 +200,9 @@ getTaskReport(params).then(res => {
 
 特别地, 如果 params 中的属性仍然是一个对象, 则需要先用 JSON.stringify 进行转换
 ```
+
+## el-checkbox 阻止冒泡事件
+
+```vue
+<el-checkbox v-model="checked" @click.native="(e) => e.stopPropogation()" ></el-checkbox>
+```
