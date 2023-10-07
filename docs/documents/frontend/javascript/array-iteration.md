@@ -83,6 +83,16 @@ console.log(filter(hd, [2, 3]))
 
 > 当你使用 filter 时，你应该在每次迭代中返回一个布尔值（filter 的条件）。（否则 JS 引擎会把返回值强制转换为布尔值！）
 
+使用 filter 过滤掉 falsy(false, null, 0, "", undefined, NaN) 值
+
+```js
+const array = [1, 0, true, false, "", "hello", null, undefined, NaN];
+
+const filteredArray = array.filter(Boolean);
+
+console.log(filteredArray); //[1, true, "hello"]
+```
+
 ## map()
 
 `map()` 方法用于映射数组
