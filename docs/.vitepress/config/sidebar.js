@@ -164,6 +164,7 @@ function getMemoirs() {
       items: [
         { text: '大学', link: '/documents/memoirs/colleage/colleage' },
         { text: '小学', link: '/documents/memoirs/primary/primary' },
+        { text: '北京', link: '/documents/memoirs/beijing/beijing' },
       ],
     },
   ]
