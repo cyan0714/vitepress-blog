@@ -256,3 +256,79 @@ export const searchRepeated = function (data) {
   });
 };
 ```
+
+## vue2如何实现页面滚动到某个位置时对应 tab 切换
+
+```vue
+<template>
+  <div>
+    <div class="tabs">
+      <div class="tab" :class="{ active: currentTab === 'tab1' }">Tab 1</div>
+      <div class="tab" :class="{ active: currentTab === 'tab2' }">Tab 2</div>
+      <div class="tab" :class="{ active: currentTab === 'tab3' }">Tab 3</div>
+    </div>
+    <div id="section1">Section 1</div>
+    <div id="section2">Section 2</div>
+    <div id="section3">Section 3</div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      currentTab: 'tab1',
+    };
+  },
+  methods: {
+    handleScroll() {
+      const section1 = document.getElementById('section1');
+      const section2 = document.getElementById('section2');
+      const section3 = document.getElementById('section3');
+
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+
+      if (scrollTop >= section1.offsetTop && scrollTop < section2.offsetTop) {
+        this.currentTab = 'tab1';
+      } else if (scrollTop >= section2.offsetTop && scrollTop < section3.offsetTop) {
+        this.currentTab = 'tab2';
+      } else if (scrollTop >= section3.offsetTop) {
+        this.currentTab = 'tab3';
+      }
+    },
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+};
+</script>
+
+<style>
+.tabs {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background-color: #f0f0f0;
+  padding: 10px;
+}
+
+.tab {
+  cursor: pointer;
+}
+
+.tab.active {
+  font-weight: bold;
+}
+
+section {
+  height: 1000px;
+  margin-top: 30px;
+}
+</style>
+```
