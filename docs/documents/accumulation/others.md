@@ -332,3 +332,19 @@ section {
 }
 </style>
 ```
+
+## vuepress 如何解决导入第三方包时报错: global is not defined
+
+在 .vuepress/config.js 文件中添加以下代码:
+
+```js
+modules.exports = {
+  configureWebpack: {
+    node: {
+      global: true,
+      process: true,
+      Buffer: true,
+    },
+  },
+}
+```
