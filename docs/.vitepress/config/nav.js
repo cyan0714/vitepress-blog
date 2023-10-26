@@ -46,7 +46,10 @@ export const nav = [
         text: '手写',
         link: '/documents/handwritten/lazy-load',
       },
-      // { text: '代码片段', link: '/item-3' },
+      {
+        text: '快捷键',
+        link: '/documents/shortcut/terminal',
+      },
     ],
   },
 ];
