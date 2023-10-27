@@ -34,4 +34,15 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 执行 npm install node-sass --save-dev
 
+## npm link - 避免频繁发布更新
+
+现在有两个项目，一个项目是A，另一个项目是B。
+
+目标: 在B项目里，使用A项目里的模块
+
+1. 先在A项目中执行 npm link(执行完毕后, 会在全局的 node_modules 文件夹里生成一个A项目的软连接, 指向实际的A项目)
+
+2. 在B项目里执行 npm link A(执行完毕后, 会在B项目里的 node_modules 文件夹里生成一个A项目的软连接, 指向实际的A项目) 即可
+
+> 修改A项目的代码后, B项目会自动更新
 
