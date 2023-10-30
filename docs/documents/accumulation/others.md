@@ -348,3 +348,10 @@ modules.exports = {
   },
 }
 ```
+
+## js 如何判断对象自身为空？
+
+```js
+const obj = {}
+Reflect.ownKeys(obj1).length === 0
+```
