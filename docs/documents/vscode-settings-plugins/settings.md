@@ -522,6 +522,7 @@
     "**/bower_components": true
   },
   "htmltagwrap.tag": "div",
+  "files.insertFinalNewline": true,
   "files.exclude": {
     "**/.git": false
   },
