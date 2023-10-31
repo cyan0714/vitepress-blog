@@ -522,6 +522,7 @@
     "**/bower_components": true
   },
   "htmltagwrap.tag": "div",
+  "files.insertFinalNewline": true,
   "files.exclude": {
     "**/.git": false
   },
@@ -537,7 +538,9 @@
   },
   "minapp-vscode.disableAutoConfig": true,
   "minapp-vscode.disableDecorate": true,
-  "minapp-vscode.cssExtname": "sass"
+  "minapp-vscode.cssExtname": "sass",
+
+  "outline.collapseItems": "alwaysCollapse"
 }
 ```
 
