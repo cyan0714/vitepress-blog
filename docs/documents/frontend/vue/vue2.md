@@ -79,6 +79,8 @@ export default router
 
 ## 非父子组件通信
 
+1. 通过 EventBus
+
 创建一个叫 `bus.js` 的通信组件，内容如下
 
 ```js
@@ -103,6 +105,34 @@ bus.$on('自定义事件名称', (data) => {
   // data 即为传递来的数据
   // 处理函数
 })
+```
+
+2. 通过 provide 和 inject
+
+```js
+// 提供方组件
+export default {
+  provide() {
+    return {
+      value: '要传递的值',
+      method: this.methodToPass, // 要传递的方法
+    };
+  },
+  methods: {
+    methodToPass() {
+      // 要传递的方法的实现
+    },
+  },
+};
+
+// 接收方组件
+export default {
+  inject: ['value', 'method'], // 在这里列出要接收的值和方法
+  mounted() {
+    console.log(this.value); // 访问传递的值
+    this.method(); // 调用传递的方法
+  },
+};
 ```
 
 需要注意的是：
