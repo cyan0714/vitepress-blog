@@ -37,6 +37,11 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 执行 npm install node-sass --save-dev
 
+## gyp ERR! node-gyp -v v3.8.0 运行报错的解决办法
+
+1. 将 python 降为3以下版本 (没试过, 不知道能不能成功)
+2. 将 node-sass 删除, 然后安装 sass (亲测成功)
+
 ## npm link - 避免频繁发布更新
 
 现在有两个项目，一个项目是 A，另一个项目是 B。
