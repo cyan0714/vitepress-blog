@@ -24,7 +24,7 @@
 
 ## el-checkbox(ec)
 ```json
-"el-button-primary": {
+"el-checkbox": {
   "prefix": "ec",
   "body": [
     "<el-checkbox v-model=\"checked\">备选项</el-checkbox>"
