@@ -14,6 +14,7 @@ yarn config get registry # 查看 yarn 当前镜像源
 ```bash
 npm config set registry https://registry.npmjs.org/ # 设置 npm 为官方源
 npm config set registry https://registry.npm.taobao.org/ # 设置 npm 镜像源为淘宝镜像
+npm config set registry http://192.168.0.169:8081/repository/npm-public/ # 设置 npm 为公司源(新境界)
 
 yarn config set registry https://registry.npm.taobao.org/ # 设置 yarn 镜像源为淘宝镜像
 ```
