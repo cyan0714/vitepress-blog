@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: |
           npm config set proxy null
-          npm ci
+          yarn install
 
       - name: Build
         run: npm run build
