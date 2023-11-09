@@ -1,6 +1,6 @@
 # yml 脚本
 
-## github action 自动部署
+## github actions 自动部署
 
 ```yml
 name: Build and Deploy
