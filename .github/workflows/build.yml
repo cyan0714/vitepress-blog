@@ -30,6 +30,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./docs/.vitepress/dist
           publish_branch: gh-web
           publish_repo: cyan0714/vitepress-blog
