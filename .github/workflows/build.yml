@@ -19,9 +19,7 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: |
-          npm config set proxy null
-          yarn install
+        run: yarn install
 
       - name: Build
         run: npm run build
