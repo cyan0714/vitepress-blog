@@ -191,6 +191,8 @@ export const getTaskReport = data => {
     url: `/app/business/dcs/taskReport`,
     method: 'POST',
     data: qs.stringify(data),
+    // or:
+    // data: Object.entries(data).reduce((prev, curr) => `${prev}${curr[0]}=${curr[1]}&`, '')
   })
 }
 const params = {}
