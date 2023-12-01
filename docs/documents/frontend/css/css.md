@@ -1,5 +1,9 @@
 # CSS
 
+<script setup>
+  import RowUp from '/.vitepress/components/css-demo/rowup.vue';
+</script>
+
 ## CSS 是什么？
 
 CSS（Cascading Style Sheets）是一种用于描述网页样式的语言，它可以控制网页中的字体、颜色、布局、背景等方面的样式。
@@ -114,6 +118,17 @@ CSS 的动画是一种通过 CSS 代码实现网页动态效果的技术，可�
 - `background-position` 只设置一个值，则另一个为 center
 - `background-attachment` 的值为 scroll(默认)、 local( 背景会随着 Box 内容滚动)、fix(不会滚动)
 - `background` 缩写：顺序一般是任意的，除了一种情况：如果有 size ，要放在 position 后面
+
+
+## Demo
+
+### 1. 无限轮播
+
+<RowUp/>
+
+::: details
+  <<< @/.vitepress/components/css-demo/rowup.vue
+:::
 
 ## CSS 常用样式集合
 
