@@ -134,6 +134,25 @@ CSS 的动画是一种通过 CSS 代码实现网页动态效果的技术，可�
 
 ```css
 /**
+ * 好看的滚动条样式
+ */
+.scrollBar {
+  &::-webkit-scrollbar-track-piece {
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    //background-color: hsla(220, 4%, 58%, .3);
+    background-color: #888;
+  }
+}
+
+/**
  * 文字超出 1 行省略号表示
  */
 .single-row-ellip {
