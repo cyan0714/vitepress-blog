@@ -134,6 +134,31 @@ CSS 的动画是一种通过 CSS 代码实现网页动态效果的技术，可�
 
 ```css
 /**
+ * 三角形
+ */
+.triangle {
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: black;
+}
+
+/**
+ 标题前加小圆圈
+*/
+&::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #5184f9;
+}
+
+/**
  * 好看的滚动条样式
  */
 .scrollBar {
