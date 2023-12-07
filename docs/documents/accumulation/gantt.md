@@ -1,10 +1,10 @@
 # dhtmlx-gantt 甘特图
 
-<script setup>
+<!-- <script setup>
   import Gantt from '/.vitepress/components/gantt/main.vue';
 </script>
 
-<Gantt />
+<Gantt /> -->
 
 ::: details
   <<< @/.vitepress/components/gantt/main.vue
