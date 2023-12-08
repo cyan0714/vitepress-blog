@@ -571,6 +571,12 @@
     "command": "workbench.view.explorer",
     "when": "viewContainer.workbench.view.explorer.enabled"
   },
+  // ctrl + `
+  {
+    "key": "ctrl+oem_2",
+    "command": "workbench.action.terminal.sendSequence",
+    "when": "terminalFocus"
+  },
   {
     "key": "ctrl+alt+u",
     "command": "editor.action.transformToUppercase"
