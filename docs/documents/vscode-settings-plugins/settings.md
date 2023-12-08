@@ -44,9 +44,9 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     // 使在 md 文件中可以使用 snippets
     "editor.quickSuggestions": {
-        "other": true,
-        "comments": true,
-        "strings": true
+      "other": true,
+      "comments": true,
+      "strings": true
     },
     "editor.acceptSuggestionOnEnter": "on"
   },
@@ -545,33 +545,31 @@
 ```
 
 ## keybindings.json
+
 ```json
 // 将键绑定放在此文件中以覆盖默认值auto[]
 [
   {
-    "key": "ctrl+alt+=",
-    "command": "wwm.aligncode",
-    "when": "textInputFocus"
+    "key": "ctrl+shift+j",
+    "command": "vim.remap",
+    "when": "inputFocus && (vim.mode == 'Normal' || vim.mode == 'Insert')",
+    "args": {
+      "after": ["y", "y", "p", "p"]
+    }
   },
   {
-    "key": "left",
-    "command": "-cursorLeft",
-    "when": "textInputFocus"
+    "key": "ctrl+shift+k",
+    "command": "vim.remap",
+    "when": "inputFocus && (vim.mode == 'Normal' || vim.mode == 'Insert')",
+    "args": {
+      "after": ["y", "y", "P"]
+    }
   },
+  // ctrl + ;
   {
-    "key": "right",
-    "command": "-cursorRight",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "up",
-    "command": "-cursorUp",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "down",
-    "command": "-cursorDown",
-    "when": "textInputFocus"
+    "key": "ctrl+oem_1",
+    "command": "workbench.view.explorer",
+    "when": "viewContainer.workbench.view.explorer.enabled"
   },
   {
     "key": "ctrl+alt+u",
@@ -580,131 +578,6 @@
   {
     "key": "ctrl+alt+l",
     "command": "editor.action.transformToLowercase"
-  },
-  {
-    "key": "alt+oem_7",
-    "command": "cursorWordLeft",
-    "when": "textInputFocus && !accessibilityModeEnabled"
-  },
-  {
-    "key": "ctrl+left",
-    "command": "-cursorWordLeft",
-    "when": "textInputFocus && !accessibilityModeEnabled"
-  },
-  {
-    "key": "alt+oem_1",
-    "command": "cursorWordEndRight",
-    "when": "textInputFocus && !accessibilityModeEnabled"
-  },
-  {
-    "key": "ctrl+right",
-    "command": "-cursorWordEndRight",
-    "when": "textInputFocus && !accessibilityModeEnabled"
-  },
-  {
-    "key": "shift+alt+oem_1",
-    "command": "cursorWordEndRightSelect",
-    "when": "textInputFocus && !accessibilityModeEnabled"
-  },
-  {
-    "key": "ctrl+shift+right",
-    "command": "-cursorWordEndRightSelect",
-    "when": "textInputFocus && !accessibilityModeEnabled"
-  },
-  {
-    "key": "shift+alt+oem_7",
-    "command": "cursorWordLeftSelect",
-    "when": "textInputFocus && !accessibilityModeEnabled"
-  },
-  {
-    "key": "ctrl+shift+left",
-    "command": "-cursorWordLeftSelect",
-    "when": "textInputFocus && !accessibilityModeEnabled"
-  },
-  {
-    "key": "shift+alt+k",
-    "command": "cursorDownSelect",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "ctrl+shift+down",
-    "command": "-cursorDownSelect",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "shift+alt+i",
-    "command": "cursorUpSelect",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "ctrl+shift+up",
-    "command": "-cursorUpSelect",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "shift+alt+j",
-    "command": "cursorLeftSelect",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "shift+left",
-    "command": "-cursorLeftSelect",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "shift+alt+l",
-    "command": "cursorRightSelect",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "shift+right",
-    "command": "-cursorRightSelect",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "ctrl+shift+oem_1",
-    "command": "cursorEndSelect",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "shift+end",
-    "command": "-cursorEndSelect",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "ctrl+shift+oem_7",
-    "command": "cursorHomeSelect",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "shift+home",
-    "command": "-cursorHomeSelect",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "ctrl+oem_1",
-    "command": "cursorEnd",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "end",
-    "command": "-cursorEnd",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "ctrl+oem_7",
-    "command": "cursorHome",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "home",
-    "command": "-cursorHome",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "pagedown",
-    "command": "-cursorPageDown",
-    "when": "textInputFocus"
   },
   {
     "key": "shift+a",
@@ -717,41 +590,13 @@
     "when": "filesExplorerFocus && !inputFocus"
   },
   {
-    "key": "ctrl+oem_1",
-    "command": "workbench.view.explorer",
-    "when": "viewContainer.workbench.view.explorer.enabled"
-  },
-  {
-    "key": "ctrl+shift+e",
-    "command": "-workbench.view.explorer",
-    "when": "viewContainer.workbench.view.explorer.enabled"
-  },
-  {
-    "key": "ctrl+oem_7",
-    "command": "workbench.action.focusFirstEditorGroup"
-  },
-  {
-    "key": "ctrl+1",
-    "command": "workbench.action.focusFirstEditorGroup"
-  },
-  {
     "key": "d",
     "command": "deleteFile",
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
   },
   {
-    "key": "shift+delete",
-    "command": "-deleteFile",
-    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
-  },
-  {
     "key": "r",
     "command": "renameFile",
-    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
-  },
-  {
-    "key": "f2",
-    "command": "-renameFile",
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   },
   {
