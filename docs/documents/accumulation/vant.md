@@ -36,3 +36,74 @@ export default {
 }
 </style>
 ```
+
+## 2. 自定义 nav-bar
+
+```vue 
+<template>
+  <van-nav-bar
+    :title="title || options.title"
+    :border="options.border"
+    left-arrow
+    @click-left="goBack"
+    :style="{
+      '--var-title-color': options.titleColor,
+      '--var-left-arrow-color': options.leftArrowColor,
+      '--var-background-color': options.bgColor
+    }"
+  />
+</template>
+
+<script>
+import { NavBar } from 'vant';
+export default {
+  components: {
+    [NavBar.name]: NavBar
+  },
+  data() {
+    return {}
+  },
+  props: {
+    options: {
+      type: Object,
+      default: () => {
+        return {
+          border: true,
+          bgColor: '#fff',
+          titleColor: '#000',
+          leftArrowColor: '#000',
+        }
+      }
+    },
+    title: {
+      type: String,
+      default: '',
+    },
+  },
+  computed: {},
+  created() {},
+  mounted() {},
+  methods: {
+    goBack() {
+      this.$router.go(-1);
+    },
+  }
+}
+</script>
+
+<style scoped lang="scss">
+.van-nav-bar {
+  background-color: var(--var-background-color);
+  ::v-deep .van-icon {
+    color: var(--var-left-arrow-color);
+  }
+}
+::v-deep .van-nav-bar__arrow {
+  font-size: 20px;
+}
+::v-deep .van-nav-bar__title {
+  font-size: 18px;
+  color: var(--var-title-color);
+}
+</style>
+```
