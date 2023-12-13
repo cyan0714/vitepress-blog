@@ -107,3 +107,66 @@ export default {
 }
 </style>
 ```
+
+## 3. 自定义 tab-bar
+
+```vue
+<template>
+  <van-tabbar v-if="isShowTabbar" v-model="active" route>
+    <van-tabbar-item v-for="(tabbar, index) in tabbars" :key="index" :name="tabbar.ename" replace :to="tabbar.path">
+      <span>{{ tabbar.name }}</span>
+      <template #icon="props">
+        <img :src="props.active ? tabbar.activeIcon : tabbar.icon" />
+      </template>
+    </van-tabbar-item>
+  </van-tabbar>
+</template>
+
+<script>
+import { Tabbar, TabbarItem } from 'vant';
+export default {
+  data () {
+    return {
+      active: 'supervise-unite',
+      tabbars: [
+        {
+          name: '首页',
+          activeIcon: require('./images/tabbar/icon_home_active.png'),
+          icon: require('./images/tabbar/icon_home.png'),
+          path: '/home',
+          ename: 'home'
+        },
+        {
+          name: '督办任务',
+          activeIcon: require('./images/tabbar/icon_supervise_mission_active.png'),
+          icon: require('./images/tabbar/icon_supervise_mission.png'),
+          path: '/supervise-mission',
+          ename: 'supervise-mission'
+        },
+        {
+          name: '多督合一',
+          activeIcon: require('./images/tabbar/icon_supervise_unite_active.png'),
+          icon: require('./images/tabbar/icon_supervise_unite.png'),
+          path: '/supervise-unite',
+          ename: 'supervise-unite'
+        },
+        {
+          name: '我的',
+          activeIcon: require('./images/tabbar/icon_profile_active.png'),
+          icon: require('./images/tabbar/icon_profile.png'),
+          path: '/profile-page',
+          ename: 'profile-page'
+        }
+      ]
+    }
+  },
+  methods: {},
+  created() {},
+  computed: {
+    isShowTabbar() {
+      return ['/home', '/supervise-mission', '/supervise-unite', '/profile-page'].includes(this.$route.path)
+    }
+  },
+}
+</script>
+```
