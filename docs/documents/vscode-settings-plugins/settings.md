@@ -55,12 +55,10 @@
   // 则当输入结束符号（如分号或大括号）时，编辑器会自动对整个行或当前作用域
   // 的代码进行格式化。这有助于保持代码的一致性和可读性，并减少手动格式化的工作量。
   "editor.formatOnType": true,
-
   // 保存时自动运行 eslint 工具来修复所有错误和警告
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-
   "editor.minimap.enabled": false,
   "editor.tabSize": 2,
   "editor.detectIndentation": false,
@@ -68,7 +66,7 @@
   "editor.lineHeight": 28,
   "editor.fontFamily": "Fira Code, monospace",
   "editor.suggestSelection": "first",
-  "editor.hover.delay": 1000,
+  "editor.hover.delay": 2000,
   "editor.unicodeHighlight.ambiguousCharacters": false,
   "editor.inlineSuggest.enabled": true,
   "editor.fontSize": 16,
@@ -90,10 +88,13 @@
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
 
-  "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "Monokai Pro (Filter Machine)",
+  "workbench.iconTheme": "eq-material-theme-icons-light",
+  "workbench.colorTheme": "One Dark Pro Darker",
   "workbench.startupEditor": "none",
-  "workbench.editor.showTabs": false,
+  "workbench.tree.enableStickyScroll": true,
+  "workbench.editor.wrapTabs": true,
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.showTabs": "single",
 
   // 默认使用 bash 为终端
   "terminal.integrated.defaultProfile.windows": "MyBash",
@@ -526,21 +527,6 @@
   "files.exclude": {
     "**/.git": false
   },
-  // WeChat Mini Program Config
-  "files.associations": {
-    "*.cjson": "jsonc",
-    "*.wxss": "css",
-    "*.wxs": "javascript"
-  },
-  "emmet.includeLanguages": {
-    "wxml": "html",
-    "javascript": "javascriptreact"
-  },
-  "minapp-vscode.disableAutoConfig": true,
-  "minapp-vscode.disableDecorate": true,
-  "minapp-vscode.cssExtname": "sass",
-
-  "outline.collapseItems": "alwaysCollapse"
 }
 ```
 

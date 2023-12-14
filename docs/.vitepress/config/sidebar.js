@@ -152,6 +152,7 @@ function getAccumulation() {
         { text: '中国地图', link: '/documents/accumulation/china-map' },
         { text: '新境界ui', link: '/documents/accumulation/xjj-ui' },
         { text: '甘特图', link: '/documents/accumulation/gantt' },
+        { text: 'vant自定义组件', link: '/documents/accumulation/vant' },
         { text: '其他', link: '/documents/accumulation/others' },
       ],
     },
