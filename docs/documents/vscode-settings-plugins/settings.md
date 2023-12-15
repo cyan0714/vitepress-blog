@@ -70,6 +70,7 @@
   "editor.unicodeHighlight.ambiguousCharacters": false,
   "editor.inlineSuggest.enabled": true,
   "editor.fontSize": 16,
+  "editor.wordSeparators": "_`~!@$%^&*()-=+[{]}\\|;:'\",.<>/?",
 
   "eslint.codeAction.showDocumentation": {
     "enable": true
