@@ -70,7 +70,7 @@
   "editor.unicodeHighlight.ambiguousCharacters": false,
   "editor.inlineSuggest.enabled": true,
   "editor.fontSize": 16,
-  "editor.wordSeparators": "_`~!@$%^&*()-=+[{]}\\|;:'\",.<>/?",
+  "editor.wordSeparators": "_`~!@$%^&*()=+[{]}\\|;:'\",.<>/?",
 
   "eslint.codeAction.showDocumentation": {
     "enable": true
@@ -253,48 +253,6 @@
         "<Esc>",
         "h",
         "i",
-        "<Enter>"
-      ]
-    },
-    // 从 template 里的 class 跳到 style 标签里的 class(右边是双引号时)
-    {
-      "before": ["<leader>", "j"],
-      "after": ["F", "\"", "l", "v", "t", "\"", "y", "/", "<C-r>", "\"", "<leader>", "<Enter>"]
-    },
-    // 从 template 里的 class 跳到 style 标签里的 class(右边是空格时)
-    {
-      "before": ["<leader>", "n"],
-      "after": [
-        "F",
-        "\"",
-        "l",
-        "v",
-        "t",
-        "<leader>",
-        "y",
-        "/",
-        "<C-r>",
-        "\"",
-        "<leader>",
-        "<Enter>"
-      ]
-    },
-    // 从 style 标签里的 class 跳到 template 里的 class
-    {
-      "before": ["<leader>", "k"],
-      "after": [
-        "F",
-        ".",
-        "l",
-        "v",
-        "t",
-        "<leader>",
-        "y",
-        "/",
-        "class=\"(.*",
-        "<C-r>",
-        "\"",
-        ".*)",
         "<Enter>"
       ]
     },
