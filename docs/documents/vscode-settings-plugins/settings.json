@@ -57,47 +57,50 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "editor.minimap.enabled": false,
-  "editor.tabSize": 2,
   "editor.detectIndentation": false,
-  "editor.lineNumbers": "relative",
-  "editor.lineHeight": 28,
   "editor.fontFamily": "Fira Code, monospace",
-  "editor.suggestSelection": "first",
-  "editor.hover.delay": 2000,
-  "editor.unicodeHighlight.ambiguousCharacters": false,
-  "editor.inlineSuggest.enabled": true,
   "editor.fontSize": 16,
+  "editor.hover.delay": 2000,
+  "editor.inlineSuggest.enabled": true,
+  "editor.lineHeight": 28,
+  "editor.lineNumbers": "relative",
+  "editor.minimap.enabled": false,
+  "editor.suggestSelection": "first",
+  "editor.tabSize": 2,
+  "editor.unicodeHighlight.ambiguousCharacters": false,
   "editor.wordSeparators": "_`~!@$%^&*()=+[{]}\\|;:'\",.<>/?",
+  "editor.cursorSmoothCaretAnimation": "on",
+
+
   "eslint.codeAction.showDocumentation": {
     "enable": true
   },
   "eslint.enable": false,
   "eslint.validate": ["javascript", "javascriptreact", "html", "vue"],
 
-  "prettier.tabWidth": 2,
-  "prettier.printWidth": 100,
-  "prettier.jsxSingleQuote": true,
-  "prettier.singleQuote": true,
-  "prettier.semi": true,
   "prettier.arrowParens": "avoid",
   "prettier.bracketSameLine": true,
   "prettier.bracketSpacing": true,
   "prettier.htmlWhitespaceSensitivity": "css",
-  // "prettier.singleAttributePerLine": true,
-  "prettier.vueIndentScriptAndStyle": false,
+  "prettier.jsxSingleQuote": true,
+  "prettier.printWidth": 100,
+  "prettier.semi": true,
+  "prettier.singleQuote": true,
+  "prettier.tabWidth": 2,
   "prettier.useEditorConfig": false,
+  "prettier.vueIndentScriptAndStyle": false,
+  // "prettier.singleAttributePerLine": true,
 
-  "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
 
-  "workbench.iconTheme": "eq-material-theme-icons-light",
   "workbench.colorTheme": "One Dark Pro Darker",
-  "workbench.startupEditor": "none",
-  "workbench.tree.enableStickyScroll": true,
-  "workbench.editor.wrapTabs": true,
   "workbench.editor.enablePreview": false,
   "workbench.editor.showTabs": "single",
+  "workbench.editor.wrapTabs": true,
+  "workbench.iconTheme": "eq-material-theme-icons-light",
+  "workbench.startupEditor": "none",
+  "workbench.tree.enableStickyScroll": true,
 
   // 默认使用 bash 为终端
   "terminal.integrated.defaultProfile.windows": "MyBash",
@@ -188,7 +191,6 @@
       "after": ["/", "l", "a", "n", "g", "<Enter>", "z", "z"]
     }
   ],
-
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["<C-q>"],
@@ -395,13 +397,14 @@
       "after": ["right"]
     },
     {
+      // 从当前字符删除到最左边字符
       "before": ["<C-j>"],
-      "after": ["<Esc>", "d", "d"]
+      "after": ["<Esc>", "v", "^", "d"]
     },
     {
-      // 从当前字符删除到最左边字符
-      "before": ["K"],
-      "after": ["<Esc>", "v", "^", "d"]
+      // 从当前字符删除到最右边字符
+      "before": ["<C-k>"],
+      "after": ["<Esc>","v", "g", "_", "d"]
     },
     {
       "before": ["<C-d>"],
@@ -475,7 +478,8 @@
     "<C-a>": false,
     "<C-f>": false,
     "<C-y>": false,
-    "<C-u>": false
+    "<C-u>": false,
+    "<C-p>": false
   },
   "vim.autoSwitchInputMethod.enable": true,
   "vim.autoSwitchInputMethod.obtainIMCmd": "C:\\im-select.exe",
@@ -487,6 +491,7 @@
     "**/bower_components": true
   },
   "htmltagwrap.tag": "div",
+  
   "files.insertFinalNewline": true,
   "files.exclude": {
     "**/.git": false
