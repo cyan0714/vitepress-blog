@@ -171,3 +171,7 @@
 ## 84.sort
 
 ## 85.indent on paste
+
+## 86.Imports Sorter
+
+## 87.Sort JS object keys
