@@ -4,6 +4,7 @@
   import DescTable from '/.vitepress/components/xjjui/DescTable.vue';
   import FormTablePagination from '/.vitepress/components/xjjui/FormTablePagination.vue';
   import ToggleSwitch from '/.vitepress/components/xjjui/ToggleSwitch.vue';
+  import SearchBar from '/.vitepress/components/xjjui/SearchBar.vue';
 </script>
 
 ## desc-table
@@ -29,4 +30,12 @@
 
 ::: details
   <<< @/.vitepress/components/xjjui/ToggleSwitch.vue
+:::
+
+## 搜索
+
+<search-bar />
+
+::: details
+  <<< @/.vitepress/components/xjjui/SearchBar.vue
 :::
