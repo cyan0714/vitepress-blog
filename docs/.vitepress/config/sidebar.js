@@ -143,6 +143,7 @@ function getAccumulation() {
         { text: '服务器部署', link: '/documents/accumulation/deploy' },
         { text: '开发技巧', link: '/documents/accumulation/development-skills' },
         { text: '自定义 elementui 样式', link: '/documents/accumulation/diy-elementui-style' },
+        { text: 'elementui 常见问题及技巧', link: '/documents/accumulation/element-ui-skills' },
         { text: 'echarts 相关', link: '/documents/accumulation/echarts' },
         { text: 'import from 加载规则', link: '/documents/accumulation/import-from-rules' },
         { text: 'npm 相关', link: '/documents/accumulation/about-npm' },
