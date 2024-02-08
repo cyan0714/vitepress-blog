@@ -104,6 +104,21 @@ CSS 的动画是一种通过 CSS 代码实现网页动态效果的技术，可�
    2. 给父元素设置 border
    3. 触发 BFC, 给父元素设置 overflow: auto
 
+
+### 如何触发 BFC
+
+1. 根元素，即HTML元素
+2. float 的值不为 none
+3. overflow 的值不为 visible
+4. display 的值为 inline-block、table-cell、table-caption
+5. position 的值为 absolute 或 fixed
+
+### BFC 可以解决什么问题
+
+1. margin 塌陷问题
+2. margin 重叠问题
+3. 清除浮动
+
 ### span
 
 行内元素设置宽高无效，上下 margin 和 padding 无效，左右才有效
