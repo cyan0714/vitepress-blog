@@ -134,18 +134,7 @@ CSS 的动画是一种通过 CSS 代码实现网页动态效果的技术，可�
 - `background-attachment` 的值为 scroll(默认)、 local( 背景会随着 Box 内容滚动)、fix(不会滚动)
 - `background` 缩写：顺序一般是任意的，除了一种情况：如果有 size ，要放在 position 后面
 
-
-## Demo
-
-### 1. 无限轮播
-
-<RowUp/>
-
-::: details
-  <<< @/.vitepress/components/css-demo/rowup.vue
-:::
-
-## css 样式重置
+## CSS 样式重置
 
 ```css
 html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
@@ -632,3 +621,14 @@ $mainPadding: 12px;
   cursor: pointer;
 }
 ```
+
+## Demo
+
+### 1. 无限轮播
+
+<RowUp/>
+
+::: details
+  <<< @/.vitepress/components/css-demo/rowup.vue
+:::
+
