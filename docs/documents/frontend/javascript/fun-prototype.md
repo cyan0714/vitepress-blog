@@ -1,5 +1,38 @@
 # 面向对象编程
 
+## 深拷贝
+
+### 1. 使用 JSON.parse(JSON.stringify(obj))
+缺点:  
+1. 函数无法序列化函数，属性值为函数的属性转换之后丢失
+2. 日期 Date 对象转换到 JSON 对象之后无法反解析为原对象类型，解析后的值仍然是 JSON 格式的字符串
+3. 正则 RegExp 对象序列化后为一个普通的 javascript 对象
+4. undefined 序列化之后直接被过滤掉
+5. NaN 序列化之后为 null
+
+### 2. 使用递归
+```js
+function deepClone(obj) {
+  const objClone = Array.isArray(obj) ? [] : {};
+  
+  if (obj == null || typeof obj !== 'object') {
+    return
+  }
+
+  for (key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      if (obj[key] && typeof obj[key] === "object") {
+        objClone[key] = deepClone(obj[key]);
+      } else {
+        objClone[key] = obj[key];
+      }
+    }
+  }
+  return objClone;
+}
+```
+注意: 以上递归方法对日期和正则属性进行解析后仍然是普通的 js 空对象, 想要解决上述问题可以使用 lodash 的 cloneDeep 方法
+
 ## 原型和原型链
 
 ### 了解原型
