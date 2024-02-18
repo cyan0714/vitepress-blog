@@ -104,6 +104,21 @@ CSS 的动画是一种通过 CSS 代码实现网页动态效果的技术，可�
    2. 给父元素设置 border
    3. 触发 BFC, 给父元素设置 overflow: auto
 
+
+### 如何触发 BFC
+
+1. 根元素，即HTML元素
+2. float 的值不为 none
+3. overflow 的值不为 visible
+4. display 的值为 inline-block、table-cell、table-caption
+5. position 的值为 absolute 或 fixed
+
+### BFC 可以解决什么问题
+
+1. margin 塌陷问题
+2. margin 重叠问题
+3. 清除浮动
+
 ### span
 
 行内元素设置宽高无效，上下 margin 和 padding 无效，左右才有效
@@ -119,18 +134,7 @@ CSS 的动画是一种通过 CSS 代码实现网页动态效果的技术，可�
 - `background-attachment` 的值为 scroll(默认)、 local( 背景会随着 Box 内容滚动)、fix(不会滚动)
 - `background` 缩写：顺序一般是任意的，除了一种情况：如果有 size ，要放在 position 后面
 
-
-## Demo
-
-### 1. 无限轮播
-
-<RowUp/>
-
-::: details
-  <<< @/.vitepress/components/css-demo/rowup.vue
-:::
-
-## css 样式重置
+## CSS 样式重置
 
 ```css
 html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
@@ -617,3 +621,14 @@ $mainPadding: 12px;
   cursor: pointer;
 }
 ```
+
+## Demo
+
+### 1. 无限轮播
+
+<RowUp/>
+
+::: details
+  <<< @/.vitepress/components/css-demo/rowup.vue
+:::
+
