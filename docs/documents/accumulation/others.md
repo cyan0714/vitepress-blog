@@ -357,3 +357,14 @@ modules.exports = {
 const obj = {}
 Reflect.ownKeys(obj1).length === 0
 ```
+
+## 如何在不使用 webpack 等打包工具的情况下在 html 文件中使用 commonJS 或 esModule
+
+一. commonJS
+首先，浏览器是不能识别 require 函数的，想让浏览器能识别 require 可以使用 browserify 插件。
+1. `npm install -g browserify`
+2. 执行 `browserify your_file.js -o bundle.js` ，这将生成一个 bundle.js 的文件，然后在 html 文件中使用 script 标签引入这个文件即可
+
+二. esModule
+1. 在 script 标签中加入 type="module"
+2. 这时会报跨域，可以使用 vscode 中的 live server 插件打开这个 html 即可解决，因为 live server 会在你本地起一个服务
