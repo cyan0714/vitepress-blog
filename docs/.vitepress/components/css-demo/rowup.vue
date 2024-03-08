@@ -36,8 +36,8 @@
     transform: translate3d(0, 0, 0);
   }
   100% {
-    -webkit-transform: translate3d(0, -307px, 0);
-    transform: translate3d(0, -307px, 0);
+    -webkit-transform: translate3d(0, -50%, 0);
+    transform: translate3d(0, -50%, 0); // 50% 是相对于 rowup 这个 class 所在的盒子的高度的 50%，如果重复的内容有2份，则为50%，如果为3份，则为33.33%，以此类推
   }
 }
 .list {
