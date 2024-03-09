@@ -45,7 +45,10 @@ git push # 将本地当前分支 推送到 与本地当前分支同名的远程�
 当误删一个分支后，仍想找回当初误删分支的最新的 commit 节点，可以使用此命令查看对应 SHA1 值，并用 git checkout SHA1 检出对应的 commit 节点，再使用 git checkout -b dev 创建一个新分支，之后再进行合并等操作
 
 ## 什么是 rebase
-在一个 dev 分支上执行 git rebase master 时，dev 分支会将它的基底指向 master 的最新的 commit ，相当于从 master 分支的最新 commit 上检出一个分支，并修改自己原先的 SHA1 值。这时再切回 master 分支进行 merge 就会执行 fast-forward 的合并，提交历史就是一条线了
+举个例子: 假如有一个名为 dev 的 git 分支, 如果在 dev 分支上执行 git rebase master 会发生什么?
+答: 当在名为 dev 的分支上执行 git rebase master 命令时，Git 会将 dev 分支上的提交按顺序暂时保存起来，然后将 dev 分支回退到 master 分支的最新提交，接着将之前保存的 dev 分支的提交逐个应用到 master 分支上。这个过程会使得 dev 分支的提交历史线性化，看起来好像是在 master 分支上直接进行提交一样。 
+ 
+注意: 执行 git rebase 命令会改变提交历史，因此在共享的分支上使用 rebase 可能会引起冲突，应该谨慎使用。
 
 ## 如何知道远程仓库代码有更新？
 ```shell
