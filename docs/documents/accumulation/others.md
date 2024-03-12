@@ -368,3 +368,30 @@ Reflect.ownKeys(obj1).length === 0
 二. esModule
 1. 在 script 标签中加入 type="module"
 2. 这时会报跨域，可以使用 vscode 中的 live server 插件打开这个 html 即可解决，因为 live server 会在你本地起一个服务
+
+## 使用 vue-cli5.x 创建的 vue2 项目如何打包图片
+
+1. 将图片转换为 base64
+在 vue.config.js 中配置以下代码：
+```js
+// vue-cli5.x用以下配置
+chainWebpack: config => {
+  config.module
+    .rule('images')
+    .test(/\.(jpg|png|gif|svg)$/)
+    .set('parser', {
+      dataUrlCondition: {
+        maxSize: 20 * 1024 // 20KB
+      }
+    })
+}
+// vue-cli4.x用以下配置
+chainWebpack: config => {
+  config.module
+    .rule('images')
+    .test(/\.(jpg|png|gif)$/)
+    .use('url-loader')
+    .loader('url-loader')
+    .tap(options => Object.assign(options, { limit: 10240 })); // 10KB
+}
+```
