@@ -175,3 +175,6 @@
 ## 86.Imports Sorter
 
 ## 87.Sort JS object keys
+
+## 88.bookmarksJump(适合 vscode-vim 的 Mark 功能)
+
