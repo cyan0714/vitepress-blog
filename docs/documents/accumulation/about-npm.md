@@ -94,3 +94,22 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 3. 执行 `npm run release`, 若手动指定版本, 执行 `npm run release --release-as x.x.x`
 
 > 注意: 如果想在 CHANGELOG.md 中显示提交记录, 则每次的提交信息应以`feat、chore`等开头(具体可安装 git-cz 进行查看有哪些命令, 并在代码 commit 时执行`npm run commit`即可)
+
+## 将 npm 包发布到公司内网仓库
+### 方式一
+1. 发布成功后使用 npm install look-ui 将包安装到本地
+2. 使用 tar 命令将包打包成 tgz 格式：tar -czvf archive.tgz folder_name
+   
+   这会将名为"folder_name"的文件夹压缩成一个名为"archive.tgz"的tgz格式压缩文件。这个命令中的参数解释如下： 
+- c: 创建一个新的压缩文件 
+- z: 使用gzip进行压缩 
+- v: 显示详细的压缩过程 
+- f: 指定压缩文件的名称 
+
+3. 将包上传到公司源即可
+
+### 方式二
+1. 直接去 npm 镜像源下载 tgz 包
+2. 将包上传到公司源即可
+
+方式二可能会出现阿里云镜像源同步 npm 官方源不及时的情况，如果着急，使用方式一
