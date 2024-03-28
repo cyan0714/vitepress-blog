@@ -90,10 +90,15 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
   }
 }
 ```
-4. 执行`npm i @release-it/conventional-changelog -D`
-3. 执行 `npm run release`, 若手动指定版本, 执行 `npm run release --release-as x.x.x`
+
+3. 执行`npm i @release-it/conventional-changelog -D`
+4. 执行 `npm run release`, 若手动指定版本, 执行 `npm run release --release-as x.x.x`
 
 > 注意: 如果想在 CHANGELOG.md 中显示提交记录, 则每次的提交信息应以`feat、chore`等开头(具体可安装 git-cz 进行查看有哪些命令, 并在代码 commit 时执行`npm run commit`即可)
+
+## 取消 npm 包的发布
+
+`npm unpublish look-ui@x.x.x`
 
 ## 将 npm 包发布到公司内网仓库
 ### 方式一
