@@ -395,3 +395,13 @@ chainWebpack: config => {
     .tap(options => Object.assign(options, { limit: 10240 })); // 10KB
 }
 ```
+
+## Mac 环境变量
+
+Mac 默认有两个 Shell，分别是 bash 和 zsh。
+
+- bash 使用的配置文件是 ~/.bash_profile，zsh 使用的配置文件是 ~/.zshrc。
+- 环境变量配置在 ~/.bash_profile 或 ~/.zshrc 文件中，格式为 export 变量名=变量值。
+- 环境变量配置完成后，需要执行 source ~/.bash_profile 或 source ~/.zshrc 命令使环境变量生效。
+- 环境变量中的冒号表示多个路径的分隔符
+- $PATH 表示系统默认的路径，可以用 export PATH=$PATH:/usr/local/bin 追加自己的路径到系统默认路径中。
