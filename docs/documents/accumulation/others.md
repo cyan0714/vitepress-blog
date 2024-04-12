@@ -150,15 +150,22 @@ sudo systemctl restart sshd 或 service sshd restart
 ## vscode+vim 使用心得
 
 ### 标注位置
-#### 标注m
-m字母，记录当前光标的位置。例如：
 
-现在光标在第10行，按mc，记录下当前位置。
+vscode 下载 bookmark 插件，然后在 settings.json 中给 vim.normalModeKeyBindingsNonRecursive 添加如下配置：
+```json
+{
+  "before": [
+    "m"
+  ],
+  "commands": [
+    "bookmarks.toggle"
+  ]
+}
+```
 
-#### 标注
-标注位置后，进行翻页、跳转、移动光标，再按`字母，光标会迅速跳回到之前记录的位置。例如：
+### 如何在visual模式下快速使用引号包裹单词
 
-输入gg，光标回到第1行，再按`c，光标会回到第10行。
+对选中的单词或文字按下 `shift + s`，然后按 `"` 键即可快速包裹单词。
 
 
 ## 如何发送 content-type 为 application/x-www-form-urlencoded 的网络请求
