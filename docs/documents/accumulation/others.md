@@ -412,3 +412,26 @@ Mac 默认有两个 Shell，分别是 bash 和 zsh。
 - 环境变量配置完成后，需要执行 source ~/.bash_profile 或 source ~/.zshrc 命令使环境变量生效。
 - 环境变量中的冒号表示多个路径的分隔符
 - $PATH 表示系统默认的路径，可以用 export PATH=$PATH:/usr/local/bin 追加自己的路径到系统默认路径中。
+
+## Windows 如何查看本地有哪些端口正在运行服务
+
+这条命令会筛选出所有正在监听的端口:
+```bash
+netstat -an | findstr LISTENING
+```
+
+这条命令会查找特定端口是否正在被使用:
+```bash
+netstat -an | findstr :<port_number>
+```
+
+显示出某个端口对应的 pid:
+```bash
+netstat -ano | findstr :8080
+```
+
+停止某个端口的服务(注意要以管理员身份运行)
+```bash
+taskkill /f /pid <pid>
+```
+
