@@ -6,6 +6,7 @@
   import ToggleSwitch from '/.vitepress/components/xjjui/ToggleSwitch.vue';
   import SearchBar from '/.vitepress/components/xjjui/SearchBar.vue';
   import NavMenu from '/.vitepress/components/xjjui/NavMenu.vue';
+  import YearMonthToggle from '/.vitepress/components/xjjui/YearMonthToggle.vue';
 </script>
 
 ## desc-table
@@ -47,4 +48,12 @@
 
 ::: details
   <<< @/.vitepress/components/xjjui/NavMenu.vue
+:::
+
+## 年月切换
+
+<year-month-toggle />
+
+::: details
+  <<< @/.vitepress/components/xjjui/YearMonthToggle.vue
 :::
