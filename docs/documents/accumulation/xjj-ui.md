@@ -7,6 +7,7 @@
   import SearchBar from '/.vitepress/components/xjjui/SearchBar.vue';
   import NavMenu from '/.vitepress/components/xjjui/NavMenu.vue';
   import YearMonthToggle from '/.vitepress/components/xjjui/YearMonthToggle.vue';
+  import TabScrollable from '/.vitepress/components/xjjui/TabScrollable.vue';
 </script>
 
 ## desc-table
@@ -56,4 +57,12 @@
 
 ::: details
   <<< @/.vitepress/components/xjjui/YearMonthToggle.vue
+:::
+
+## 水平滚动切换
+
+<tab-scrollable />
+
+::: details
+  <<< @/.vitepress/components/xjjui/TabScrollable.vue
 :::
