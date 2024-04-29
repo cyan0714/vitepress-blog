@@ -84,7 +84,10 @@ function getBackend() {
   return [
     {
       text: '后端',
-      items: [{ text: 'nodejs', link: '/documents/backend/nodejs/nodejs' }],
+      items: [
+        { text: 'nodejs', link: '/documents/backend/nodejs/nodejs' },
+        { text: 'nestjs', link: '/documents/backend/nodejs/nestjs' }
+      ],
     },
   ]
 }
