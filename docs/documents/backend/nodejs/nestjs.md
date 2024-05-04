@@ -4,3 +4,4 @@
 
 1. 在 a.module.ts 的 providers 数组中添加 BService
 2. 在 a.module.ts 的 imports 数组中添加 BModule, 同时在 BModule 的 exports 数组中添加 BService
+3. 给 a.module.ts 的添加 @Global() 装饰器, 同时在 BModule 的 exports 数组中添加 BService
