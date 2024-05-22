@@ -16,10 +16,12 @@ npm config set registry https://registry.npmjs.org/ # 设置 npm 为官方源
 npm config set registry https://registry.npm.taobao.org/ # 设置 npm 镜像源为淘宝镜像
 npm config set registry https://registry.npmmirror.com/ # 设置 npm 镜像源为淘宝镜像(新)
 npm config set registry http://192.168.0.169:8081/repository/npm-public/ # 设置 npm 为公司源(新境界)
+npm config set registry https://npmmirror.digitalhainan.com.cn # 设置 npm 为公司源(数字海南)
 
 yarn config set registry https://registry.yarnpkg.com/ # 设置 yarn 源为官方源
 yarn config set registry https://registry.npm.taobao.org/ # 设置 yarn 源为淘宝镜像源
 yarn config set registry http://192.168.0.169:8081/repository/npm-public/ # 设置 yarn 为公司源(新境界)
+yarn config set registry https://npmmirror.digitalhainan.com.cn # 设置 yarn 为公司源(数字海南)
 ```
 
 ## npm install 时报错 certificate has expired 的解决方法
