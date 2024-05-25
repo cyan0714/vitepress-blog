@@ -2,7 +2,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - master
+      - gh-web
   workflow_dispatch:
 
 jobs:
