@@ -2,7 +2,6 @@ export default {
   '/documents/frontend': getFrontend(),
   '/documents/backend': getBackend(),
   '/documents/git': getGit(),
-  '/documents/philosophy': getPhilosophy(),
   '/documents/accumulation': getAccumulation(),
   '/documents/memoirs': getMemoirs(),
   '/documents/database': getDatabase(),
@@ -115,23 +114,6 @@ function getGit() {
       items: [{ text: 'git', link: '/documents/git/git' }],
     },
   ]
-}
-
-function getPhilosophy() {
-  return [
-    {
-      text: '人生哲理',
-      items: [
-        { text: '卡密尔', link: '/documents/philosophy/camille' },
-        { text: '亚索', link: '/documents/philosophy/yasuo' },
-        { text: '劫', link: '/documents/philosophy/zed' },
-        { text: '烬', link: '/documents/philosophy/jhin' },
-        { text: '李青', link: '/documents/philosophy/leesin' },
-        { text: '卢锡安', link: '/documents/philosophy/lucian' },
-        { text: '易', link: '/documents/philosophy/yi' },
-      ],
-    },
-  ];
 }
 
 function getAccumulation() {
