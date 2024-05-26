@@ -37,8 +37,8 @@
 </template>
 
 <script lang="ts">
-import { getRandomQuote } from '../service/api.js';
-import { getPicturesByType } from '../service/api.js';
+// import { getRandomQuote } from '../service/api.js';
+// import { getPicturesByType } from '../service/api.js';
 
 export default {
   data() {
@@ -88,13 +88,13 @@ export default {
 
     setInterval(clock, 100);
   },
-  async created() {
-    this.quotes = await getRandomQuote();
-    for (let i = 0; i < this.quotes.length; i++) {
-      const picture = await getPicturesByType(this.quotes[i].hero);
-      this.quotes[i].picture = picture[0].path;
-    }
-  },
+  // async created() {
+  //   this.quotes = await getRandomQuote();
+  //   for (let i = 0; i < this.quotes.length; i++) {
+  //     const picture = await getPicturesByType(this.quotes[i].hero);
+  //     this.quotes[i].picture = picture[0].path;
+  //   }
+  // },
 };
 </script>
 

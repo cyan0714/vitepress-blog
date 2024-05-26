@@ -7,7 +7,7 @@
 </div>
 
 <script>
-  import { getQuotesByName } from '../../.vitepress/service/api.js'
+  // import { getQuotesByName } from '../../.vitepress/service/api.js'
 
   export default {
     data() {

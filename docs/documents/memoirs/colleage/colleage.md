@@ -7,7 +7,7 @@
 </div>
 
 <script setup>
-import { getPicturesByType, download } from '../../../.vitepress/service/api.js'
+// import { getPicturesByType, download } from '../../../.vitepress/service/api.js'
 import { ref, onMounted } from 'vue'
 
 const pictures = ref([])
