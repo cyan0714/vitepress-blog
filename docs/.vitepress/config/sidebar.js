@@ -3,7 +3,6 @@ export default {
   '/documents/backend': getBackend(),
   '/documents/git': getGit(),
   '/documents/accumulation': getAccumulation(),
-  '/documents/memoirs': getMemoirs(),
   '/documents/database': getDatabase(),
   '/documents/vscode-settings-plugins': getVSCodeSettingsPlugins(),
   '/documents/snippets': getSnippets(),
@@ -143,19 +142,6 @@ function getAccumulation() {
       ],
     },
   ];
-}
-
-function getMemoirs() {
-  return [
-    {
-      text: '相册回忆录',
-      items: [
-        { text: '大学', link: '/documents/memoirs/colleage/colleage' },
-        { text: '小学', link: '/documents/memoirs/primary/primary' },
-        { text: '北京', link: '/documents/memoirs/beijing/beijing' },
-      ],
-    },
-  ]
 }
 
 function getVSCodeSettingsPlugins() {

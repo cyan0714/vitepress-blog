@@ -23,10 +23,6 @@ export const nav = [
         link: '/documents/git/git',
       },
       {
-        text: '回忆录',
-        link: '/documents/memoirs/colleage/colleage',
-      },
-      {
         text: '代码片段',
         link: '/documents/snippets/js',
       },
