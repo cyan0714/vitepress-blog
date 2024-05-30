@@ -435,3 +435,8 @@ netstat -ano | findstr :8080
 taskkill /f /pid <pid>
 ```
 
+## Mac 如何查看本地有哪些端口正在运行服务 
+
+```zsh
+netstat -antp tcp | grep LISTEN
+```
