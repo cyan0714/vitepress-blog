@@ -275,23 +275,32 @@
       "before": ["u"],
       "after": ["<C-u>", "z", "z"]
     },
-    // 标记当前位置
-    {
-      "before": ["m"],
-      "after": ["m", ","]
-    },
-    // 返回标记的位置
-    {
-      "before": [","],
-      "after": ["`", ","]
-    },
     {
       "before": ["n"],
       "after": ["*"]
     },
+    // bookmarks 标记当前行
+    {
+      "before": [
+        "m"
+      ],
+      "commands": [
+        "bookmarks.toggle"
+      ]
+    },
+    // bookmarks 往后跳到下一个标记
+    {
+      "before": [","],
+      "commands": [
+        "bookmarks.jumpToNext"
+      ]
+    },
+    // bookmarks 往前跳到上一个标记
     {
       "before": ["'"],
-      "after": ["<C-u>", "z", "z"]
+      "commands": [
+        "bookmarks.jumpToPrevious"
+      ]
     },
     {
       "before": ["s"],
