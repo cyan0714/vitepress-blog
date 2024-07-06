@@ -23,10 +23,6 @@ export const nav = [
         link: '/documents/git/git',
       },
       {
-        text: '代码片段',
-        link: '/documents/snippets/js',
-      },
-      {
         text: 'VSCode配置及插件',
         link: '/documents/vscode-settings-plugins/settings',
       },
