@@ -72,5 +72,5 @@ npm init vite@latest
 
 npm init vue@latest
 
-## 如何解决已经安装了某个地三方包，比如 axios，但还爆红问题？
+## 如何解决已经安装了某个第三方包，比如 axios，但还爆红问题？
 在 tsconfig.json 中的 compilerOptions 属性添加 "moduleResolution": "node”

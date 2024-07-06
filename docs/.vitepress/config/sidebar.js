@@ -37,7 +37,7 @@ function getFrontend() {
         { text: '面向对象编程', link: '/documents/frontend/javascript/fun-prototype' },
         { text: 'Class 类的使用', link: '/documents/frontend/javascript/fun-class' },
         { text: 'JavaScript API', link: '/documents/frontend/javascript/javascript-api' },
-        { text: '生成器', link: '/documents/frontend/javascript/generator' },
+        { text: '迭代器和生成器', link: '/documents/frontend/javascript/generator' },
         { text: 'proxy 代理', link: '/documents/frontend/javascript/proxy' },
         { text: '事件循环', link: '/documents/frontend/javascript/event-loop' },
         { text: '防抖', link: '/documents/frontend/javascript/debounce' },
