@@ -1,20 +1,17 @@
 {
-  "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
+  // Prettier is the default formatter for most languages  
+  // esbenp is the author of Prettier plugin
+  "editor.defaultFormatter": "esbenp.prettier-vscode",  
+
+  // Exceptions:  
+  "[html]": {  
+      "editor.defaultFormatter": "vscode.html-language-features"  
   },
-  "[javascript]": {
-    // esbenp 是指 Prettier 插件的作者名（Esben Petersen）
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[less]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  "[vue]": {  
+      "editor.defaultFormatter": "Vue.volar"  
+  },  
+
+  // Other specific settings  
   "[json]": {
     "editor.quickSuggestions": {
       "strings": true // 开启自动提示功能，当键入字符串时会自动列出可选项。
@@ -22,22 +19,13 @@
     // 在选择建议项时使用替换模式，即选择建议项后会覆盖当前输入的内容。
     "editor.suggest.insertMode": "replace",
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[python]": {
-    "editor.formatOnType": true
-  },
-  "[vue]": {
-    "editor.defaultFormatter": "Vue.volar"
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  },  
+  "[python]": {  
+      "editor.formatOnType": true  
+  },  
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    // 使在 md 文件中可以使用 snippets
+    // 使得在 md 文件中可以使用 snippets
     "editor.quickSuggestions": {
       "other": true,
       "comments": true,
@@ -45,10 +33,6 @@
     },
     "editor.acceptSuggestionOnEnter": "on"
   },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-
   // 在键入 JavaScript 代码时，如果 editor.formatOnType 设置为 true，
   // 则当输入结束符号（如分号或大括号）时，编辑器会自动对整个行或当前作用域
   // 的代码进行格式化。这有助于保持代码的一致性和可读性，并减少手动格式化的工作量。
@@ -57,7 +41,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "editor.detectIndentation": false,
+  "editor.detectIndentation": false, // 禁用自动检测文件使用的缩进风格
   "editor.fontFamily": "Fira Code, monospace",
   "editor.fontSize": 16,
   "editor.hover.delay": 2000,
@@ -70,7 +54,8 @@
   "editor.unicodeHighlight.ambiguousCharacters": false,
   "editor.wordSeparators": "_`~!@$%^&*()=+[{]}\\|;:'\",.<>/?",
   "editor.cursorSmoothCaretAnimation": "on",
-
+  "editor.autoClosingBrackets": "always",
+  "editor.inlineSuggest.showToolbar": "onHover",
 
   "eslint.codeAction.showDocumentation": {
     "enable": true
@@ -78,17 +63,17 @@
   "eslint.enable": false,
   "eslint.validate": ["javascript", "javascriptreact", "html", "vue"],
 
-  "prettier.arrowParens": "avoid",
-  "prettier.bracketSameLine": true,
-  "prettier.bracketSpacing": true,
+  "prettier.arrowParens": "avoid", //x => x 而不是 (x) => x
+  "prettier.bracketSameLine": true, //多行对象或数组字面量的大括号 { 或 [ 与第一个元素在同一行
+  "prettier.bracketSpacing": true, //在对象、数组括号与它们的内容之间打印空格。例如，{ foo: bar } 而不是 {foo: bar}
   "prettier.htmlWhitespaceSensitivity": "css",
   "prettier.jsxSingleQuote": true,
-  "prettier.printWidth": 100,
+  "prettier.printWidth": 100, //一行代码的最大字符数。
   "prettier.semi": true,
   "prettier.singleQuote": true,
   "prettier.tabWidth": 2,
-  "prettier.useEditorConfig": false,
-  "prettier.vueIndentScriptAndStyle": false,
+  "prettier.useEditorConfig": false, //不使用.editorconfig文件中的设置
+  "prettier.vueIndentScriptAndStyle": false, //对于Vue文件中的<script>和<style>标签，不额外缩进其内容
   // "prettier.singleAttributePerLine": true,
 
   "explorer.confirmDragAndDrop": false,
@@ -97,9 +82,9 @@
   "workbench.colorTheme": "One Dark Pro Darker",
   "workbench.editor.enablePreview": false,
   "workbench.editor.showTabs": "single",
-  "workbench.editor.wrapTabs": true,
-  "workbench.iconTheme": "eq-material-theme-icons-light",
-  "workbench.startupEditor": "none",
+  "workbench.editor.wrapTabs": true, //启用标签页的换行显示。当打开的标签页太多而无法在一行内完全显示时，此设置允许标签页换行显示，以便你可以看到所有的标签
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.startupEditor": "none", //设置VSCode启动时是否打开任何编辑器
   "workbench.tree.enableStickyScroll": true,
 
   // 默认使用 bash 为终端
@@ -500,6 +485,8 @@
     "<C-u>": false,
     "<C-p>": false
   },
+  
+  // windows 才使用的设置, mac 使用鼠须管
   "vim.autoSwitchInputMethod.enable": true,
   "vim.autoSwitchInputMethod.obtainIMCmd": "C:\\im-select.exe",
   "vim.autoSwitchInputMethod.switchIMCmd": "C:\\im-select.exe {im}",
@@ -510,9 +497,10 @@
     "**/bower_components": true
   },
   "htmltagwrap.tag": "div",
-  
   "files.insertFinalNewline": true,
   "files.exclude": {
     "**/.git": false
-  }
+  },
+  "fittencode.languagePreference.displayPreference": "en",
+  "fittencode.languagePreference.commentPreference": "en"
 }
