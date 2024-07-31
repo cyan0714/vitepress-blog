@@ -21,3 +21,18 @@ getStatus(row, index) {
   this.$set(this.tableList, index, item)
 }
 ```
+
+### 三. 父组件使用一个 el-input 封装的子组件, 且通过 v-model 绑定时, input 框无法输入问题
+给表单重新赋值
+```js
+this.form = {...this.form}
+```
+
+### 四. 如何解决表单重新赋值后, 自动触发表单验证的问题
+```js
+this.form.a = ''
+setTimeout(() => {
+  this.$refs.form.clearValidate()
+}, 0);
+```
+
