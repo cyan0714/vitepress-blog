@@ -57,6 +57,18 @@
   "editor.autoClosingBrackets": "always",
   "editor.inlineSuggest.showToolbar": "onHover",
 
+  "template-string-converter.validLanguages": [
+    "javascript",
+    "typescript",
+    "jsx",
+    "tsx",
+    "html",
+    "vue",
+    "svelte",
+    "yaml",
+    "json"
+  ],
+
   "eslint.codeAction.showDocumentation": {
     "enable": true
   },
