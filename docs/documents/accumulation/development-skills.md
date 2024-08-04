@@ -18,7 +18,7 @@ for (let i = 0; i < shopCar.length; i++) {
 
 8. 字体图标添加渐变色
 
-```js
+```css
 background: linear-gradient(180deg, #fabd3d 0%, #10ddcc 100%);
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;

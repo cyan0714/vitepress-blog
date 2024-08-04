@@ -62,7 +62,10 @@ function download(filename) {
 }
 
 function downloadFile(obj, name, suffix) {
+  // excel
   const blob = new Blob([obj], { type: 'application/ms-excel' })
+  // 非 excel
+  // const blob = new Blob([obj])
   console.log(blob.type);
   const downloadElement = document.createElement('a')
   const href = window.URL.createObjectURL(blob) // 创建下载的链接
