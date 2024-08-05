@@ -277,3 +277,44 @@ data: {
 
 ### 在 echarts 地图中使用
 ![bindImg](./imgs/3.png)
+
+## 有3个页面A,B,C, A是列表页, B是表单页, C是表单确认页
+
+### 如何实现当用户从A跳转到B, 在B填写完表单进入C后, 再从C返回B时, 表单数据依然存在.
+
+在B的路由配置中加上 meta 属性, 如下:
+```js
+meta: { title: '数据申请', isUseCache: true }
+```
+
+在B页面的 activated 以及 beforeRouteLeave 生命周期中添加以下代码:
+```js
+activated() {
+  if (!this.$route.meta.isUseCache) {
+    // 重新发送网络请求或初始化数据等操作
+  } else {
+    this.$route.meta.isUseCache = false
+  }
+},
+beforeRouteLeave(to, from, next) {
+  // 其中 CName 是C页面的组件名称
+  if (to.name === 'CName') {
+    from.meta.isUseCache = true
+  } else {
+    from.meta.isUseCache = false
+  }
+  next()
+},
+```
+
+在C页面提交表单后返回A页面时, 要将 isUseCache 置为 false, 这样再从A回到B时, 表单数据就不会是上一次缓存的了.
+```js
+// 从路由配置中找到A页面的路由对象
+const DataServiceRouter = constantRoutes.find(item => item.path === '/data-services')
+const DataServiceApply = DataServiceRouter.children.find(item => item.name === 'DataServiceApply')
+// 将 isUseCache 置为 false
+DataServiceApply.meta.isUseCache = false
+```
+
+
+
