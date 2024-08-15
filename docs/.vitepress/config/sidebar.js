@@ -191,6 +191,7 @@ function getScripts() {
       items: [
         { text: 'shell', link: '/documents/scripts/shell' },
         { text: 'nodejs', link: '/documents/scripts/nodejs' },
+        { text: 'bash', link: '/documents/scripts/bash' },
       ],
     },
   ];
