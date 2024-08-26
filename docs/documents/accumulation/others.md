@@ -440,3 +440,50 @@ taskkill /f /pid <pid>
 ```zsh
 netstat -antp tcp | grep LISTEN
 ```
+
+## vue 如何实现切换 tab 时取消上一个 tab 的网络请求
+
+
+### api.js
+```js
+export function pageItemForManagerApi(data = {}, o = {}) {
+  return request({
+    url: '/dataCatalog/pageItemForManager',
+    method: 'post',
+    data,
+    ...o
+  })
+}
+```
+
+### example.vue 
+```js
+import axios from 'axios'
+const { CancelToken } = axios
+let source = CancelToken.source()
+
+data() {
+  return {
+    prevMillisecond: 0,
+  }
+}
+watch: {
+  // 监听 activeTabName 的变化, 如果1.5秒内连续变化, 则取消上一次请求
+  activeTabName(newVal, oldVal) {
+    if (newVal === oldVal) {
+      return
+    }
+    const nowMillisecond = Date.now()
+    if (nowMillisecond - this.prevMillisecond < 1500 && newVal === 'catalog') {
+      source.cancel('取消上一次请求')
+      source = CancelToken.source()
+    }
+    this.prevMillisecond = nowMillisecond
+  }
+},
+method: {
+  async getData() {
+    const res = await api({ ...this.params }, { cancelToken: source.token })
+  }
+}
+```
