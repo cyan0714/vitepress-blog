@@ -112,14 +112,11 @@
 
   "vim.hlsearch": true,
   "vim.easymotion": true,
+  "vim.sneak": true,
   "vim.leader": "<space>",
   "vim.useSystemClipboard": true,
   // normal mode
   "vim.normalModeKeyBindings": [
-    {
-      "before": ["<C-n>"],
-      "commands": [":nohl"]
-    },
     {
       "before": ["H"],
       "after": ["^"]
@@ -132,24 +129,46 @@
       "before": ["K"],
       "after": ["h", "$", "V", "%"]
     },
-    // 从当前字符删除到最左边字符
-    {
-      "before": ["S"],
-      "after": ["v", "^", "d"]
-    },
-
     // 删除两个空格之间的字符串
     {
       "before": ["<leader>", "s"],
       "after": ["B", "d", "E", "a"]
     },
     {
+      "before": ["<leader>", "t", "f"],
+      "commands": [":tabfirst"]
+    },
+    {
+      "before": ["<leader>", "t", "l"],
+      "commands": [":tablast"]
+    },
+    {
+      "before": ["<leader>", "t", "n"],
+      "commands": [":tabnext"]
+    },
+    {
+      "before": ["<leader>", "t", "p"],
+      "commands": [":tabprev"]
+    },
+    {
+      "before": ["<leader>", "1"],
+      "commands": ["workbench.action.focusFirstEditorGroup"]
+    },
+    {
+      "before": ["<leader>", "2"],
+      "commands": ["workbench.action.focusSecondEditorGroup"]
+    },
+    {
+      "before": ["<leader>", "f"],
+      "commands": ["workbench.action.closeOtherEditors"]
+    },
+    {
       "before": ["<leader>", "i"],
-      "after": ["/", "f", "r", "o", "m", "<Enter>", "z", "z"]
+      "after": ["/", "i", "m", "p", "o", "r", "t", " ", "<Enter>", "z", "z"]
     },
     {
       "before": ["<leader>", "a"],
-      "after": ["/", "n", "a", "m", "e", "<Enter>", "z", "z"]
+      "after": ["/", "n", "a", "m", "e", ":", "<Enter>", "z", "z"]
     },
     {
       "before": ["<leader>", "d"],
@@ -161,15 +180,15 @@
     },
     {
       "before": ["<leader>", "p"],
-      "after": ["/", "p", "r", "o", "p", "s", "<Enter>", "z", "z"]
+      "after": ["/", "p", "r", "o", "p", "s", ":", "<Enter>", "z", "z"]
     },
     {
       "before": ["<leader>", "o"],
-      "after": ["/", "c", "o", "m", "p", "u", "t", "e", "d", "<Enter>", "z", "z"]
+      "after": ["/", "c", "o", "m", "p", "u", "t", "e", "d", ":", "<Enter>", "z", "z"]
     },
     {
       "before": ["<leader>", "w"],
-      "after": ["/", "w", "a", "t", "c", "h", "<Enter>", "z", "z"]
+      "after": ["/", "w", "a", "t", "c", "h", ":", "<Enter>", "z", "z"]
     },
     {
       "before": ["<leader>", "r"],
@@ -190,13 +209,26 @@
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": ["<C-q>"],
-      "after": ["o"]
+      "before": ["<C-j>"],
+      "after": ["4", "j", "z", "z"]
     },
     {
-      "before": ["<space>", "d", "f"],
-      "commands": ["delete-function.deleteFunction"]
+      "before": ["<C-a>"],
+      "after": ["9", "j", "z", "z"]
     },
+    {
+      "before": ["<C-k>"],
+      "after": ["4", "k", "z", "z"]
+    },
+    {
+      "before": ["<C-x>"],
+      "after": ["9", "k", "z", "z"]
+    },
+    {
+      "before": ["<C-d>"],
+      "commands": ["editor.action.peekDefinition"]
+    },
+    
     // 跳到 data 位置并自动补上复制的值（快速生成对应的 data)
     {
       "before": ["q"],
@@ -260,6 +292,48 @@
         "<Enter>"
       ]
     },
+    // 从 template 里的 class 跳到 style 标签里的 class(右边是双引号时)
+    {
+      "before": ["<leader>", "j"],
+      "after": ["F", "\"", "l", "v", "t", "\"", "y", "/", "<C-r>", "\"", "<leader>", "<Enter>"]
+    },
+    // 从 template 里的 class 跳到 style 标签里的 class(右边是空格时)
+    {
+      "before": ["<leader>", "n"],
+      "after": [
+        "F",
+        "\"",
+        "l",
+        "v",
+        "t",
+        "<leader>",
+        "y",
+        "/",
+        "<C-r>",
+        "\"",
+        "<leader>",
+        "<Enter>"
+      ]
+    },
+    // 从 style 标签里的 class 跳到 template 里的 class
+    {
+      "before": ["<leader>", "k"],
+      "after": [
+        "F",
+        ".",
+        "l",
+        "v",
+        "t",
+        "<leader>",
+        "y",
+        "/",
+        "class=\"(.*",
+        "<C-r>",
+        "\"",
+        ".*)",
+        "<Enter>"
+      ]
+    },
     {
       "before": ["w"],
       "after": ["w", "w"]
@@ -276,7 +350,6 @@
       "before": ["n"],
       "after": ["*"]
     },
-    // bookmarks 标记当前行
     {
       "before": [
         "m"
@@ -285,14 +358,12 @@
         "bookmarks.toggle"
       ]
     },
-    // bookmarks 往后跳到下一个标记
     {
       "before": [","],
       "commands": [
         "bookmarks.jumpToNext"
       ]
     },
-    // bookmarks 往前跳到上一个标记
     {
       "before": ["'"],
       "commands": [
@@ -300,12 +371,18 @@
       ]
     },
     {
-      "before": ["s"],
+      "before": ["s", "f"],
       "after": ["<Esc>", "<leader>", "<leader>", "s"]
     },
+    // 快速复制颜色值
     {
-      "before": ["p", "p"],
-      "after": ["p"]
+      "before": ["y", "c"],
+      "after": ["F", "#", "v", "6", "l", "y"]
+    },
+    // 复制光标所在单词到寄存器a, 同时删除这一行
+    {
+      "before": ["y", "r"],
+      "after": ["\"", "a", "y", "i", "w", "d", "d"]
     },
     // 从当前光标所在字符复制到当前行最后一个字符
     {
@@ -331,6 +408,16 @@
     {
       "before": ["y", "\""],
       "after": ["F", "\"", "l", "y", "t", "\""]
+    },
+    // 粘贴上一次复制的值
+    {
+      "before": ["p", "c"],
+      "after": ["p"]
+    },
+    // 粘贴a寄存器的值
+    {
+      "before": ["p", "p"],
+      "after": ["v", "i", "w", "\"", "a", "p"]
     },
     // 将单引号里的内容删除, 并将复制的内容粘贴到单引号里
     {
@@ -365,7 +452,7 @@
     // 将标签里的内容删除, 并将复制的内容粘贴到标签里
     {
       "before": ["p", "i", "t"],
-      "after": ["^", "f", ">", "p", "l", "d", "t", "<"]
+      "after": [ "d", "i", "t", "i", "<CR>", "<Esc>", "\"", "0", "p"]
     },
     // 往下一行粘贴复制的内容
     {
@@ -413,17 +500,7 @@
       "after": ["right"]
     },
     {
-      // 从当前字符删除到最左边字符
       "before": ["<C-j>"],
-      "after": ["<Esc>", "v", "^", "d"]
-    },
-    {
-      // 从当前字符删除到最右边字符
-      "before": ["<C-k>"],
-      "after": ["<Esc>","v", "g", "_", "d"]
-    },
-    {
-      "before": ["<C-d>"],
       "after": ["<Esc>", "d", "d"]
     },
     {
@@ -452,15 +529,19 @@
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     // 粘贴上一次复制的值
-    {
-      "before": ["p"],
-      "after": ["\"", "0", "p"]
-    },
+    // {
+    //   "before": ["p"],
+    //   "after": ["\"", "0", "p"]
+    // },
     // 复制后将光标定位到最后一个字符
     {
       "before": ["y"],
       "after": ["y", "g", "_", "%"]
-    }
+    },
+    {
+      "before": ["<C-f>"],
+      "commands": ["editor.action.startFindReplaceAction"]
+    },
   ],
   "vim.operatorPendingModeKeyBindings": [
     {
@@ -487,12 +568,12 @@
     }
   ],
   "vim.handleKeys": {
-    "<C-c>": false,
+    // "<C-c>": false,
     "<C-v>": false,
-    "<C-x>": false,
-    "<C-z>": false,
-    "<C-a>": false,
-    "<C-f>": false,
+    // "<C-x>": false,
+    // "<C-z>": false,
+    // "<C-a>": false,
+    // "<C-f>": false,
     "<C-y>": false,
     "<C-u>": false,
     "<C-p>": false

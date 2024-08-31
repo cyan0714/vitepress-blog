@@ -88,5 +88,14 @@
     "key": "up",
     "command": "selectPrevSuggestion",
     "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion"
-  }
+  },
+  {
+    "key": "ctrl+z",
+    "command": "workbench.action.terminal.focus",
+  }, 
+  {
+    "key": "ctrl+z",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus"
+  },
 ]
