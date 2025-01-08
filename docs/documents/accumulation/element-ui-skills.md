@@ -36,3 +36,14 @@ setTimeout(() => {
 }, 0);
 ```
 
+### 五. el-table 右侧固定布局 fixed=“right“ 错位
+```css
+.table {
+  ::v-deep .el-table__fixed-right {
+    height: 100% !important;
+  }
+  ::v-deep .el-table__fixed {
+    height: 100% !important;
+  }
+}
+```
