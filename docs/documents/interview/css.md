@@ -42,3 +42,37 @@
 3. **Inline-block元素**： 
    - 内联块级元素结合了内联元素和块级元素的特性，可以在同一行内显示，并且可以设置宽度和高度。 
    - 内联块级元素可以容纳其他内联元素和块级元素，类似于块级元素的行为。  
+
+## 3. 回流和重绘区别
+回流：涉及到元素位置、几何属性（width、height、margin、padding）改变时，就会产生回流，开销较大
+重绘：涉及到元素的视觉样式（如颜色、字体大小）的更新时，就会产生重绘，开销较小
+为了提升网页性能，应尽量减少回流和重绘的次数。以下是一些优化建议：
+1.​批量修改样式：
+```js
+// 不推荐
+element.style.left = '10px';
+element.style.top = '20px';
+
+// 推荐
+element.classList.add('new-position');
+```
+
+2.使用 transform 和 opacity 进行动画：
+这些属性不会触发回流，只会引起重绘，性能更优
+```css
+.animated-element {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.animated-element.active {
+  transform: translateX(100px);
+  opacity: 0.5;
+}
+```
+
+3.使用 will-change 属性：
+提前告知浏览器哪些元素将会发生变化，以便浏览器进行优化。
+```css
+.element {
+  will-change: transform, opacity;
+}
+```

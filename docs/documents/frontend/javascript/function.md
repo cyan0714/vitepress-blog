@@ -981,3 +981,17 @@ const obj = { name: '张三' }
 
 bind(foo, obj)()
 ```
+
+## call、apply、bind 关系和区别
+**参数传递方式**：
+call：参数逐个传递。
+apply：参数通过数组传递。
+bind：参数可预置，返回函数后再次调用时传剩余参数。
+
+**执行时机**：
+call 和 apply 会立即执行函数。
+bind 返回一个新函数，需要手动调用。
+
+**适用场景**：
+call/apply：临时改变 this 并立即执行。
+bind：需要长期绑定 this（如事件回调）。
