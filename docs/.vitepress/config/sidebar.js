@@ -179,6 +179,11 @@ function getHandWritten() {
         { text: '手写懒加载', link: '/documents/handwritten/lazy-load' },
         { text: '手写算法', link: '/documents/handwritten/algorithm' },
         { text: '手写Vue响应式原理', link: '/documents/handwritten/vue-reactive' },
+        { text: '手写apply', link: '/documents/handwritten/apply' },
+        { text: '手写call', link: '/documents/handwritten/call' },
+        { text: '手写bind', link: '/documents/handwritten/bind' },
+        { text: '手写promise', link: '/documents/handwritten/promise' },
+        { text: '手写vue-data-methods', link: '/documents/handwritten/vue-data-methods' },
       ],
     },
   ];
