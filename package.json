@@ -25,6 +25,6 @@
     "echarts": "^5.4.3",
     "element-plus": "^2.3.12",
     "sass": "^1.63.4",
-    "vue3-lazyload": "^0.3.8"
+    "@vueuse/core": "^10.0.0"
   }
 }
