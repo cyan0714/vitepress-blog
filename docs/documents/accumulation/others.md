@@ -1,9 +1,55 @@
-# 其他
+# 技术积累 - 其他
 
-## 如何解决移动端唤起键盘时键盘遮住输入框问题?
+## 目录
 
-以 vant 为例
+- [技术积累 - 其他](#技术积累---其他)
+  - [目录](#目录)
+  - [移动端开发](#移动端开发)
+    - [解决移动端唤起键盘时键盘遮住输入框问题](#解决移动端唤起键盘时键盘遮住输入框问题)
+  - [CSS 布局技巧](#css-布局技巧)
+    - [单行文本对齐](#单行文本对齐)
+  - [服务器运维](#服务器运维)
+    - [生成私钥和公钥](#生成私钥和公钥)
+    - [SSH 连接问题解决](#ssh-连接问题解决)
+      - [问题1：中间人攻击警告](#问题1中间人攻击警告)
+      - [问题2：Permission denied 错误](#问题2permission-denied-错误)
+  - [开发工具配置](#开发工具配置)
+    - [VSCode + Vim 使用心得](#vscode--vim-使用心得)
+      - [标注位置功能](#标注位置功能)
+      - [Visual 模式下快速包裹文字](#visual-模式下快速包裹文字)
+  - [Vue.js 开发](#vuejs-开发)
+    - [网络请求相关](#网络请求相关)
+      - [发送 application/x-www-form-urlencoded 请求](#发送-applicationx-www-form-urlencoded-请求)
+      - [Axios 封装](#axios-封装)
+      - [切换 Tab 时取消网络请求](#切换-tab-时取消网络请求)
+    - [组件开发技巧](#组件开发技巧)
+      - [阻止 el-checkbox 冒泡事件](#阻止-el-checkbox-冒泡事件)
+    - [页面交互实现](#页面交互实现)
+      - [页面滚动时 Tab 切换](#页面滚动时-tab-切换)
+    - [构建配置](#构建配置)
+      - [VuePress 解决第三方包全局变量问题](#vuepress-解决第三方包全局变量问题)
+      - [Vue CLI 5.x 项目图片打包配置](#vue-cli-5x-项目图片打包配置)
+  - [JavaScript 基础](#javascript-基础)
+    - [对象操作](#对象操作)
+      - [判断对象自身为空](#判断对象自身为空)
+    - [模块化使用](#模块化使用)
+      - [在 HTML 中使用 CommonJS 或 ES Module](#在-html-中使用-commonjs-或-es-module)
+  - [系统操作](#系统操作)
+    - [Mac 系统](#mac-系统)
+      - [环境变量配置](#环境变量配置)
+      - [查看端口使用情况](#查看端口使用情况)
+    - [Windows 系统](#windows-系统)
+      - [查看端口使用情况](#查看端口使用情况-1)
 
+---
+
+## 移动端开发
+
+### 解决移动端唤起键盘时键盘遮住输入框问题
+
+以 vant 为例的完整解决方案：
+
+**HTML 结构：**
 ```html
 <van-popup
   v-model="isShowPopup"
@@ -29,7 +75,8 @@
 </van-popup>
 ```
 
-```js
+**JavaScript 逻辑：**
+```javascript
 data() {
   return {
     windowInnerHeight: 0,
@@ -68,17 +115,24 @@ methods: {
 }
 ```
 
+**CSS 样式：**
 ```css
 .popup-container {
   margin-bottom: 40vh;
 }
 ```
 
-## 单行文本对齐
-使用 html + css 实现以下效果:
+---
+
+## CSS 布局技巧
+
+### 单行文本对齐
+
+使用 HTML + CSS 实现文本对齐效果：
 
 ![card](./imgs/2.png)
 
+**HTML 结构：**
 ```html
 <div class="card">
   <div class="person">
@@ -91,6 +145,8 @@ methods: {
   </div>
 </div>
 ```
+
+**CSS 样式：**
 ```css
 .card {
   width: 240px;
@@ -104,7 +160,7 @@ methods: {
   .person {
     margin-bottom: 12px;
   }
-  /* 重要 */
+  /* 重要：实现文本对齐的关键样式 */
   .key {
     color: #666;
     width: 4em;
@@ -118,61 +174,85 @@ methods: {
 }
 ```
 
-## 生成 private.key 和 public.key
+---
+
+## 服务器运维
+
+### 生成私钥和公钥
 
 ![key](./imgs/1.png)
 
-## ssh 连接报错
+### SSH 连接问题解决
 
-### ssh远程连接主机报错:Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+#### 问题1：中间人攻击警告
+**错误信息：** Someone could be eavesdropping on you right now (man-in-the-middle attack)!
 
-解决: 重新生成远程主机信息，命令如下:
-
-```shell
+**解决方案：** 重新生成远程主机信息
+```bash
 ssh-keygen -R [远程主机IP]
 ```
 
-### Permission denied (publickey,gssapi-keyex,gssapi-with-mic) 解决方法
+#### 问题2：Permission denied 错误
+**错误信息：** Permission denied (publickey,gssapi-keyex,gssapi-with-mic)
 
-```shell
-1. sudo vim /etc/ssh/sshd_config
+**解决方案：**
+1. 编辑 SSH 配置文件：
+   ```bash
+   sudo vim /etc/ssh/sshd_config
+   ```
 
-2. 增加如下修改
-PasswordAuthentication yes
-PermitRootLogin yes
+2. 添加以下配置：
+   ```bash
+   PasswordAuthentication yes
+   PermitRootLogin yes
+   ```
 
-3. 重启sshd
-sudo systemctl restart sshd 或 service sshd restart
+3. 重启 SSH 服务：
+   ```bash
+   sudo systemctl restart sshd
+   # 或者
+   service sshd restart
+   ```
 
-4. 去对应的云服务器平台重置密码
-```
+4. 在对应的云服务器平台重置密码
 
-## vscode+vim 使用心得
+---
 
-### 标注位置
+## 开发工具配置
 
-vscode 下载 bookmark 插件，然后在 settings.json 中给 vim.normalModeKeyBindingsNonRecursive 添加如下配置：
-```json
-{
-  "before": [
-    "m"
-  ],
-  "commands": [
-    "bookmarks.toggle"
-  ]
-}
-```
+### VSCode + Vim 使用心得
 
-### 如何在visual模式下快速使用引号包裹单词
+#### 标注位置功能
 
-对选中的单词或文字按下 `shift + s`，然后按 `"` 键即可快速包裹单词。
+1. 下载 bookmark 插件
+2. 在 `settings.json` 中配置：
+   ```json
+   {
+     "vim.normalModeKeyBindingsNonRecursive": [
+       {
+         "before": ["m"],
+         "commands": ["bookmarks.toggle"]
+       }
+     ]
+   }
+   ```
 
+#### Visual 模式下快速包裹文字
 
-## 如何发送 content-type 为 application/x-www-form-urlencoded 的网络请求
+在选中文字后：
+1. 按下 `Shift + S`
+2. 按下 `"` 键即可快速用引号包裹选中内容
 
-### 方式 1
+---
 
-```js
+## Vue.js 开发
+
+### 网络请求相关
+
+#### 发送 application/x-www-form-urlencoded 请求
+
+**方式1：使用 FormData**
+```javascript
 export const getTaskReport = data => {
   return request({
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -181,6 +261,8 @@ export const getTaskReport = data => {
     data,
   })
 }
+
+// 使用示例
 const formData = new FormData()
 formData.append('key', 'value')
 getTaskReport(formData).then(res => {
@@ -188,38 +270,34 @@ getTaskReport(formData).then(res => {
 })
 ```
 
-### 方式 2 (推荐)
-
-```js
+**方式2：使用 qs 库（推荐）**
+```javascript
 import qs from 'qs'
+
 export const getTaskReport = data => {
   return request({
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     url: `/app/business/dcs/taskReport`,
     method: 'POST',
     data: qs.stringify(data),
-    // or:
+    // 或者手动拼接：
     // data: Object.entries(data).reduce((prev, curr) => `${prev}${curr[0]}=${curr[1]}&`, '')
   })
 }
+
+// 使用示例
 const params = {}
 getTaskReport(params).then(res => {
   this.matterList = res.resultData
 })
-
-特别地, 如果 params 中的属性仍然是一个对象, 则需要先用 JSON.stringify 进行转换
 ```
 
-## el-checkbox 阻止冒泡事件
+> **注意：** 如果 params 中的属性是对象，需要先用 `JSON.stringify` 转换
 
-```vue
-<el-checkbox v-model="checked" @click.native="(e) => e.stopPropogation()" ></el-checkbox>
-```
+#### Axios 封装
 
-## 封装axios
-
-### request.js
-```js
+**request.js**
+```javascript
 import axios from 'axios';
 
 const service = axios.create({
@@ -248,9 +326,8 @@ service.interceptors.response.use(
 export default service;
 ```
 
-### api.js
-
-```js
+**api.js**
+```javascript
 import request from './request';
 import Qs from 'qs';
 
@@ -266,7 +343,70 @@ export const searchRepeated = function (data) {
 };
 ```
 
-## vue2如何实现页面滚动到某个位置时对应 tab 切换
+#### 切换 Tab 时取消网络请求
+
+**api.js**
+```javascript
+export function pageItemForManagerApi(data = {}, o = {}) {
+  return request({
+    url: '/dataCatalog/pageItemForManager',
+    method: 'post',
+    data,
+    ...o
+  })
+}
+```
+
+**组件实现**
+```javascript
+import axios from 'axios'
+const { CancelToken } = axios
+let source = CancelToken.source()
+
+export default {
+  data() {
+    return {
+      prevMillisecond: 0,
+    }
+  },
+  watch: {
+    // 监听 activeTabName 的变化, 如果1.5秒内连续变化, 则取消上一次请求
+    activeTabName(newVal, oldVal) {
+      if (newVal === oldVal) {
+        return
+      }
+      const nowMillisecond = Date.now()
+      if (nowMillisecond - this.prevMillisecond < 1500 && newVal === 'catalog') {
+        source.cancel('取消上一次请求')
+        source = CancelToken.source()
+      }
+      this.prevMillisecond = nowMillisecond
+    }
+  },
+  methods: {
+    async getData() {
+      const res = await api({ ...this.params }, { cancelToken: source.token })
+    }
+  }
+}
+```
+
+### 组件开发技巧
+
+#### 阻止 el-checkbox 冒泡事件
+
+```vue
+<el-checkbox 
+  v-model="checked" 
+  @click.native="(e) => e.stopPropogation()" 
+></el-checkbox>
+```
+
+### 页面交互实现
+
+#### 页面滚动时 Tab 切换
+
+实现滚动到某个位置时自动切换对应 tab：
 
 ```vue
 <template>
@@ -342,12 +482,16 @@ section {
 </style>
 ```
 
-## vuepress 如何解决导入第三方包时报错: global is not defined
+### 构建配置
 
-在 .vuepress/config.js 文件中添加以下代码:
+#### VuePress 解决第三方包全局变量问题
 
-```js
-modules.exports = {
+**问题：** 导入第三方包时报错 `global is not defined`
+
+**解决方案：** 在 `.vuepress/config.js` 文件中添加：
+
+```javascript
+module.exports = {
   configureWebpack: {
     node: {
       global: true,
@@ -358,132 +502,133 @@ modules.exports = {
 }
 ```
 
-## js 如何判断对象自身为空？
+#### Vue CLI 5.x 项目图片打包配置
 
-```js
+**将图片转换为 base64：**
+
+```javascript
+// vue.config.js
+
+// Vue CLI 5.x 配置
+module.exports = {
+  chainWebpack: config => {
+    config.module
+      .rule('images')
+      .test(/\.(jpg|png|gif|svg)$/)
+      .set('parser', {
+        dataUrlCondition: {
+          maxSize: 20 * 1024 // 20KB
+        }
+      })
+  }
+}
+
+// Vue CLI 4.x 配置
+module.exports = {
+  chainWebpack: config => {
+    config.module
+      .rule('images')
+      .test(/\.(jpg|png|gif)$/)
+      .use('url-loader')
+      .loader('url-loader')
+      .tap(options => Object.assign(options, { limit: 10240 })); // 10KB
+  }
+}
+```
+
+---
+
+## JavaScript 基础
+
+### 对象操作
+
+#### 判断对象自身为空
+
+```javascript
 const obj = {}
-Reflect.ownKeys(obj1).length === 0
+const isEmpty = Reflect.ownKeys(obj).length === 0
 ```
 
-## 如何在不使用 webpack 等打包工具的情况下在 html 文件中使用 commonJS 或 esModule
+### 模块化使用
 
-一. commonJS
-首先，浏览器是不能识别 require 函数的，想让浏览器能识别 require 可以使用 browserify 插件。
-1. `npm install -g browserify`
-2. 执行 `browserify your_file.js -o bundle.js` ，这将生成一个 bundle.js 的文件，然后在 html 文件中使用 script 标签引入这个文件即可
+#### 在 HTML 中使用 CommonJS 或 ES Module
 
-二. esModule
-1. 在 script 标签中加入 type="module"
-2. 这时会报跨域，可以使用 vscode 中的 live server 插件打开这个 html 即可解决，因为 live server 会在你本地起一个服务
+**CommonJS 方式：**
+1. 安装 browserify：
+   ```bash
+   npm install -g browserify
+   ```
 
-## 使用 vue-cli5.x 创建的 vue2 项目如何打包图片
+2. 打包文件：
+   ```bash
+   browserify your_file.js -o bundle.js
+   ```
 
-1. 将图片转换为 base64
-在 vue.config.js 中配置以下代码：
-```js
-// vue-cli5.x用以下配置
-chainWebpack: config => {
-  config.module
-    .rule('images')
-    .test(/\.(jpg|png|gif|svg)$/)
-    .set('parser', {
-      dataUrlCondition: {
-        maxSize: 20 * 1024 // 20KB
-      }
-    })
-}
-// vue-cli4.x用以下配置
-chainWebpack: config => {
-  config.module
-    .rule('images')
-    .test(/\.(jpg|png|gif)$/)
-    .use('url-loader')
-    .loader('url-loader')
-    .tap(options => Object.assign(options, { limit: 10240 })); // 10KB
-}
-```
+3. 在 HTML 中引入生成的 bundle.js
 
-## Mac 环境变量
+**ES Module 方式：**
+1. 在 script 标签中添加 `type="module"`：
+   ```html
+   <script type="module" src="your_file.js"></script>
+   ```
 
-Mac 默认有两个 Shell，分别是 bash 和 zsh。
+2. 使用 VSCode 的 Live Server 插件打开 HTML 文件以解决跨域问题
 
-- bash 使用的配置文件是 ~/.bash_profile，zsh 使用的配置文件是 ~/.zshrc。
-- 环境变量配置在 ~/.bash_profile 或 ~/.zshrc 文件中，格式为 export 变量名=变量值。
-- 环境变量配置完成后，需要执行 source ~/.bash_profile 或 source ~/.zshrc 命令使环境变量生效。
-- 环境变量中的冒号表示多个路径的分隔符
-- $PATH 表示系统默认的路径，可以用 export PATH=$PATH:/usr/local/bin 追加自己的路径到系统默认路径中。
+---
 
-## Windows 如何查看本地有哪些端口正在运行服务
+## 系统操作
 
-这条命令会筛选出所有正在监听的端口:
+### Mac 系统
+
+#### 环境变量配置
+
+**基本概念：**
+- Mac 默认有两个 Shell：bash 和 zsh
+- bash 使用配置文件：`~/.bash_profile`
+- zsh 使用配置文件：`~/.zshrc`
+
+**配置方法：**
+1. 编辑配置文件：
+   ```bash
+   # 配置格式
+   export 变量名=变量值
+   
+   # 追加路径示例
+   export PATH=$PATH:/usr/local/bin
+   ```
+
+2. 使配置生效：
+   ```bash
+   source ~/.bash_profile
+   # 或
+   source ~/.zshrc
+   ```
+
+**注意事项：**
+- 环境变量中的冒号（:）表示多个路径的分隔符
+- `$PATH` 表示系统默认路径
+
+#### 查看端口使用情况
+
 ```bash
-netstat -an | findstr LISTENING
-```
-
-这条命令会查找特定端口是否正在被使用:
-```bash
-netstat -an | findstr :<port_number>
-```
-
-显示出某个端口对应的 pid:
-```bash
-netstat -ano | findstr :8080
-```
-
-停止某个端口的服务(注意要以管理员身份运行)
-```bash
-taskkill /f /pid <pid>
-```
-
-## Mac 如何查看本地有哪些端口正在运行服务 
-
-```zsh
+# 查看所有正在监听的端口
 netstat -antp tcp | grep LISTEN
 ```
 
-## vue 如何实现切换 tab 时取消上一个 tab 的网络请求
+### Windows 系统
 
+#### 查看端口使用情况
 
-### api.js
-```js
-export function pageItemForManagerApi(data = {}, o = {}) {
-  return request({
-    url: '/dataCatalog/pageItemForManager',
-    method: 'post',
-    data,
-    ...o
-  })
-}
-```
+```bash
+# 查看所有正在监听的端口
+netstat -an | findstr LISTENING
 
-### example.vue 
-```js
-import axios from 'axios'
-const { CancelToken } = axios
-let source = CancelToken.source()
+# 查看特定端口是否被使用
+netstat -an | findstr :<port_number>
 
-data() {
-  return {
-    prevMillisecond: 0,
-  }
-}
-watch: {
-  // 监听 activeTabName 的变化, 如果1.5秒内连续变化, 则取消上一次请求
-  activeTabName(newVal, oldVal) {
-    if (newVal === oldVal) {
-      return
-    }
-    const nowMillisecond = Date.now()
-    if (nowMillisecond - this.prevMillisecond < 1500 && newVal === 'catalog') {
-      source.cancel('取消上一次请求')
-      source = CancelToken.source()
-    }
-    this.prevMillisecond = nowMillisecond
-  }
-},
-method: {
-  async getData() {
-    const res = await api({ ...this.params }, { cancelToken: source.token })
-  }
-}
+# 显示端口对应的进程 ID
+netstat -ano | findstr :8080
+
+# 停止指定进程（需要管理员权限）
+taskkill /f /pid <pid>
 ```
