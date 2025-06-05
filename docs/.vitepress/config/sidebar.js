@@ -6,7 +6,7 @@ export default {
   '/documents/database': getDatabase(),
   '/documents/vscode-settings-plugins': getVSCodeSettingsPlugins(),
   '/documents/snippets': getSnippets(),
-  '/documents/handwritten': getHandWritten(),
+  '/documents/handwriting': getHandwriting(),
   '/documents/scripts': getScripts(),
 }
 
@@ -171,19 +171,19 @@ function getSnippets() {
   ];
 }
 
-function getHandWritten() {
+function getHandwriting() {
   return [
     {
       text: '代码片段',
       items: [
-        { text: '手写懒加载', link: '/documents/handwritten/lazy-load' },
-        { text: '手写算法', link: '/documents/handwritten/algorithm' },
-        { text: '手写Vue响应式原理', link: '/documents/handwritten/vue-reactive' },
-        { text: '手写apply', link: '/documents/handwritten/apply' },
-        { text: '手写call', link: '/documents/handwritten/call' },
-        { text: '手写bind', link: '/documents/handwritten/bind' },
-        { text: '手写promise', link: '/documents/handwritten/promise' },
-        { text: '手写vue-data-methods', link: '/documents/handwritten/vue-data-methods' },
+        { text: '手写懒加载', link: '/documents/handwriting/lazy-load' },
+        { text: '手写算法', link: '/documents/handwriting/algorithm' },
+        { text: '手写Vue响应式原理', link: '/documents/handwriting/vue-reactive' },
+        { text: '手写apply', link: '/documents/handwriting/apply' },
+        { text: '手写call', link: '/documents/handwriting/call' },
+        { text: '手写bind', link: '/documents/handwriting/bind' },
+        { text: '手写promise', link: '/documents/handwriting/promise' },
+        { text: '手写vue-data-methods', link: '/documents/handwriting/vue-data-methods' },
       ],
     },
   ];

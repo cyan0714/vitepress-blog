@@ -37,5 +37,5 @@ object：对象
 如 (a: number, b: number) => number
 
 8. 泛型
-如 Array<T>
+<!-- 如 Array<T> -->
 

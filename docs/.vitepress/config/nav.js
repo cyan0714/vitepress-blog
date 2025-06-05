@@ -32,7 +32,7 @@ export const nav = [
       },
       {
         text: '手写',
-        link: '/documents/handwritten/lazy-load',
+        link: '/documents/handwriting/lazy-load',
       },
       {
         text: '快捷键',
