@@ -1,5 +1,7 @@
 # 手写 call
 
+**核心思想：通过将函数作为目标对象的属性来调用，从而改变 this 指向**
+
 ```js
 Function.prototype.myCall = function (thisObj, ...args) {
   const fn = this
@@ -14,21 +16,6 @@ Function.prototype.myCall = function (thisObj, ...args) {
   return result
 
 }
-
-// function foo() {
-//   console.log("foo函数被执行", this)
-// }
-
-// function sum(num1, num2) {
-//   console.log("sum函数被执行", this, num1, num2)
-//   return num1 + num2
-// }
-
-// const myFoo = foo.myCall({ name: 'myFoo' })
-// console.log('myFoo: ', myFoo); // undefined
-
-// const mySum = sum.myCall({ name:'mySum' }, 20, 30)
-// console.log('mySum: ', mySum); // 50
 
 function zero() {
   console.log("zero", this)
