@@ -1,3 +1,4 @@
+```js
 export const vueTsRules = [
   {
     title: "Vue.js TypeScript Best Practices",
@@ -48,3 +49,4 @@ export const vueTsRules = [
     },
   },
 ];
+```

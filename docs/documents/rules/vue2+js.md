@@ -1,3 +1,4 @@
+```js
 export const vue2JsRules = [
   {
     title: "Vue 2 JavaScript Best Practices",
@@ -39,6 +40,7 @@ export const vue2JsRules = [
     - 在构建过程中，使用 Webpack 进行代码分割，生成更小的打包文件。
   
     关键约定
-    - 使用 Lighthouse 或 WebPageTest 等工具优化 Web Vitals（LCP, CLS, FID）。
-  },
-];
+    - 使用 Lighthouse 或 WebPageTest 等工具优化 Web Vitals（LCP, CLS, FID）。`
+  }
+]
+```

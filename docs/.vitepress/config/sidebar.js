@@ -8,6 +8,7 @@ export default {
   '/documents/snippets': getSnippets(),
   '/documents/handwriting': getHandwriting(),
   '/documents/scripts': getScripts(),
+  '/documents/rules': getRules(),
 }
 
 function getFrontend() {
@@ -197,6 +198,19 @@ function getScripts() {
         { text: '自动化', link: '/documents/scripts/automation' },
         { text: '文件操作', link: '/documents/scripts/file-operations' },
         { text: '文本处理', link: '/documents/scripts/text-processing' },
+      ],
+    },
+  ];
+}
+
+function getRules() {
+  return [
+    {
+      text: 'Rules',
+      items: [
+        { text: 'vue2+js', link: '/documents/rules/vue2+js' },
+        { text: 'vue3+ts', link: '/documents/rules/vue3+ts' },
+        { text: '其他', link: '/documents/rules/others' },
       ],
     },
   ];

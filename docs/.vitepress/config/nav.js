@@ -38,6 +38,10 @@ export const nav = [
         text: '快捷键',
         link: '/documents/shortcut/terminal',
       },
+      {
+        text: 'Rules',
+        link: '/documents/rules/vue2+js',
+      }
     ],
   },
 ];
