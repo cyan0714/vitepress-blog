@@ -1,31 +1,60 @@
 ## 简单介绍下 Promise
 
-promise 是用来处理异步操作的。
-它有三种状态 pending、fullfilled、rejected。
-它接受一个函数作为参数，这个函数有两个参数，分别为 resolve 和 reject。
-resolve 用来处理异步操作成功的情况，reject 则用来处理失败的情况。
-执行 resolve，状态就会从 pending 变到 fullfilled，然后走 then 方法。
-执行 reject，状态就变成 rejected，然后走 catch 方法。
-无论执行 resolve 还是 reject ，都会走 finally 方法。可以解决回调地狱问题
+### 基本概念
+- **用途**：用来处理异步操作
+
+### 三种状态
+- `pending`：待定状态（初始状态）
+- `fulfilled`：已完成状态（成功）
+- `rejected`：已拒绝状态（失败）
+
+### 参数和方法
+- **构造函数参数**：接受一个函数作为参数
+  - 该函数有两个参数：`resolve` 和 `reject`
+  - `resolve`：用来处理异步操作成功的情况
+  - `reject`：用来处理异步操作失败的情况
+
+### 状态转换和处理
+- **成功执行**：执行 `resolve` → 状态从 `pending` 变为 `fulfilled` → 走 `then` 方法
+- **失败执行**：执行 `reject` → 状态变为 `rejected` → 走 `catch` 方法  
+- **最终执行**：无论执行 `resolve` 还是 `reject`，都会走 `finally` 方法
+
+### 解决的问题
+- 可以解决回调地狱问题
 
 ## 简单介绍下 async/await 并说下原理
 
-async 用来声明一个异步函数，返回值是一个 promise，无论内部是否有 await；await 用来等待一个 promise 完成，如果 promise 成功，await 返回 resolve 值，如果失败，await 则抛出错误，可以通过 try…catch 捕获
+### 基本概念
+- **async**：用来声明一个异步函数
+  - 返回值是一个 Promise，无论内部是否有 await
+- **await**：用来等待一个 Promise 完成
+  - 如果 Promise 成功，await 返回 resolve 值
+  - 如果 Promise 失败，await 抛出错误，可以通过 `try…catch` 捕获
 
-**原理：本质上是 generator 和 promise 的结合**
+### 工作原理
+- **本质**：generator 和 promise 的结合
 
-- generator 是一个生成器，使用 function\* 来定义，通过 yield 暂停函数执行，并返回一个迭代器对象，再通过迭代器对象的 next 方法恢复执行。
-- yield 类似 await，不同的地方在于 generator 返回的是一个迭代器对象，async 函数返回的是一个 promise；async/await 会自动处理异步操作的结果，generator 则需要手动调用 next 方法
+#### Generator 相关
+- **定义**：generator 是一个生成器，使用 `function*` 来定义
+- **执行机制**：通过 `yield` 暂停函数执行，并返回一个迭代器对象
+- **恢复执行**：通过迭代器对象的 `next` 方法恢复执行
 
-**扩展**
+#### 对比差异
+- **yield vs await**：yield 类似 await，但有以下不同：
+  - generator 返回的是一个迭代器对象
+  - async 函数返回的是一个 Promise
+  - async/await 会自动处理异步操作的结果
+  - generator 则需要手动调用 next 方法
 
-- 对比 promise 优势
+### 相比 Promise 的优势
+1. **代码可读性**：避免链式调用，使异步代码看起来更像是同步的
+2. **错误处理**：使用 `try…catch` 捕获错误，比 `.catch` 更直观
 
-1. 避免链式调用，使异步代码看起来更像是同步的
-2. 使用 try…catch 捕获错误，比.catch 更直观
-
-- 迭代器（iterator）和生成器（generator）的区别
-  迭代器是一个对象，需要手动实现 next 方法；生成器是一个函数，通过 yield 自动实现 next 方法，生成器是迭代器的超集
+### 扩展知识
+**迭代器（iterator）和生成器（generator）的区别**：
+- **迭代器**：是一个对象，需要手动实现 next 方法
+- **生成器**：是一个函数，通过 yield 自动实现 next 方法
+- **关系**：生成器是迭代器的超集
 
 ## 作用域、作用域链、闭包以及实际应用场景
 
