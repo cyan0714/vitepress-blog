@@ -28,7 +28,7 @@ export const nav = [
       },
       {
         text: '脚本',
-        link: '/documents/scripts/shell',
+        link: '/documents/scripts/automation',
       },
       {
         text: '手写',

@@ -194,9 +194,9 @@ function getScripts() {
     {
       text: '脚本',
       items: [
-        { text: 'shell', link: '/documents/scripts/shell' },
-        { text: 'nodejs', link: '/documents/scripts/nodejs' },
-        { text: 'bash', link: '/documents/scripts/bash' },
+        { text: '自动化', link: '/documents/scripts/automation' },
+        { text: '文件操作', link: '/documents/scripts/file-operations' },
+        { text: '文本处理', link: '/documents/scripts/text-processing' },
       ],
     },
   ];

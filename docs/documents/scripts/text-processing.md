@@ -1,15 +1,34 @@
-# Shell 脚本
+# 文本处理脚本
 
-## 使用脚本生成markdown形式的表格
+## Shell - 文本行操作
 
-1. 新建 markdown-table.bash 文件, 将下面的代码复制进去。
-2. 创建 csv 文件, 如 test.csv, 内容如下(用逗号分割列):
-Name,Age,City
-Alice,30,"New York"
-Bob,25,"Los Angeles"
-Charlie,35,"Chicago"
-3. 执行 ./markdown-table.bash --csv < ./test.csv
-   
+### 给文件每一行开头添加文本
+
+```bash
+# 给某个文件的每一行的开头添加"hello"
+sed -i 's/^/hello/' 文件名
+
+# 给每一行开头添加行号
+sed -n '=' filename | sed 'N;s/\n/\t/'
+
+# 给每一行开头添加特定前缀
+sed 's/^/前缀文本: /' 文件名
+```
+
+## Bash - Markdown 表格生成器
+
+使用脚本生成 markdown 形式的表格：
+
+1. 新建 `markdown-table.bash` 文件，将下面的代码复制进去
+2. 创建 CSV 文件，如 `test.csv`，内容如下（用逗号分割列）：
+   ```
+   Name,Age,City
+   Alice,30,"New York"
+   Bob,25,"Los Angeles"
+   Charlie,35,"Chicago"
+   ```
+3. 执行 `./markdown-table.bash --csv < ./test.csv`
+
 ```bash
 #!/usr/bin/env bash
 # Usage: markdown-table -COLUMNS [CELLS]
@@ -195,5 +214,4 @@ main() {
   } | format_table "$fs"
 }
 
-main "$@"
-```
+main "$@" 
