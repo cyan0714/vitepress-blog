@@ -16,6 +16,9 @@ export default defineConfig({
     editLink: {
       pattern: 'https://github.com/cyan0714/vitepress-blog',
     },
+    search: {
+      provider: 'local',
+    }
   },
   lastUpdated: true,
 });
