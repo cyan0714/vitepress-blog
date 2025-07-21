@@ -102,3 +102,8 @@ git checkout main
 **强制推送本地main分支至远程库，并覆盖远程main分支内容**
 
 git push origin main -f
+
+## 如何删除已提交到 github/gitlab 等远程仓库的敏感信息
+pip install git-filter-repo
+git filter-repo --replace-text <(echo "old-password==>new-password")
+git push origin --force --all
