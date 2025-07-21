@@ -2,7 +2,7 @@
 
 ## settings.json
 
-<<< @/documents/vscode-settings-plugins/settings.json
+<<< @/documents/vscode-settings-plugins/settings-windows.jsonc
 
 ## keybindings.json
 

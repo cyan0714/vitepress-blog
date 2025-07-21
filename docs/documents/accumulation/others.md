@@ -29,6 +29,7 @@
     - [构建配置](#构建配置)
       - [VuePress 解决第三方包全局变量问题](#vuepress-解决第三方包全局变量问题)
       - [Vue CLI 5.x 项目图片打包配置](#vue-cli-5x-项目图片打包配置)
+    - [npm run serve 报 Permission Denied](#npm-run-serve-报-permission-denied)
   - [JavaScript 基础](#javascript-基础)
     - [对象操作](#对象操作)
       - [判断对象自身为空](#判断对象自身为空)
@@ -537,6 +538,9 @@ module.exports = {
 ```
 
 ---
+
+### npm run serve 报 Permission Denied
+终端执行：chmod 777 node_modules/.bin/vue-cli-service
 
 ## JavaScript 基础
 

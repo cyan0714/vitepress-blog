@@ -1,4 +1,4 @@
-
+// Windows
 // 将键绑定放在此文件中以覆盖默认值auto[]
 [
   {
@@ -97,5 +97,97 @@
     "key": "ctrl+z",
     "command": "workbench.action.focusActiveEditorGroup",
     "when": "terminalFocus"
+  },
+]
+
+// Mac
+// Place your key bindings in this file to override the defaults
+[
+  // 向下复制
+  {
+    "key": "ctrl+shift+j",
+    "command": "vim.remap",
+    "when": "inputFocus && (vim.mode == 'Normal' || vim.mode == 'Insert')",
+    "args": {
+      "after": ["y", "y", "p", "p"]
+    }
+  },
+  // 向上复制
+  {
+    "key": "ctrl+shift+k",
+    "command": "vim.remap",
+    "when": "inputFocus && (vim.mode == 'Normal' || vim.mode == 'Insert')",
+    "args": {
+      "after": ["y", "y", "P"]
+    }
+  },
+  // 光标定位到侧边栏
+  {
+    "key": "ctrl+;",
+    "command": "workbench.view.explorer",
+    "when": "viewContainer.workbench.view.explorer.enabled"
+  },
+  {
+    "key": "a",
+    "command": "explorer.newFile",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "shift+a",
+    "command": "explorer.newFolder",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "d",
+    "command": "deleteFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "r",
+    "command": "renameFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "alt+j",
+    "command": "editor.action.moveLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "alt+k",
+    "command": "editor.action.moveLinesUpAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  // {
+  //   "key": "tab",
+  //   "command": "selectNextSuggestion",
+  //   "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion"
+  // },
+  {
+    "key": "down",
+    "command": "selectNextSuggestion",
+    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion"
+  },
+  // {
+  //   "key": "shift+tab",
+  //   "command": "selectPrevSuggestion",
+  //   "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion"
+  // },
+  {
+    "key": "up",
+    "command": "selectPrevSuggestion",
+    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion"
+  },
+  {
+    "key": "ctrl+z",
+    "command": "workbench.action.terminal.focus",
+  }, 
+  {
+    "key": "ctrl+z",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "cmd+i",
+    "command": "composerMode.agent"
   },
 ]

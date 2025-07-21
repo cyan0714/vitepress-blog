@@ -1,62 +1,75 @@
 {
-  // Prettier is the default formatter for most languages  
-  // esbenp is the author of Prettier plugin
-  "editor.defaultFormatter": "esbenp.prettier-vscode",  
-
-  // Exceptions:  
-  "[html]": {  
-      "editor.defaultFormatter": "vscode.html-language-features"  
+  // 设置全局默认代码格式化工具为 Prettier
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // 针对特定文件类型的格式化工具设置
+  "[html]": {
+    // HTML 文件使用 VSCode 内置的 HTML 格式化工具，而不是 Prettier
+    "editor.defaultFormatter": "vscode.html-language-features"
   },
-  "[vue]": {  
-      "editor.defaultFormatter": "Vue.volar"  
-  },  
-
-  // Other specific settings  
+  // JSON 文件的特定编辑器设置
   "[json]": {
+    // 启用字符串输入时的自动建议功能
     "editor.quickSuggestions": {
-      "strings": true // 开启自动提示功能，当键入字符串时会自动列出可选项。
+      "strings": true // 在输入 JSON 字符串值时显示智能提示
     },
-    // 在选择建议项时使用替换模式，即选择建议项后会覆盖当前输入的内容。
+    // 选择建议时使用替换模式，新选择的内容会替换当前已输入的内容
     "editor.suggest.insertMode": "replace",
+    // JSON 文件也使用 Prettier 进行格式化
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },  
-  "[python]": {  
-      "editor.formatOnType": true  
-  },  
+  },
+  // Python 文件的特定编辑器设置
+  "[python]": {
+    // 在输入特定字符（如冒号、分号）时自动格式化代码
+    // "editor.formatOnType": true
+  },
+  // Markdown 文件的特定编辑器设置
   "[markdown]": {
+    // Markdown 文件使用 Prettier 进行格式化
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    // 使得在 md 文件中可以使用 snippets
+    // 在 Markdown 文件中启用智能提示功能，便于使用代码片段和自动完成
     "editor.quickSuggestions": {
-      "other": true,
-      "comments": true,
-      "strings": true
+      "other": true, // 启用一般内容的智能提示
+      "comments": true, // 启用注释中的智能提示
+      "strings": true // 启用字符串中的智能提示
     },
+    // 按 Enter 键时接受当前选中的建议项
     "editor.acceptSuggestionOnEnter": "on"
   },
-  // 在键入 JavaScript 代码时，如果 editor.formatOnType 设置为 true，
-  // 则当输入结束符号（如分号或大括号）时，编辑器会自动对整个行或当前作用域
-  // 的代码进行格式化。这有助于保持代码的一致性和可读性，并减少手动格式化的工作量。
-  "editor.formatOnType": true,
-  // 保存时自动运行 eslint 工具来修复所有错误和警告
+  // 在输入时自动格式化代码，当输入特定字符（如分号、大括号等）时自动格式化当前行或作用域
+  // "editor.formatOnType": true,
+  // 文件保存时自动执行的代码操作，这里设置为自动运行 ESLint 修复所有可修复的错误和警告
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
-  "editor.detectIndentation": false, // 禁用自动检测文件使用的缩进风格
-  "editor.fontFamily": "Fira Code, monospace",
-  "editor.fontSize": 16,
+  // 禁用自动检测文件缩进，使用用户设置的缩进配置
+  "editor.detectIndentation": false,
+  // 编辑器字体大小设置为 14px
+  "editor.fontSize": 14,
+  // 编辑器行高设置为 18px
+  "editor.lineHeight": 18,
+  // 鼠标悬停提示的延迟时间，2000ms 后显示悬停信息
   "editor.hover.delay": 2000,
+  // 启用内联代码建议功能（如 GitHub Copilot 等）
   "editor.inlineSuggest.enabled": true,
-  "editor.lineHeight": 28,
+  // 行号显示方式设置为相对行号（当前行显示绝对行号，其他行显示相对距离）
   "editor.lineNumbers": "relative",
+  // 禁用编辑器右侧的小地图（代码缩略图）
   "editor.minimap.enabled": false,
+  // 代码补全建议的默认选择策略，设置为选择第一个建议项
   "editor.suggestSelection": "first",
+  // 设置制表符的宽度为 2 个空格
   "editor.tabSize": 2,
+  // 禁用对 Unicode 模糊字符的高亮显示
   "editor.unicodeHighlight.ambiguousCharacters": false,
-  "editor.wordSeparators": "_`~!@$%^&*()=+[{]}\\|;:'\",.<>/?",
+  // 定义单词分隔符，用于双击选择单词或移动光标时的边界识别
+  "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?",
+  // 启用光标平滑动画效果
   "editor.cursorSmoothCaretAnimation": "on",
+  // 自动关闭括号功能设置为总是启用
   "editor.autoClosingBrackets": "always",
+  // 内联建议工具栏的显示方式，设置为鼠标悬停时显示
   "editor.inlineSuggest.showToolbar": "onHover",
-
+  // 模板字符串转换器支持的语言列表
   "template-string-converter.validLanguages": [
     "javascript",
     "typescript",
@@ -68,55 +81,48 @@
     "yaml",
     "json"
   ],
-
-  "eslint.codeAction.showDocumentation": {
-    "enable": true
+  // Prettier 代码格式化配置
+  "prettier.arrowParens": "avoid", // 箭头函数参数避免使用括号（单个参数时）
+  "prettier.bracketSameLine": true, // 将多行 JSX 元素的 > 放在最后一行的末尾
+  "prettier.tabWidth": 2, // 设置缩进宽度为 2 个空格
+  "prettier.printWidth": 120, // 每行最大字符数为 120
+  "prettier.jsxSingleQuote": true, // JSX 中使用单引号代替双引号
+  "prettier.singleQuote": true, // 使用单引号代替双引号
+  "prettier.semi": false, // 不在语句末尾添加分号
+  "prettier.bracketSpacing": true, // 在对象字面量的括号之间打印空格
+  "prettier.trailingComma": "none", // 不添加尾随逗号
+  "prettier.useTabs": false, // 使用空格而不是制表符进行缩进
+  // 文件资源管理器配置
+  "explorer.confirmDelete": false, // 删除文件时不显示确认对话框
+  "explorer.confirmDragAndDrop": false, // 拖拽文件时不显示确认对话框
+  // VS Code 工作区外观配置
+  "workbench.colorTheme": "One Dark Pro Darker", // 使用 One Dark Pro Darker 主题
+  "workbench.editor.enablePreview": false, // 禁用编辑器预览模式（单击文件直接打开编辑）
+  // "workbench.editor.showTabs": "single",          // 编辑器标签页显示方式（已注释）
+  "workbench.iconTheme": "material-icon-theme", // 使用 Material Icon 图标主题
+  "workbench.startupEditor": "none", // 启动时不显示欢迎页面
+  "workbench.tree.enableStickyScroll": true, // 启用文件树的粘性滚动功能
+  // JavaScript/Node.js 调试配置
+  "debug.javascript.autoAttachFilter": "smart", // 智能自动附加到 Node.js 进程进行调试
+  "debug.allowBreakpointsEverywhere": true, // 允许在任何地方设置断点
+  // 扩展性能优化配置
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1 // 将 Vim 扩展分配到特定的进程以提高性能
   },
-  "eslint.enable": false,
-  "eslint.validate": ["javascript", "javascriptreact", "html", "vue"],
-
-  "prettier.arrowParens": "avoid", //x => x 而不是 (x) => x
-  "prettier.bracketSameLine": true, //多行对象或数组字面量的大括号 { 或 [ 与第一个元素在同一行
-  "prettier.bracketSpacing": true, //在对象、数组括号与它们的内容之间打印空格。例如，{ foo: bar } 而不是 {foo: bar}
-  "prettier.htmlWhitespaceSensitivity": "css",
-  "prettier.jsxSingleQuote": true,
-  "prettier.printWidth": 100, //一行代码的最大字符数。
-  "prettier.semi": true,
-  "prettier.singleQuote": true,
-  "prettier.tabWidth": 2,
-  "prettier.useEditorConfig": false, //不使用.editorconfig文件中的设置
-  "prettier.vueIndentScriptAndStyle": false, //对于Vue文件中的<script>和<style>标签，不额外缩进其内容
-  // "prettier.singleAttributePerLine": true,
-
-  "explorer.confirmDragAndDrop": false,
-  "explorer.confirmDelete": false,
-
-  "workbench.colorTheme": "One Dark Pro Darker",
-  "workbench.editor.enablePreview": false,
-  "workbench.editor.showTabs": "single",
-  "workbench.editor.wrapTabs": true, //启用标签页的换行显示。当打开的标签页太多而无法在一行内完全显示时，此设置允许标签页换行显示，以便你可以看到所有的标签
-  "workbench.iconTheme": "material-icon-theme",
-  "workbench.startupEditor": "none", //设置VSCode启动时是否打开任何编辑器
-  "workbench.tree.enableStickyScroll": true,
-
-  // 默认使用 bash 为终端
-  "terminal.integrated.defaultProfile.windows": "MyBash",
-  "terminal.integrated.profiles.windows": {
-    "MyBash": {
-      "path": "E:\\Git\\Git\\bin\\bash.exe"
-    }
-  },
-
-  "debug.javascript.autoAttachFilter": "smart",
-  "debug.allowBreakpointsEverywhere": true,
-
-  "vim.hlsearch": true,
-  "vim.easymotion": true,
-  "vim.sneak": true,
-  "vim.leader": "<space>",
-  "vim.useSystemClipboard": true,
-  // normal mode
+  // Vim 扩展基础配置
+  "vim.hlsearch": true, // 启用搜索高亮显示
+  "vim.easymotion": true, // 启用 EasyMotion 快速跳转功能
+  "vim.sneak": true, // 启用 Sneak 双字符搜索功能
+  "vim.leader": "<space>", // 设置 Leader 键为空格键
+  "vim.useSystemClipboard": true, // 使用系统剪贴板
+  "vim.useCtrlKeys": true, // 启用 Ctrl 键组合功能
+  "vim.changeWordIncludesWhitespace": true, // 修改单词时包含空白字符
+  // Vim 普通模式键位绑定配置
   "vim.normalModeKeyBindings": [
+    {
+      "before": ["<C-n>"],
+      "commands": [":nohl"]
+    },
     {
       "before": ["H"],
       "after": ["^"]
@@ -207,28 +213,28 @@
       "after": ["/", "l", "a", "n", "g", "<Enter>", "z", "z"]
     }
   ],
+  // Vim 普通模式非递归键位绑定配置
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["<C-j>"],
-      "after": ["4", "j", "z", "z"]
+      "after": ["4", "j"]
     },
     {
       "before": ["<C-a>"],
-      "after": ["9", "j", "z", "z"]
+      "after": ["9", "j"]
     },
     {
       "before": ["<C-k>"],
-      "after": ["4", "k", "z", "z"]
+      "after": ["4", "k"]
     },
     {
       "before": ["<C-x>"],
-      "after": ["9", "k", "z", "z"]
+      "after": ["9", "k"]
     },
-    {
-      "before": ["<C-d>"],
-      "commands": ["editor.action.peekDefinition"]
-    },
-    
+    // {
+    //   "before": ["<C-d>"],
+    //   "commands": ["editor.action.peekDefinition"]
+    // },
     // 跳到 data 位置并自动补上复制的值（快速生成对应的 data)
     {
       "before": ["q"],
@@ -351,24 +357,20 @@
       "after": ["*"]
     },
     {
-      "before": [
-        "m"
-      ],
-      "commands": [
-        "bookmarks.toggle"
-      ]
+      "before": ["<leader>", "b"],
+      "commands": ["bookmarks.list"]
+    },
+    {
+      "before": ["m"],
+      "commands": ["bookmarks.toggle"]
     },
     {
       "before": [","],
-      "commands": [
-        "bookmarks.jumpToNext"
-      ]
+      "commands": ["bookmarks.jumpToNext"]
     },
     {
       "before": ["'"],
-      "commands": [
-        "bookmarks.jumpToPrevious"
-      ]
+      "commands": ["bookmarks.jumpToPrevious"]
     },
     {
       "before": ["s", "f"],
@@ -452,7 +454,7 @@
     // 将标签里的内容删除, 并将复制的内容粘贴到标签里
     {
       "before": ["p", "i", "t"],
-      "after": [ "d", "i", "t", "i", "<CR>", "<Esc>", "\"", "0", "p"]
+      "after": ["d", "i", "t", "i", "<CR>", "<Esc>", "\"", "0", "p"]
     },
     // 往下一行粘贴复制的内容
     {
@@ -465,7 +467,7 @@
       "after": ["O", "<C-v>"]
     }
   ],
-  // insert mode
+  // Vim 插入模式键位绑定配置
   "vim.insertModeKeyBindings": [
     {
       "before": ["<C-q>"],
@@ -512,7 +514,7 @@
       "after": ["<Esc>", "I"]
     }
   ],
-  // visual mode
+  // Vim 可视模式键位绑定配置
   "vim.visualModeKeyBindings": [
     {
       "before": ["H"],
@@ -527,6 +529,7 @@
       "after": ["i", "w"]
     }
   ],
+  // Vim 可视模式非递归键位绑定配置
   "vim.visualModeKeyBindingsNonRecursive": [
     // 粘贴上一次复制的值
     // {
@@ -541,8 +544,9 @@
     {
       "before": ["<C-f>"],
       "commands": ["editor.action.startFindReplaceAction"]
-    },
+    }
   ],
+  // Vim 操作等待模式键位绑定配置
   "vim.operatorPendingModeKeyBindings": [
     {
       "before": ["H"],
@@ -553,6 +557,7 @@
       "after": ["g", "_"]
     }
   ],
+  // Vim 操作等待模式非递归键位绑定配置
   "vim.operatorPendingModeKeyBindingsNonRecursive": [
     {
       "before": ["w"],
@@ -567,33 +572,39 @@
       "after": ["i", "B"]
     }
   ],
+  // Vim 按键处理配置（禁用某些快捷键让 VSCode 原生功能生效）
   "vim.handleKeys": {
-    // "<C-c>": false,
-    "<C-v>": false,
-    // "<C-x>": false,
-    // "<C-z>": false,
-    // "<C-a>": false,
-    // "<C-f>": false,
-    "<C-y>": false,
-    "<C-u>": false,
-    "<C-p>": false
+    // "<C-c>": false,               // 禁用 Ctrl+C（使用 VSCode 原生复制功能）
+    "<C-v>": false, // 禁用 Ctrl+V（使用 VSCode 原生粘贴功能）
+    // "<C-x>": false,               // 禁用 Ctrl+X（使用 VSCode 原生剪切功能）
+    // "<C-z>": false,               // 禁用 Ctrl+Z（使用 VSCode 原生撤销功能）
+    // "<C-a>": false,               // 禁用 Ctrl+A（使用 VSCode 原生全选功能）
+    // "<C-f>": false,               // 禁用 Ctrl+F（使用 VSCode 原生查找功能）
+    "<C-y>": false, // 禁用 Ctrl+Y（使用 VSCode 原生重做功能）
+    "<C-u>": false, // 禁用 Ctrl+U（使用 VSCode 原生功能）
+    "<C-p>": false // 禁用 Ctrl+P（使用 VSCode 原生快速打开功能）
   },
-  
-  // windows 才使用的设置, mac 使用鼠须管
-  "vim.autoSwitchInputMethod.enable": true,
-  "vim.autoSwitchInputMethod.obtainIMCmd": "C:\\im-select.exe",
-  "vim.autoSwitchInputMethod.switchIMCmd": "C:\\im-select.exe {im}",
-  "vim.autoSwitchInputMethod.defaultIM": "\"1033\"",
-
+  // 搜索功能配置
   "search.exclude": {
-    "**/node_modules": false,
-    "**/bower_components": true
+    "**/node_modules": false, // 搜索时不排除 node_modules 目录
+    "**/bower_components": true // 搜索时排除 bower_components 目录
   },
-  "htmltagwrap.tag": "div",
-  "files.insertFinalNewline": true,
+  // HTML 标签包装配置
+  "htmltagwrap.tag": "div", // 使用 div 标签包装选中的 HTML 内容
+  // 工作区安全配置
+  "security.workspace.trust.untrustedFiles": "open", // 直接打开不受信任的文件
+  // 文件处理配置
+  "files.insertFinalNewline": true, // 保存文件时在末尾插入换行符
   "files.exclude": {
-    "**/.git": false
+    "**/.git": false // 在文件资源管理器中显示 .git 目录
   },
-  "fittencode.languagePreference.displayPreference": "en",
-  "fittencode.languagePreference.commentPreference": "en"
+  // TypeScript 编辑器配置
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true, // 显示函数返回类型的内联提示
+  // 源代码管理（Git）界面配置
+  "scm.showIncomingChanges": "never", // 不显示传入的变更
+  "scm.showOutgoingChanges": "never", // 不显示传出的变更
+  "scm.showChangesSummary": false, // 不显示变更摘要
+  "scm.showHistoryGraph": false, // 不显示历史图表
+  // 文件大纲视图配置
+  "outline.collapseItems": "alwaysCollapse" // 文件大纲中的项目总是折叠显示
 }

@@ -1,0 +1,591 @@
+{
+  // Prettier is the default formatter for most languages
+  // esbenp is the author of Prettier plugin
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  // Exceptions:
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "Vue.volar"
+  },
+
+  // Other specific settings
+  "[json]": {
+    "editor.quickSuggestions": {
+      "strings": true // 开启自动提示功能，当键入字符串时会自动列出可选项。
+    },
+    // 在选择建议项时使用替换模式，即选择建议项后会覆盖当前输入的内容。
+    "editor.suggest.insertMode": "replace",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    // 使得在 md 文件中可以使用 snippets
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": true,
+      "strings": true
+    },
+    "editor.acceptSuggestionOnEnter": "on"
+  },
+  // 在键入 JavaScript 代码时，如果 editor.formatOnType 设置为 true，
+  // 则当输入结束符号（如分号或大括号）时，编辑器会自动对整个行或当前作用域
+  // 的代码进行格式化。这有助于保持代码的一致性和可读性，并减少手动格式化的工作量。
+  "editor.formatOnType": true,
+  // 保存时自动运行 eslint 工具来修复所有错误和警告
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.detectIndentation": false, // 禁用自动检测文件使用的缩进风格
+  "editor.fontFamily": "Fira Code, monospace",
+  "editor.fontSize": 16,
+  "editor.hover.delay": 2000,
+  "editor.inlineSuggest.enabled": true,
+  "editor.lineHeight": 28,
+  "editor.lineNumbers": "relative",
+  "editor.minimap.enabled": false,
+  "editor.suggestSelection": "first",
+  "editor.tabSize": 2,
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "editor.wordSeparators": "_`~!@$%^&*()=+[{]}\\|;:'\",.<>/?",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.autoClosingBrackets": "always",
+  "editor.inlineSuggest.showToolbar": "onHover",
+
+  "template-string-converter.validLanguages": [
+    "javascript",
+    "typescript",
+    "jsx",
+    "tsx",
+    "html",
+    "vue",
+    "svelte",
+    "yaml",
+    "json"
+  ],
+
+  "eslint.codeAction.showDocumentation": {
+    "enable": true
+  },
+  "eslint.enable": false,
+  "eslint.validate": ["javascript", "javascriptreact", "html", "vue"],
+
+  "prettier.arrowParens": "avoid", //x => x 而不是 (x) => x
+  "prettier.bracketSameLine": true, //多行对象或数组字面量的大括号 { 或 [ 与第一个元素在同一行
+  "prettier.bracketSpacing": true, //在对象、数组括号与它们的内容之间打印空格。例如，{ foo: bar } 而不是 {foo: bar}
+  "prettier.htmlWhitespaceSensitivity": "css",
+  "prettier.jsxSingleQuote": true,
+  "prettier.printWidth": 100, //一行代码的最大字符数。
+  "prettier.semi": true,
+  "prettier.singleQuote": true,
+  "prettier.tabWidth": 2,
+  "prettier.useEditorConfig": false, //不使用.editorconfig文件中的设置
+  "prettier.vueIndentScriptAndStyle": false, //对于Vue文件中的<script>和<style>标签，不额外缩进其内容
+  // "prettier.singleAttributePerLine": true,
+
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+
+  "workbench.colorTheme": "One Dark Pro Darker",
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.showTabs": "single",
+  "workbench.editor.wrapTabs": true, //启用标签页的换行显示。当打开的标签页太多而无法在一行内完全显示时，此设置允许标签页换行显示，以便你可以看到所有的标签
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.startupEditor": "none", //设置VSCode启动时是否打开任何编辑器
+  "workbench.tree.enableStickyScroll": true,
+
+  // 默认使用 bash 为终端
+  "terminal.integrated.defaultProfile.windows": "MyBash",
+  "terminal.integrated.profiles.windows": {
+    "MyBash": {
+      "path": "E:\\Git\\Git\\bin\\bash.exe"
+    }
+  },
+
+  "debug.javascript.autoAttachFilter": "smart",
+  "debug.allowBreakpointsEverywhere": true,
+
+  "vim.hlsearch": true,
+  "vim.easymotion": true,
+  "vim.sneak": true,
+  "vim.leader": "<space>",
+  "vim.useSystemClipboard": true,
+  // normal mode
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["H"],
+      "after": ["^"]
+    },
+    {
+      "before": ["L"],
+      "after": ["g", "_"]
+    },
+    {
+      "before": ["K"],
+      "after": ["h", "$", "V", "%"]
+    },
+    // 删除两个空格之间的字符串
+    {
+      "before": ["<leader>", "s"],
+      "after": ["B", "d", "E", "a"]
+    },
+    {
+      "before": ["<leader>", "t", "f"],
+      "commands": [":tabfirst"]
+    },
+    {
+      "before": ["<leader>", "t", "l"],
+      "commands": [":tablast"]
+    },
+    {
+      "before": ["<leader>", "t", "n"],
+      "commands": [":tabnext"]
+    },
+    {
+      "before": ["<leader>", "t", "p"],
+      "commands": [":tabprev"]
+    },
+    {
+      "before": ["<leader>", "1"],
+      "commands": ["workbench.action.focusFirstEditorGroup"]
+    },
+    {
+      "before": ["<leader>", "2"],
+      "commands": ["workbench.action.focusSecondEditorGroup"]
+    },
+    {
+      "before": ["<leader>", "f"],
+      "commands": ["workbench.action.closeOtherEditors"]
+    },
+    {
+      "before": ["<leader>", "i"],
+      "after": ["/", "i", "m", "p", "o", "r", "t", " ", "<Enter>", "z", "z"]
+    },
+    {
+      "before": ["<leader>", "a"],
+      "after": ["/", "n", "a", "m", "e", ":", "<Enter>", "z", "z"]
+    },
+    {
+      "before": ["<leader>", "d"],
+      "after": ["/", "d", "a", "t", "a", "\\", "(", "\\", ")", "<leader>", "{", "<Enter>", "z", "z"]
+    },
+    {
+      "before": ["<leader>", "c"],
+      "after": ["/", "c", "o", "m", "p", "o", "n", "e", "n", "t", "s", ":", "<Enter>", "z", "z"]
+    },
+    {
+      "before": ["<leader>", "p"],
+      "after": ["/", "p", "r", "o", "p", "s", ":", "<Enter>", "z", "z"]
+    },
+    {
+      "before": ["<leader>", "o"],
+      "after": ["/", "c", "o", "m", "p", "u", "t", "e", "d", ":", "<Enter>", "z", "z"]
+    },
+    {
+      "before": ["<leader>", "w"],
+      "after": ["/", "w", "a", "t", "c", "h", ":", "<Enter>", "z", "z"]
+    },
+    {
+      "before": ["<leader>", "r"],
+      "after": ["/", "c", "r", "e", "a", "t", "e", "d", "<Enter>", "z", "z"]
+    },
+    {
+      "before": ["<leader>", "m"],
+      "after": ["/", "m", "o", "u", "n", "t", "e", "d", "<Enter>", "z", "z"]
+    },
+    {
+      "before": ["<leader>", "e"],
+      "after": ["/", "m", "e", "t", "h", "o", "d", "s", "<Enter>", "z", "z"]
+    },
+    {
+      "before": ["<leader>", "l"],
+      "after": ["/", "l", "a", "n", "g", "<Enter>", "z", "z"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<C-j>"],
+      "after": ["4", "j", "z", "z"]
+    },
+    {
+      "before": ["<C-a>"],
+      "after": ["9", "j", "z", "z"]
+    },
+    {
+      "before": ["<C-k>"],
+      "after": ["4", "k", "z", "z"]
+    },
+    {
+      "before": ["<C-x>"],
+      "after": ["9", "k", "z", "z"]
+    },
+    {
+      "before": ["<C-d>"],
+      "commands": ["editor.action.peekDefinition"]
+    },
+
+    // 跳到 data 位置并自动补上复制的值（快速生成对应的 data)
+    {
+      "before": ["q"],
+      "after": [
+        "y",
+        "i",
+        "w",
+        "/",
+        "d",
+        "a",
+        "t",
+        "a",
+        "\\",
+        "(",
+        "\\",
+        ")",
+        "<Enter>",
+        "z",
+        "z",
+        "j",
+        "o",
+        "<C-v>",
+        ":",
+        "<leader>",
+        ",",
+        "<Esc>",
+        "i"
+      ]
+    },
+    // 快速生成对应的 methods
+    {
+      "before": [";"],
+      "after": [
+        "y",
+        "i",
+        "w",
+        "/",
+        "m",
+        "e",
+        "t",
+        "h",
+        "o",
+        "d",
+        "s",
+        "(",
+        ")",
+        "<Enter>",
+        "z",
+        "z",
+        "o",
+        "<C-v>",
+        "(",
+        ")",
+        "<leader>",
+        "{",
+        "}",
+        ",",
+        "<Esc>",
+        "h",
+        "i",
+        "<Enter>"
+      ]
+    },
+    // 从 template 里的 class 跳到 style 标签里的 class(右边是双引号时)
+    {
+      "before": ["<leader>", "j"],
+      "after": ["F", "\"", "l", "v", "t", "\"", "y", "/", "<C-r>", "\"", "<leader>", "<Enter>"]
+    },
+    // 从 template 里的 class 跳到 style 标签里的 class(右边是空格时)
+    {
+      "before": ["<leader>", "n"],
+      "after": [
+        "F",
+        "\"",
+        "l",
+        "v",
+        "t",
+        "<leader>",
+        "y",
+        "/",
+        "<C-r>",
+        "\"",
+        "<leader>",
+        "<Enter>"
+      ]
+    },
+    // 从 style 标签里的 class 跳到 template 里的 class
+    {
+      "before": ["<leader>", "k"],
+      "after": [
+        "F",
+        ".",
+        "l",
+        "v",
+        "t",
+        "<leader>",
+        "y",
+        "/",
+        "class=\"(.*",
+        "<C-r>",
+        "\"",
+        ".*)",
+        "<Enter>"
+      ]
+    },
+    {
+      "before": ["w"],
+      "after": ["w", "w"]
+    },
+    {
+      "before": ["b"],
+      "after": ["b", "b"]
+    },
+    {
+      "before": ["u"],
+      "after": ["<C-u>", "z", "z"]
+    },
+    {
+      "before": ["n"],
+      "after": ["*"]
+    },
+    {
+      "before": ["m"],
+      "commands": ["bookmarks.toggle"]
+    },
+    {
+      "before": [","],
+      "commands": ["bookmarks.jumpToNext"]
+    },
+    {
+      "before": ["'"],
+      "commands": ["bookmarks.jumpToPrevious"]
+    },
+    {
+      "before": ["s", "f"],
+      "after": ["<Esc>", "<leader>", "<leader>", "s"]
+    },
+    // 快速复制颜色值
+    {
+      "before": ["y", "c"],
+      "after": ["F", "#", "v", "6", "l", "y"]
+    },
+    // 复制光标所在单词到寄存器a, 同时删除这一行
+    {
+      "before": ["y", "r"],
+      "after": ["\"", "a", "y", "i", "w", "d", "d"]
+    },
+    // 从当前光标所在字符复制到当前行最后一个字符
+    {
+      "before": ["y", "e"],
+      "after": ["v", "g", "_", "y"]
+    },
+    // 复制两个空格之间的字符串
+    {
+      "before": ["y", "<leader>"],
+      "after": ["B", "y", "E"]
+    },
+    // 复制反引号里的内容
+    {
+      "before": ["y", "`"],
+      "after": ["F", "`", "l", "y", "t", "`"]
+    },
+    // 复制单引号里的内容
+    {
+      "before": ["y", "'"],
+      "after": ["F", "'", "l", "y", "t", "'"]
+    },
+    // 复制双引号里的内容
+    {
+      "before": ["y", "\""],
+      "after": ["F", "\"", "l", "y", "t", "\""]
+    },
+    // 粘贴上一次复制的值
+    {
+      "before": ["p", "c"],
+      "after": ["p"]
+    },
+    // 粘贴a寄存器的值
+    {
+      "before": ["p", "p"],
+      "after": ["v", "i", "w", "\"", "a", "p"]
+    },
+    // 将单引号里的内容删除, 并将复制的内容粘贴到单引号里
+    {
+      "before": ["p", "'"],
+      "after": ["F", "'", "l", "h", "p", "l", "d", "t", "'"]
+    },
+    // 从当前位置将复制的内容粘贴到右边单引号里
+    {
+      "before": ["p", "t", "'"],
+      "after": ["p", "l", "d", "t", "'"]
+    },
+    // 将双引号里的内容删除, 并将复制的内容粘贴到单引号里
+    {
+      "before": ["p", "\""],
+      "after": ["F", "\"", "l", "h", "p", "l", "d", "t", "\""]
+    },
+    // 从当前位置将复制的内容粘贴到右边双引号里
+    {
+      "before": ["p", "t", "\""],
+      "after": ["p", "l", "d", "t", "\""]
+    },
+    // 将反引号里的内容删除, 并将复制的内容粘贴到反引号里
+    {
+      "before": ["p", "`"],
+      "after": ["F", "`", "l", "h", "p", "l", "d", "t", "`"]
+    },
+    // 从当前位置将复制的内容粘贴到右边反引号里
+    {
+      "before": ["p", "t", "`"],
+      "after": ["p", "l", "d", "t", "`"]
+    },
+    // 将标签里的内容删除, 并将复制的内容粘贴到标签里
+    {
+      "before": ["p", "i", "t"],
+      "after": ["d", "i", "t", "i", "<CR>", "<Esc>", "\"", "0", "p"]
+    },
+    // 往下一行粘贴复制的内容
+    {
+      "before": ["p", "o"],
+      "after": ["o", "<C-v>"]
+    },
+    // 往上一行粘贴复制的内容
+    {
+      "before": ["p", "O"],
+      "after": ["O", "<C-v>"]
+    }
+  ],
+  // insert mode
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["<C-q>"],
+      "after": ["<Enter>"]
+    },
+    {
+      "before": ["<C-i>"],
+      "after": ["<Esc>"]
+    },
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    },
+    {
+      "before": ["j", "k"],
+      "after": ["<Esc>", "l", "a", ","]
+    },
+    {
+      "before": ["j", "n"],
+      "after": ["<Esc>", "o"]
+    },
+    {
+      "before": ["j", ";"],
+      "after": ["<Esc>", "A", ";", "<Esc>", "o"]
+    },
+    {
+      "before": ["j", ","],
+      "after": ["<Esc>", "A", ",", "<Esc>", "o"]
+    },
+    {
+      "before": ["j", "l"],
+      "after": ["right"]
+    },
+    {
+      "before": ["<C-j>"],
+      "after": ["<Esc>", "d", "d"]
+    },
+    {
+      "before": ["<C-l>"],
+      "after": ["<Esc>", "A"]
+    },
+    {
+      "before": ["<C-h>"],
+      "after": ["<Esc>", "I"]
+    }
+  ],
+  // visual mode
+  "vim.visualModeKeyBindings": [
+    {
+      "before": ["H"],
+      "after": ["^"]
+    },
+    {
+      "before": ["L"],
+      "after": ["g", "_"]
+    },
+    {
+      "before": ["w"],
+      "after": ["i", "w"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    // 粘贴上一次复制的值
+    // {
+    //   "before": ["p"],
+    //   "after": ["\"", "0", "p"]
+    // },
+    // 复制后将光标定位到最后一个字符
+    {
+      "before": ["y"],
+      "after": ["y", "g", "_", "%"]
+    },
+    {
+      "before": ["<C-f>"],
+      "commands": ["editor.action.startFindReplaceAction"]
+    }
+  ],
+  "vim.operatorPendingModeKeyBindings": [
+    {
+      "before": ["H"],
+      "after": ["^"]
+    },
+    {
+      "before": ["L"],
+      "after": ["g", "_"]
+    }
+  ],
+  "vim.operatorPendingModeKeyBindingsNonRecursive": [
+    {
+      "before": ["w"],
+      "after": ["i", "w"]
+    },
+    {
+      "before": ["b"],
+      "after": ["i", "b"]
+    },
+    {
+      "before": ["B"],
+      "after": ["i", "B"]
+    }
+  ],
+  "vim.handleKeys": {
+    // "<C-c>": false,
+    "<C-v>": false,
+    // "<C-x>": false,
+    // "<C-z>": false,
+    // "<C-a>": false,
+    // "<C-f>": false,
+    "<C-y>": false,
+    "<C-u>": false,
+    "<C-p>": false
+  },
+
+  // windows 才使用的设置, mac 使用鼠须管
+  "vim.autoSwitchInputMethod.enable": true,
+  "vim.autoSwitchInputMethod.obtainIMCmd": "C:\\im-select.exe",
+  "vim.autoSwitchInputMethod.switchIMCmd": "C:\\im-select.exe {im}",
+  "vim.autoSwitchInputMethod.defaultIM": "\"1033\"",
+
+  "search.exclude": {
+    "**/node_modules": false,
+    "**/bower_components": true
+  },
+  "htmltagwrap.tag": "div",
+  "files.insertFinalNewline": true,
+  "files.exclude": {
+    "**/.git": false
+  },
+  "fittencode.languagePreference.displayPreference": "en",
+  "fittencode.languagePreference.commentPreference": "en"
+}
