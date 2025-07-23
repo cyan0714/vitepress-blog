@@ -126,6 +126,7 @@ function getAccumulation() {
         { text: '搭建自己的 ChatGPT', link: '/documents/accumulation/build-own-chatgpt' },
         { text: '代码风格', link: '/documents/accumulation/code-style' },
         { text: '服务器部署', link: '/documents/accumulation/deploy' },
+        { text: 'Docker', link: '/documents/accumulation/docker' },
         { text: '开发技巧', link: '/documents/accumulation/development-skills' },
         { text: '自定义 elementui 样式', link: '/documents/accumulation/diy-elementui-style' },
         { text: 'elementui 常见问题及技巧', link: '/documents/accumulation/element-ui-skills' },
