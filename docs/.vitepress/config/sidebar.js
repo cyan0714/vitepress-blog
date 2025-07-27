@@ -140,6 +140,7 @@ function getAccumulation() {
         { text: '新境界ui', link: '/documents/accumulation/xjj-ui' },
         { text: '甘特图', link: '/documents/accumulation/gantt' },
         { text: 'vant自定义组件', link: '/documents/accumulation/vant' },
+        { text: '加密', link: '/documents/accumulation/encrypt' },
         { text: '其他', link: '/documents/accumulation/others' },
       ],
     },
